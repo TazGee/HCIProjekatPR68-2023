@@ -1,14 +1,26 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "D:\\Projekti\\HCIProjekatPR68-2023\\VulkaniAfrike\\",
+  "WorkspaceRootPath": "D:\\Projekti\\HCIProjekatPR68-2023\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{171C9066-C717-4A91-85CF-048520F07576}|Presentation\\Presentation.csproj|d:\\projekti\\hciprojekatpr68-2023\\vulkaniafrike\\presentation\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{171C9066-C717-4A91-85CF-048520F07576}|Presentation\\Presentation.csproj|solutionrelative:presentation\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+      "AbsoluteMoniker": "D:0:0:{1EFB11A8-62F2-47A1-B6F6-07A93AA85592}|Database\\Database.csproj|d:\\projekti\\hciprojekatpr68-2023\\database\\database\\jsondatabase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1EFB11A8-62F2-47A1-B6F6-07A93AA85592}|Database\\Database.csproj|solutionrelative:database\\database\\jsondatabase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{171C9066-C717-4A91-85CF-048520F07576}|Presentation\\Presentation.csproj|d:\\projekti\\hciprojekatpr68-2023\\vulkaniafrike\\presentation\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{171C9066-C717-4A91-85CF-048520F07576}|Presentation\\Presentation.csproj|solutionrelative:presentation\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{F5CE7635-F964-47DC-A6E2-DB69EE3A5138}|Domain\\Domain.csproj|d:\\projekti\\hciprojekatpr68-2023\\domain\\database\\databasetable.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F5CE7635-F964-47DC-A6E2-DB69EE3A5138}|Domain\\Domain.csproj|solutionrelative:domain\\database\\databasetable.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F5CE7635-F964-47DC-A6E2-DB69EE3A5138}|Domain\\Domain.csproj|d:\\projekti\\hciprojekatpr68-2023\\domain\\database\\idatabase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F5CE7635-F964-47DC-A6E2-DB69EE3A5138}|Domain\\Domain.csproj|solutionrelative:domain\\database\\idatabase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{435E13CE-07E5-402E-8C8E-D76E30D238CD}|Presentation\\Presentation.csproj|d:\\projekti\\hciprojekatpr68-2023\\presentation\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{435E13CE-07E5-402E-8C8E-D76E30D238CD}|Presentation\\Presentation.csproj|solutionrelative:presentation\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{435E13CE-07E5-402E-8C8E-D76E30D238CD}|Presentation\\Presentation.csproj|d:\\projekti\\hciprojekatpr68-2023\\presentation\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{435E13CE-07E5-402E-8C8E-D76E30D238CD}|Presentation\\Presentation.csproj|solutionrelative:presentation\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -27,26 +39,65 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "MainWindow.xaml",
-              "DocumentMoniker": "D:\\Projekti\\HCIProjekatPR68-2023\\VulkaniAfrike\\Presentation\\MainWindow.xaml",
-              "RelativeDocumentMoniker": "Presentation\\MainWindow.xaml",
-              "ToolTip": "D:\\Projekti\\HCIProjekatPR68-2023\\VulkaniAfrike\\Presentation\\MainWindow.xaml",
-              "RelativeToolTip": "Presentation\\MainWindow.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2026-04-08T21:22:41.612Z",
+              "Title": "JSONDataBase.cs",
+              "DocumentMoniker": "D:\\Projekti\\HCIProjekatPR68-2023\\Database\\DataBase\\JSONDataBase.cs",
+              "RelativeDocumentMoniker": "Database\\DataBase\\JSONDataBase.cs",
+              "ToolTip": "D:\\Projekti\\HCIProjekatPR68-2023\\Database\\DataBase\\JSONDataBase.cs",
+              "RelativeToolTip": "Database\\DataBase\\JSONDataBase.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAApAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-08T22:33:23.614Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
+              "Title": "DataBaseTable.cs",
+              "DocumentMoniker": "D:\\Projekti\\HCIProjekatPR68-2023\\Domain\\Database\\DataBaseTable.cs",
+              "RelativeDocumentMoniker": "Domain\\Database\\DataBaseTable.cs",
+              "ToolTip": "D:\\Projekti\\HCIProjekatPR68-2023\\Domain\\Database\\DataBaseTable.cs",
+              "RelativeToolTip": "Domain\\Database\\DataBaseTable.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-08T22:31:12.89Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "IDataBase.cs",
+              "DocumentMoniker": "D:\\Projekti\\HCIProjekatPR68-2023\\Domain\\Database\\IDataBase.cs",
+              "RelativeDocumentMoniker": "Domain\\Database\\IDataBase.cs",
+              "ToolTip": "D:\\Projekti\\HCIProjekatPR68-2023\\Domain\\Database\\IDataBase.cs",
+              "RelativeToolTip": "Domain\\Database\\IDataBase.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAxAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-08T22:30:27.558Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "MainWindow.xaml",
+              "DocumentMoniker": "D:\\Projekti\\HCIProjekatPR68-2023\\Presentation\\MainWindow.xaml",
+              "RelativeDocumentMoniker": "Presentation\\MainWindow.xaml",
+              "ToolTip": "D:\\Projekti\\HCIProjekatPR68-2023\\Presentation\\MainWindow.xaml",
+              "RelativeToolTip": "Presentation\\MainWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-04-08T22:27:16.717Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "MainWindow.xaml.cs",
-              "DocumentMoniker": "D:\\Projekti\\HCIProjekatPR68-2023\\VulkaniAfrike\\Presentation\\MainWindow.xaml.cs",
+              "DocumentMoniker": "D:\\Projekti\\HCIProjekatPR68-2023\\Presentation\\MainWindow.xaml.cs",
               "RelativeDocumentMoniker": "Presentation\\MainWindow.xaml.cs",
-              "ToolTip": "D:\\Projekti\\HCIProjekatPR68-2023\\VulkaniAfrike\\Presentation\\MainWindow.xaml.cs",
+              "ToolTip": "D:\\Projekti\\HCIProjekatPR68-2023\\Presentation\\MainWindow.xaml.cs",
               "RelativeToolTip": "Presentation\\MainWindow.xaml.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-08T21:22:40.318Z",
+              "WhenOpened": "2026-04-08T22:27:16.148Z",
               "EditorCaption": ""
             }
           ]
