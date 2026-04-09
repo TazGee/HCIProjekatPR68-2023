@@ -30,5 +30,9 @@ namespace Presentation
         {
             // TO-DO PRIJAVA
         }
+        private void RegistracijaClick(object sender, RoutedEventArgs e)
+        {
+            // TO-DO REGISTRACIJA
+        }
     }
 }
