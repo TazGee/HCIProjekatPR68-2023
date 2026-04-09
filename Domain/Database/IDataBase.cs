@@ -4,6 +4,6 @@
     {
         public DataBaseTable Tabele { get; set; }
 
-        public bool SacuvajPromene();
+        public bool SaveChanges();
     }
 }

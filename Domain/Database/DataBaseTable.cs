@@ -1,7 +1,11 @@
-﻿namespace Domain.Database
+﻿using Domain.Models;
+
+namespace Domain.Database
 {
     public class DataBaseTable
     {
+        public List<User> Users { get; set; } = [];
+
         public DataBaseTable() { }
     }
 }
