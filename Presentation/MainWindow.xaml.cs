@@ -34,5 +34,15 @@ namespace Presentation
         {
             // TO-DO REGISTRACIJA
         }
+        private void PrikaziRegistraciju(object sender, RoutedEventArgs e)
+        {
+            PrijavaGrid.Visibility = Visibility.Collapsed;
+            RegistracijaGrid.Visibility = Visibility.Visible;
+        }
+        private void PrikaziPrijavu(object sender, RoutedEventArgs e)
+        {
+            PrijavaGrid.Visibility = Visibility.Visible;
+            RegistracijaGrid.Visibility = Visibility.Collapsed;
+        }
     }
 }

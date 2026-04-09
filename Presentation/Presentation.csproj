@@ -100,5 +100,15 @@
   <ItemGroup>
     <Resource Include="Resources\vulcan-bg.png" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Domain\Domain.csproj">
+      <Project>{f5ce7635-f964-47dc-a6e2-db69ee3a5138}</Project>
+      <Name>Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Services\Services.csproj">
+      <Project>{72a6a044-1047-4f63-b359-36684e525158}</Project>
+      <Name>Services</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -46,7 +46,7 @@
                 </Button.Style>
             </Button>
 
-            <Grid x:Name="PrijavaGrid" Visibility="Hidden">
+            <Grid x:Name="PrijavaGrid" Visibility="Visible">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto" />
                     <RowDefinition Height="Auto" />
@@ -155,7 +155,8 @@
             HorizontalAlignment="Center"
             VerticalAlignment="Top"
             BorderThickness="2" 
-            BorderBrush="Orange">
+            BorderBrush="Orange"
+            Click="PrikaziRegistraciju">
                 <Button.Resources>
                     <Style TargetType="{x:Type Border}">
                         <Setter Property="CornerRadius" Value="13"/>
@@ -172,7 +173,7 @@
                 </Button.Style>
             </Button>
         </Grid>
-            <Grid x:Name="RegistracijaGrid" Visibility="Visible">
+            <Grid x:Name="RegistracijaGrid" Visibility="Collapsed">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto" />
                     <RowDefinition Height="Auto" />
@@ -259,45 +260,37 @@
                                     <ControlTemplate TargetType="CheckBox">
                                         <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
 
-                                            <!-- Kutijica -->
                                             <Border x:Name="box"
-                                    Width="20"
-                                    Height="20"
-                                    CornerRadius="6"
-                                    BorderBrush="Orange"
-                                    BorderThickness="2"
-                                    Background="Transparent"
-                                    VerticalAlignment="Center">
+                                                    Width="20"
+                                                    Height="20"
+                                                    CornerRadius="6"
+                                                    BorderBrush="Orange"
+                                                    BorderThickness="2"
+                                                    Background="Transparent"
+                                                    VerticalAlignment="Center">
 
-                                                <!-- Check mark -->
                                                 <Grid>
                                                     <Path x:Name="check"
-                                          Data="M 4 10 L 8 14 L 16 6"
-                                          Stroke="White"
-                                          StrokeThickness="2"
-                                          Visibility="Collapsed"/>
+                                                          Data="M 4 10 L 8 14 L 16 6"
+                                                          Stroke="White"
+                                                          StrokeThickness="2"
+                                                          Visibility="Collapsed"/>
                                                 </Grid>
                                             </Border>
 
-                                            <!-- Tekst -->
-                                            <ContentPresenter Margin="8,0,0,0"
-                                              VerticalAlignment="Center"/>
+                                            <ContentPresenter Margin="8,0,0,0" VerticalAlignment="Center"/>
                                         </StackPanel>
 
                                         <ControlTemplate.Triggers>
-
-                                            <!-- Checked -->
                                             <Trigger Property="IsChecked" Value="True">
                                                 <Setter TargetName="box" Property="Background" Value="Orange"/>
                                                 <Setter TargetName="check" Property="Visibility" Value="Visible"/>
                                             </Trigger>
 
-                                            <!-- Hover -->
                                             <Trigger Property="IsMouseOver" Value="True">
                                                 <Setter TargetName="box" Property="Background" Value="#33FFA500"/>
                                             </Trigger>
 
-                                            <!-- Disabled -->
                                             <Trigger Property="IsEnabled" Value="False">
                                                 <Setter TargetName="box" Property="Opacity" Value="0.5"/>
                                             </Trigger>
@@ -348,7 +341,8 @@
                         HorizontalAlignment="Center"
                         VerticalAlignment="Top"
                         BorderThickness="2" 
-                        BorderBrush="Orange">
+                        BorderBrush="Orange"
+                        Click="PrikaziPrijavu">
                     <Button.Resources>
                         <Style TargetType="{x:Type Border}">
                             <Setter Property="CornerRadius" Value="13"/>
