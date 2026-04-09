@@ -26,5 +26,9 @@ namespace Presentation
         {
             Close();
         }
+        private void PrijavaClick(object sender, RoutedEventArgs e)
+        {
+            // TO-DO PRIJAVA
+        }
     }
 }
