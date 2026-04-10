@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DataBaseTable xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Users>
+    <User>
+      <Id>1775818876</Id>
+      <Username>TazGee</Username>
+      <Password>123</Password>
+      <Admin>true</Admin>
+    </User>
+    <User>
+      <Id>1775829507</Id>
+      <Username>Posetilac</Username>
+      <Password>posetilac</Password>
+      <Admin>false</Admin>
+    </User>
+    <User>
+      <Id>1775829676</Id>
+      <Username>Admin</Username>
+      <Password>admin123</Password>
+      <Admin>true</Admin>
+    </User>
+  </Users>
+</DataBaseTable>

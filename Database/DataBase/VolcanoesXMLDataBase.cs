@@ -5,7 +5,7 @@ namespace Database.DataBase
 {
     public class VolcanoesXMLDataBase : IDataBase
     {
-        const string XMLFileName = @"Data\vulcans.xml";
+        const string XMLFileName = @"..\..\..\Data\vulcans.xml";
 
         public DataBaseTable Tabele { get; set; }
 
