@@ -11,19 +11,51 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Database.DataBase;
+using Database.Repositories;
+using Domain.Database;
+using Domain.Models;
+using Domain.Repositories;
+using Domain.Services;
+using Services.AuthService;
 
 namespace Presentation
 {
     public partial class ListWindow : Window
     {
-        public ListWindow()
-        {
-            InitializeComponent();
-        }
+        // Database and Repos
+        static IDataBase vulcansDatabase = new VolcanoesXMLDataBase();
 
+        // Korisnik
+        User korisnik = new User();
+
+        // Auth prozor
+        MainWindow authWindow;
+
+        public ListWindow(User user, MainWindow authWindow)
+        {
+            korisnik = user;
+            InitializeComponent();
+
+            UsernameButton.Content = korisnik.Username;
+            this.authWindow = authWindow;
+
+            if (user.Admin) AdminPanelGrid.Visibility = Visibility.Visible;
+            else AdminPanelGrid.Visibility = Visibility.Hidden;
+        }
+        private void LogoutPrompt(object sender, RoutedEventArgs e)
+        {
+            if(MessageBox.Show("Da li sigurno zelite da se izlogujete?", "Logout...", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
+            {
+                authWindow.Show();
+                authWindow.PrikaziPrijavu(sender, e);
+
+                this.Close();
+            }
+        }
         private void Close_Click(object sender, RoutedEventArgs e)
         {
-            Close();
+            Application.Current.Shutdown();
         }
 
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)

@@ -3,13 +3,13 @@ using System.Xml.Serialization;
 
 namespace Database.DataBase
 {
-    public class VulcansXMLDataBase : IDataBase
+    public class VolcanoesXMLDataBase : IDataBase
     {
         const string XMLFileName = @"Data\vulcans.xml";
 
         public DataBaseTable Tabele { get; set; }
 
-        public VulcansXMLDataBase()
+        public VolcanoesXMLDataBase()
         {
             try
             {
