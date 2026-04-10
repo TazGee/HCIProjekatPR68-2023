@@ -62,7 +62,7 @@ namespace Database.Repositories
             {
                 return database.Tabele.Users;
             }
-            catch
+            catch (Exception ex)
             {
                 return [];
             }

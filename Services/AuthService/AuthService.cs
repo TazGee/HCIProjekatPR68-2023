@@ -38,12 +38,15 @@ namespace Services.AuthService
 
             if (pronadjen.Username == string.Empty)
             {
-                return (true, noviKorisnik);
+                User dodat = KorisniciRepozitorijum.AddUser(noviKorisnik);
+
+                if (dodat.Username != string.Empty)
+                {
+                    return (true, dodat);
+                }
             }
-            else
-            {
-                return (false, new User());
-            }
+
+            return (false, new User());
         }
     }
 }
