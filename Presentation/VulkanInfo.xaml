@@ -13,7 +13,190 @@
         Height="350">
     <Grid>
         <Border CornerRadius="30" Background="Gray" BorderBrush="Orange" BorderThickness="5">
-            
+            <Grid>
+                <Button Content="X"
+                    Grid.Row="1"
+                    Width="30"
+                    Height="30"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Top"
+                    Margin="0,10,10,0"
+                    Background="Transparent"
+                    Foreground="White"
+                    FontWeight="Bold"
+                    BorderBrush="Orange"
+                    BorderThickness="2"
+                    Click="Close_Click">
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <Border CornerRadius="10"
+                    Background="{TemplateBinding Background}"
+                    BorderBrush="{TemplateBinding BorderBrush}"
+                    BorderThickness="{TemplateBinding BorderThickness}">
+                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            </Border>
+                        </ControlTemplate>
+                    </Button.Template>
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Opacity" Value="0.7"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                </Button>
+
+                <Image Source="/Resources/volcano.png" Opacity="0.3"/>
+
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <TextBox Text="NazivVulkana"
+                               x:Name="NazivVulkana"
+                               FontSize="26"
+                               FontWeight="Bold"
+                             HorizontalContentAlignment="Center"
+                             Width="280"
+                               Margin="6"
+                               Grid.Row="0"
+                                Background="Transparent"
+                             BorderBrush="Transparent"
+                             IsReadOnly="True"/>
+                    <Grid Grid.Row="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="2*" />
+                            <ColumnDefinition Width="3*" />
+                        </Grid.ColumnDefinitions>
+                        <Border BorderBrush="Orange"
+                                Grid.Column="0"
+                                BorderThickness="3"
+                                CornerRadius="25"
+                                Padding="2"
+                                Width="130" Height="130"
+                                VerticalAlignment="Center"
+                                HorizontalAlignment="Center"
+                                Background="White">
+                            <Image Source="/Resources/volcano.png" Width="125" Height="125" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                        </Border>
+                        <Grid Grid.Column="1">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="0.2*" />
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="0.5*" />
+                            </Grid.RowDefinitions>
+                            <Grid Grid.Row="1">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Text="Drzava:"
+                                             FontSize="20"
+                                               Margin="0 0 2 1"
+                                              VerticalAlignment="Bottom"
+                                              Grid.Row="0"
+                                            Background="Transparent"/>
+                                <TextBox Text="Kambodza"
+                                       x:Name="DrzavaVulkana"
+                                     IsReadOnly="True"
+                                       FontSize="20"
+                                        Margin="0 0 15 0"
+                                       VerticalContentAlignment="Bottom"
+                                         Grid.Column="1"
+                                     Background="Transparent"
+                                     BorderBrush="Transparent"
+                                         Width="150"/>
+                                </Grid>
+                            <Grid Grid.Row="2">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Text="Visina:"
+                                         FontSize="20"
+                                           Margin="2 0 2 1"
+                                          VerticalAlignment="Center"
+                                          Grid.Row="0"
+                                        Background="Transparent"/>
+                                <TextBox Text="2056m"
+                                       x:Name="VisinaVulkana"
+                                     IsReadOnly="True"
+                                       FontSize="20"
+                                       VerticalContentAlignment="Center"
+                                       Grid.Column="1"
+                                        Margin="0 0 15 0"
+                                     Background="Transparent"
+                                     BorderBrush="Transparent"
+                                         Width="150"/>
+                                </Grid>
+                            <TextBlock Text="15.16.1234 23:45"
+                                       x:Name="DatumDodavanja"
+                                       FontSize="20"
+                                       VerticalAlignment="Top"
+                                       Grid.Row="3"
+                                        Margin="0 0 15 0"
+                                     Background="Transparent"/>
+
+                            <Button Content="Izmenite vulkan"
+                                    x:Name="IzmeniSacuvajVulkanButton"
+                                    Grid.Row="4"
+                                    Height="25"
+                                    Width="110"
+                                    HorizontalAlignment="Left"
+                                    VerticalAlignment="Center"
+                                    Margin="2 0 0 0"
+                                    Background="LightGray"
+                                    Foreground="Black"
+                                    FontWeight="Bold"
+                                    BorderBrush="Orange"
+                                    BorderThickness="2"
+                                    Click="IzmeniSacuvajVulkan"
+                                    HorizontalContentAlignment="Center"
+                                    VerticalContentAlignment="Center">
+                                <Button.Template>
+                                    <ControlTemplate TargetType="Button">
+                                        <Border CornerRadius="7"
+                                                Background="{TemplateBinding Background}"
+                                                BorderBrush="{TemplateBinding BorderBrush}"
+                                                BorderThickness="{TemplateBinding BorderThickness}">
+                                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                        </Border>
+                                    </ControlTemplate>
+                                </Button.Template>
+                                <Button.Style>
+                                    <Style TargetType="Button">
+                                        <Style.Triggers>
+                                            <Trigger Property="IsMouseOver" Value="True">
+                                                <Setter Property="Opacity" Value="0.7"/>
+                                            </Trigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </Button.Style>
+                            </Button>
+
+                        </Grid>
+                    </Grid>
+                    <Border BorderBrush="Orange"
+                            Grid.Column="0"
+                            BorderThickness="3"
+                            CornerRadius="5 5 15 15"
+                            Padding="2"
+                            Grid.Row="3"
+                            Background="White"
+                            Margin="15 5 15 15">
+                        <RichTextBox x:Name="RtfViewer" 
+                             IsReadOnly="True" 
+                             Margin="3"/>
+                    </Border>
+                </Grid>
+            </Grid>
         </Border>
     </Grid>
 </Window>

@@ -51,22 +51,29 @@ namespace Presentation
             Volcanoes = new ObservableCollection<Volcano>();
             this.DataContext = this;
 
-            volcanoesRepo.AddVolcano(new Volcano("Etna", "Italija", 3300, "../../../Resources/volcano.png", "", DateTime.Now));
-            volcanoesRepo.AddVolcano(new Volcano("Fudži", "Japan", 3776, "../../../Resources/volcano.png", "", DateTime.Now));
+            AzurirajListuVulkana();
+        }
 
-            foreach(Volcano v in volcanoesRepo.AllVolcanoes())
+        public void AzurirajListuVulkana()
+        {
+            Volcanoes.Clear();
+
+            foreach (Volcano v in volcanoesRepo.AllVolcanoes())
             {
                 Volcanoes.Add(v);
             }
         }
+
         private void Naziv_Click(object sender, RoutedEventArgs e)
         {
             var hyperlink = sender as Hyperlink;
+            if (hyperlink == null) return;
+
             var volcano = hyperlink.DataContext as Volcano;
+            if (volcano == null) return;
 
-            MessageBox.Show(volcano.NazivVulkana);
-
-            // System.Diagnostics.Process.Start(new ProcessStartInfo(volcano.RTFPath) { UseShellExecute = true });
+            VulkanInfo vi = new VulkanInfo(volcano, volcanoesDatabase, this);
+            vi.Show();
         }
 
         private void LogoutPrompt(object sender, RoutedEventArgs e)
