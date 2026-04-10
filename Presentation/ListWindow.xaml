@@ -96,7 +96,8 @@
                                         BorderBrush="Transparent"
                                         Background="Transparent"
                                         HorizontalContentAlignment="Center"
-                                        VerticalContentAlignment="Center">
+                                        VerticalContentAlignment="Center"
+                                        Click="LogoutPrompt">
                                     <Button.Resources>
                                         <Style TargetType="{x:Type Border}">
                                             <Setter Property="CornerRadius" Value="9"/>

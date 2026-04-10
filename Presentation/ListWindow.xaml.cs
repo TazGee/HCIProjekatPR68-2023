@@ -29,14 +29,25 @@ namespace Presentation
         // Korisnik
         User korisnik = new User();
 
-        public ListWindow(User user)
+        // Auth prozor
+        MainWindow authWindow;
+
+        public ListWindow(User user, MainWindow authWindow)
         {
             korisnik = user;
             InitializeComponent();
 
             UsernameButton.Content = korisnik.Username;
+            this.authWindow = authWindow;
         }
-
+        private void LogoutPrompt(object sender, RoutedEventArgs e)
+        {
+            if(MessageBox.Show("Da li sigurno zelite da se izlogujete?", "Logout...", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
+            {
+                authWindow.Show();
+                this.Close();
+            }
+        }
         private void Close_Click(object sender, RoutedEventArgs e)
         {
             Application.Current.Shutdown();
