@@ -38,12 +38,14 @@ namespace Presentation
 
         // Servisi
         IVolcanoUpdateService volcanoUpdateService;
+        IStorePhotoService storePhotoService;
 
-        public ListWindow(User korisnik, MainWindow authWindow, IVolcanoRepository volcanoesRepo, IVolcanoUpdateService volcanoUpdateService)
+        public ListWindow(User korisnik, MainWindow authWindow, IVolcanoRepository volcanoesRepo, IVolcanoUpdateService volcanoUpdateService, IStorePhotoService storePhotoService)
         {
             this.volcanoesRepo = volcanoesRepo;
             this.volcanoUpdateService = volcanoUpdateService;
             this.korisnik = korisnik;
+            this.storePhotoService = storePhotoService;
             InitializeComponent();
 
             UsernameButton.Content = korisnik.Username;
@@ -77,7 +79,7 @@ namespace Presentation
             var volcano = hyperlink.DataContext as Volcano;
             if (volcano == null) return;
 
-            VulkanInfo vi = new VulkanInfo(volcano, this, volcanoUpdateService);
+            VulkanInfo vi = new VulkanInfo(volcano, this, volcanoUpdateService, storePhotoService);
             vi.Show();
         }
 

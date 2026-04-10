@@ -81,7 +81,13 @@
                                 VerticalAlignment="Center"
                                 HorizontalAlignment="Center"
                                 Background="White">
-                            <Image Source="/Resources/volcano.png" Width="125" Height="125" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                            <Grid>
+                                <Image x:Name="SlikaVulkana" Source="/Resources/volcano.png" Width="125" Height="125" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                                <Button Background="Transparent"
+                                        Width="140"
+                                        Height="140"
+                                        Click="PromeniSliku"/>
+                            </Grid>
                         </Border>
                         <Grid Grid.Column="1">
                             <Grid.RowDefinitions>

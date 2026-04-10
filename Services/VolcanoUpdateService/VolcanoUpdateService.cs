@@ -1,6 +1,5 @@
 ﻿using Domain.Database;
 using Domain.Models;
-using Domain.Repositories;
 using Domain.Services;
 
 namespace Services.VolcanoUpdateService
@@ -14,7 +13,7 @@ namespace Services.VolcanoUpdateService
             this.database = database;
         }
 
-        public bool UpdateVolcano(Volcano vol, string name, string drzava, string visina)
+        public bool UpdateVolcano(Volcano vol, string name, string drzava, string visina, string photoPath)
         {
             try
             {
@@ -22,6 +21,7 @@ namespace Services.VolcanoUpdateService
                 vol.Drzava = drzava;
                 vol.DatumDodavanja = DateTime.UtcNow;
                 vol.Visina = int.Parse(visina);
+                vol.PhotoPath = photoPath;
 
                 database.SaveChanges();
 

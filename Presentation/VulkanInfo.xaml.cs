@@ -15,6 +15,7 @@ using Domain.Database;
 using Domain.Models;
 using Domain.Repositories;
 using Domain.Services;
+using Microsoft.Win32;
 
 namespace Presentation
 {
@@ -22,15 +23,21 @@ namespace Presentation
     {
         Volcano vulkan = new Volcano();
         ListWindow listWindow;
+
         IVolcanoUpdateService volcanoUpdateService;
+        IStorePhotoService storePhotoService;
 
         bool menja = false;
+        string photoPath;
 
-        public VulkanInfo(Volcano vulkan, ListWindow listWindow, IVolcanoUpdateService volcanoUpdateService)
+        public VulkanInfo(Volcano vulkan, ListWindow listWindow, IVolcanoUpdateService volcanoUpdateService, IStorePhotoService storePhotoService)
         {
             this.vulkan = vulkan;
             this.listWindow = listWindow;
             this.volcanoUpdateService = volcanoUpdateService;
+            this.storePhotoService = storePhotoService;
+
+            photoPath = vulkan.PhotoPath;
 
             InitializeComponent();
 
@@ -43,6 +50,15 @@ namespace Presentation
             DrzavaVulkana.Text = vulkan.Drzava;
             VisinaVulkana.Text = vulkan.Visina.ToString();
             DatumDodavanja.Text = vulkan.DatumDodavanja.ToString();
+
+            if(vulkan.PhotoPath == String.Empty || vulkan.PhotoPath == null || vulkan.PhotoPath == "../../../Resources/volcano.png")
+            {
+                SlikaVulkana.Source = new BitmapImage(new Uri("pack://application:,,,/Resources/volcano.png"));
+            }
+            else
+            {
+                SlikaVulkana.Source = new BitmapImage(new Uri(vulkan.PhotoPath));
+            }
         }
 
         private void IzmeniSacuvajVulkan(object sender, RoutedEventArgs e)
@@ -71,9 +87,34 @@ namespace Presentation
             menja = !menja;
         }
 
+        private void PromeniSliku(object sender, RoutedEventArgs e)
+        {
+            if(menja)
+            {
+                OpenFileDialog dialog = new OpenFileDialog(); 
+                
+                dialog.Filter = "Slike (*.png;*.jpg)|*.png;*.jpg";
+                dialog.Title = "Izaberi sliku";
+
+                if (dialog.ShowDialog() == true)
+                {
+                    string path = dialog.FileName;
+
+                    photoPath = storePhotoService.CopyPhotoToPath(vulkan.Id, path);
+
+                    if (photoPath != String.Empty)
+                    {
+                        MessageBox.Show("Uspesno ste promenili sliku!", "Uspesno!", MessageBoxButton.OK, MessageBoxImage.Information);
+                    }
+
+                    SlikaVulkana.Source = new BitmapImage(new Uri(photoPath));
+                }
+            }
+        }
+
         bool AzurirajVulkan()
         {
-            return volcanoUpdateService.UpdateVolcano(vulkan, NazivVulkana.Text, DrzavaVulkana.Text, VisinaVulkana.Text);
+            return volcanoUpdateService.UpdateVolcano(vulkan, NazivVulkana.Text, DrzavaVulkana.Text, VisinaVulkana.Text, photoPath);
         }
 
         void SpremiZaEdit()
