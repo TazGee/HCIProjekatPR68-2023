@@ -26,7 +26,6 @@
     <Resource Include="Resources\volcano.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Resources\vulcan-bg.png" />
   </ItemGroup>
 
 </Project>

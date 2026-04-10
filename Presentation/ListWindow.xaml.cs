@@ -25,8 +25,7 @@ namespace Presentation
     public partial class ListWindow : Window
     {
         // Database and Repos
-        static IDataBase volcanoesDatabase = new VolcanoesXMLDataBase();
-        static IVolcanoRepository volcanoesRepo = new VolcanoRepository(volcanoesDatabase);
+        IVolcanoRepository volcanoesRepo;
 
         // Korisnik
         User korisnik = new User();
@@ -37,36 +36,51 @@ namespace Presentation
         // Lista vulkana
         public ObservableCollection<Volcano> Volcanoes { get; set; }
 
-        public ListWindow(User user, MainWindow authWindow)
+        // Servisi
+        IVolcanoUpdateService volcanoUpdateService;
+        IStorePhotoService storePhotoService;
+
+        public ListWindow(User korisnik, MainWindow authWindow, IVolcanoRepository volcanoesRepo, IVolcanoUpdateService volcanoUpdateService, IStorePhotoService storePhotoService)
         {
-            korisnik = user;
+            this.volcanoesRepo = volcanoesRepo;
+            this.volcanoUpdateService = volcanoUpdateService;
+            this.korisnik = korisnik;
+            this.storePhotoService = storePhotoService;
             InitializeComponent();
 
             UsernameButton.Content = korisnik.Username;
             this.authWindow = authWindow;
 
-            if (user.Admin) AdminPanelGrid.Visibility = Visibility.Visible;
+            if (korisnik.Admin) AdminPanelGrid.Visibility = Visibility.Visible;
             else AdminPanelGrid.Visibility = Visibility.Hidden;
 
             Volcanoes = new ObservableCollection<Volcano>();
             this.DataContext = this;
 
-            volcanoesRepo.AddVolcano(new Volcano("Etna", "Italija", 3300, "../../../Resources/volcano.png", "", DateTime.Now));
-            volcanoesRepo.AddVolcano(new Volcano("Fudži", "Japan", 3776, "../../../Resources/volcano.png", "", DateTime.Now));
+            AzurirajListuVulkana();
+            this.volcanoUpdateService = volcanoUpdateService;
+        }
 
-            foreach(Volcano v in volcanoesRepo.AllVolcanoes())
+        public void AzurirajListuVulkana()
+        {
+            Volcanoes.Clear();
+
+            foreach (Volcano v in volcanoesRepo.AllVolcanoes())
             {
                 Volcanoes.Add(v);
             }
         }
+
         private void Naziv_Click(object sender, RoutedEventArgs e)
         {
             var hyperlink = sender as Hyperlink;
+            if (hyperlink == null) return;
+
             var volcano = hyperlink.DataContext as Volcano;
+            if (volcano == null) return;
 
-            MessageBox.Show(volcano.NazivVulkana);
-
-            // System.Diagnostics.Process.Start(new ProcessStartInfo(volcano.RTFPath) { UseShellExecute = true });
+            VulkanInfo vi = new VulkanInfo(volcano, this, volcanoUpdateService, storePhotoService);
+            vi.Show();
         }
 
         private void LogoutPrompt(object sender, RoutedEventArgs e)

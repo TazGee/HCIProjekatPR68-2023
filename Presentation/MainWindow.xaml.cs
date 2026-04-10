@@ -13,12 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Services.AuthService;
+using Services.SetPhotoService;
 using Domain.Services;
 using Domain.Database;
 using Domain.Repositories;
 using Domain.Models;
 using Database.DataBase;
 using Database.Repositories;
+using Services.VolcanoUpdateService;
 
 
 namespace Presentation
@@ -29,8 +31,13 @@ namespace Presentation
         static IDataBase usersDatabase = new UsersXMLDataBase();
         static IUserRepository userRepo = new UserRepository(usersDatabase);
 
+        static IDataBase volcanoesDatabase = new VolcanoesXMLDataBase();
+        static IVolcanoRepository volcanoesRepo = new VolcanoRepository(volcanoesDatabase);
+
         // Services
         IAuthService authService = new AuthService(userRepo);
+        IVolcanoUpdateService volcanoUpdateService = new VolcanoUpdateService(volcanoesDatabase);
+        IStorePhotoService storePhotoService = new StorePhotoService();
 
         // Korisnik
         User korisnik = new User();
@@ -64,7 +71,7 @@ namespace Presentation
 
             if (uspesno)
             {
-                ListWindow lw = new ListWindow(korisnik, this);
+                ListWindow lw = new ListWindow(korisnik, this, volcanoesRepo, volcanoUpdateService, storePhotoService);
                 lw.Show();
                 this.Hide();
             }
@@ -96,7 +103,7 @@ namespace Presentation
 
 ;           if (uspesno)
             {
-                ListWindow lw = new ListWindow(korisnik, this);
+                ListWindow lw = new ListWindow(korisnik, this, volcanoesRepo, volcanoUpdateService, storePhotoService);
                 lw.Show();
                 this.Hide();
             }

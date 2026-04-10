@@ -13,7 +13,7 @@
 
     <Border CornerRadius="30" Background="Gray" BorderBrush="Orange" BorderThickness="5">
         <Grid>
-            <Image Source="/Resources/vulcan.png" Opacity="0.3"/>
+            <Image Source="/Resources/volcano.png" Opacity="0.3"/>
             <Button Content="X"
                     Grid.Row="1"
                     Width="30"
