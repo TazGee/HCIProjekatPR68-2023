@@ -25,7 +25,8 @@ namespace Presentation
     public partial class ListWindow : Window
     {
         // Database and Repos
-        static IDataBase vulcansDatabase = new VolcanoesXMLDataBase();
+        static IDataBase volcanoesDatabase = new VolcanoesXMLDataBase();
+        static IVolcanoRepository volcanoesRepo = new VolcanoRepository(volcanoesDatabase);
 
         // Korisnik
         User korisnik = new User();
@@ -50,8 +51,13 @@ namespace Presentation
             Volcanoes = new ObservableCollection<Volcano>();
             this.DataContext = this;
 
-            Volcanoes.Add(new Volcano("Etna", "Italija", 3300, "../../../Resources/volcano.png", "", DateTime.Now));
-            Volcanoes.Add(new Volcano("Fudži", "Japan", 3776, "../../../Resources/volcano.png", "", DateTime.Now));
+            volcanoesRepo.AddVolcano(new Volcano("Etna", "Italija", 3300, "../../../Resources/volcano.png", "", DateTime.Now));
+            volcanoesRepo.AddVolcano(new Volcano("Fudži", "Japan", 3776, "../../../Resources/volcano.png", "", DateTime.Now));
+
+            foreach(Volcano v in volcanoesRepo.AllVolcanoes())
+            {
+                Volcanoes.Add(v);
+            }
         }
         private void Naziv_Click(object sender, RoutedEventArgs e)
         {
