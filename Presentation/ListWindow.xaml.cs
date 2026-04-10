@@ -24,7 +24,7 @@ namespace Presentation
     public partial class ListWindow : Window
     {
         // Database and Repos
-        static IDataBase vulcansDatabase = new VulcansXMLDataBase();
+        static IDataBase vulcansDatabase = new VolcanoesXMLDataBase();
 
         // Korisnik
         User korisnik = new User();
@@ -39,12 +39,17 @@ namespace Presentation
 
             UsernameButton.Content = korisnik.Username;
             this.authWindow = authWindow;
+
+            if (user.Admin) AdminPanelGrid.Visibility = Visibility.Visible;
+            else AdminPanelGrid.Visibility = Visibility.Hidden;
         }
         private void LogoutPrompt(object sender, RoutedEventArgs e)
         {
             if(MessageBox.Show("Da li sigurno zelite da se izlogujete?", "Logout...", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
             {
                 authWindow.Show();
+                authWindow.PrikaziPrijavu(sender, e);
+
                 this.Close();
             }
         }

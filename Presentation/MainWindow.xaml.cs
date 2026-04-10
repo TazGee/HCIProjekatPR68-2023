@@ -25,10 +25,8 @@ namespace Presentation
 {
     public partial class MainWindow : Window
     {
-        // Database and Repos
+        // Database and Repo
         static IDataBase usersDatabase = new UsersXMLDataBase();
-        static IDataBase vulcansDatabase = new VulcansXMLDataBase();
-
         static IUserRepository userRepo = new UserRepository(usersDatabase);
 
         // Services
@@ -62,6 +60,8 @@ namespace Presentation
             bool uspesno;
             (uspesno, korisnik) = authService.Prijava(PrijavaUsername.Text, PrijavaPassword.Password);
 
+            OcistiSvaPolja();
+
             if (uspesno)
             {
                 ListWindow lw = new ListWindow(korisnik, this);
@@ -92,6 +92,8 @@ namespace Presentation
             bool uspesno;
             (uspesno, korisnik) = authService.Registracija(k);
 
+            OcistiSvaPolja();
+
 ;           if (uspesno)
             {
                 ListWindow lw = new ListWindow(korisnik, this);
@@ -104,12 +106,20 @@ namespace Presentation
                 return;
             }
         }
-        private void PrikaziRegistraciju(object sender, RoutedEventArgs e)
+        void OcistiSvaPolja()
+        {
+            PrijavaUsername.Text = "";
+            PrijavaPassword.Password = "";
+
+            RegistracijaUsername.Text = "";
+            RegistracijaPassword.Password = "";
+        }
+        public void PrikaziRegistraciju(object sender, RoutedEventArgs e)
         {
             PrijavaGrid.Visibility = Visibility.Collapsed;
             RegistracijaGrid.Visibility = Visibility.Visible;
         }
-        private void PrikaziPrijavu(object sender, RoutedEventArgs e)
+        public void PrikaziPrijavu(object sender, RoutedEventArgs e)
         {
             PrijavaGrid.Visibility = Visibility.Visible;
             RegistracijaGrid.Visibility = Visibility.Collapsed;

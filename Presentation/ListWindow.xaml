@@ -192,6 +192,8 @@
                         BorderBrush="Orange" 
                         BorderThickness="5"
                         Margin="13 5 13 13">
+
+                    <Image Source="/Resources/vulcan.png" Opacity="0.3"/>
                     
                     
                 </Border>

@@ -23,7 +23,9 @@
     <Resource Include="Resources\avatar.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Resources\vulcan.png" />
+    <Resource Include="Resources\volcano.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="Resources\vulcan-bg.png" />
   </ItemGroup>
 
