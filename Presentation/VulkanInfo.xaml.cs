@@ -14,22 +14,23 @@ using System.Windows.Shapes;
 using Domain.Database;
 using Domain.Models;
 using Domain.Repositories;
+using Domain.Services;
 
 namespace Presentation
 {
     public partial class VulkanInfo : Window
     {
         Volcano vulkan = new Volcano();
-        IDataBase database;
         ListWindow listWindow;
+        IVolcanoUpdateService volcanoUpdateService;
 
         bool menja = false;
 
-        public VulkanInfo(Volcano vulkan, IDataBase database, ListWindow listWindow)
+        public VulkanInfo(Volcano vulkan, ListWindow listWindow, IVolcanoUpdateService volcanoUpdateService)
         {
             this.vulkan = vulkan;
-            this.database = database;
             this.listWindow = listWindow;
+            this.volcanoUpdateService = volcanoUpdateService;
 
             InitializeComponent();
 
@@ -72,21 +73,7 @@ namespace Presentation
 
         bool AzurirajVulkan()
         {
-            vulkan.NazivVulkana = NazivVulkana.Text;
-            vulkan.Drzava = DrzavaVulkana.Text;
-            vulkan.DatumDodavanja = DateTime.UtcNow;
-
-            database.SaveChanges();
-
-            try
-            {
-                vulkan.Visina = int.Parse(VisinaVulkana.Text);
-                return true;
-            }
-            catch
-            {
-                return false;
-            }
+            return volcanoUpdateService.UpdateVolcano(vulkan, NazivVulkana.Text, DrzavaVulkana.Text, VisinaVulkana.Text);
         }
 
         void SpremiZaEdit()
@@ -98,9 +85,9 @@ namespace Presentation
             DrzavaVulkana.IsReadOnly = false;
             NazivVulkana.IsReadOnly = false;
 
-            VisinaVulkana.Background = Brushes.White;
-            DrzavaVulkana.Background = Brushes.White;
-            NazivVulkana.Background = Brushes.White;
+            VisinaVulkana.Background = Brushes.LightGray;
+            DrzavaVulkana.Background = Brushes.LightGray;
+            NazivVulkana.Background = Brushes.LightGray;
         }
         void SpremiZaInfo()
         {

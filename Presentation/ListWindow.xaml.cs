@@ -25,8 +25,7 @@ namespace Presentation
     public partial class ListWindow : Window
     {
         // Database and Repos
-        static IDataBase volcanoesDatabase = new VolcanoesXMLDataBase();
-        static IVolcanoRepository volcanoesRepo = new VolcanoRepository(volcanoesDatabase);
+        IVolcanoRepository volcanoesRepo;
 
         // Korisnik
         User korisnik = new User();
@@ -37,21 +36,27 @@ namespace Presentation
         // Lista vulkana
         public ObservableCollection<Volcano> Volcanoes { get; set; }
 
-        public ListWindow(User user, MainWindow authWindow)
+        // Servisi
+        IVolcanoUpdateService volcanoUpdateService;
+
+        public ListWindow(User korisnik, MainWindow authWindow, IVolcanoRepository volcanoesRepo, IVolcanoUpdateService volcanoUpdateService)
         {
-            korisnik = user;
+            this.volcanoesRepo = volcanoesRepo;
+            this.volcanoUpdateService = volcanoUpdateService;
+            this.korisnik = korisnik;
             InitializeComponent();
 
             UsernameButton.Content = korisnik.Username;
             this.authWindow = authWindow;
 
-            if (user.Admin) AdminPanelGrid.Visibility = Visibility.Visible;
+            if (korisnik.Admin) AdminPanelGrid.Visibility = Visibility.Visible;
             else AdminPanelGrid.Visibility = Visibility.Hidden;
 
             Volcanoes = new ObservableCollection<Volcano>();
             this.DataContext = this;
 
             AzurirajListuVulkana();
+            this.volcanoUpdateService = volcanoUpdateService;
         }
 
         public void AzurirajListuVulkana()
@@ -72,7 +77,7 @@ namespace Presentation
             var volcano = hyperlink.DataContext as Volcano;
             if (volcano == null) return;
 
-            VulkanInfo vi = new VulkanInfo(volcano, volcanoesDatabase, this);
+            VulkanInfo vi = new VulkanInfo(volcano, this, volcanoUpdateService);
             vi.Show();
         }
 
