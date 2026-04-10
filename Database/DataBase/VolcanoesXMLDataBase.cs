@@ -13,11 +13,19 @@ namespace Database.DataBase
         {
             try
             {
-                if (File.Exists(XMLFileName))
+                string fullPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, XMLFileName);
+                string? directory = Path.GetDirectoryName(fullPath);
+
+                if (!Directory.Exists(directory))
+                {
+                    Directory.CreateDirectory(directory);
+                }
+
+                if (File.Exists(fullPath))
                 {
                     XmlSerializer serializer = new(typeof(DataBaseTable));
 
-                    using FileStream fs = new(XMLFileName, FileMode.Open);
+                    using FileStream fs = new(fullPath, FileMode.Open);
                     Tabele = (DataBaseTable?)serializer.Deserialize(fs) ?? new();
                 }
                 else
@@ -36,9 +44,11 @@ namespace Database.DataBase
         {
             try
             {
+                string fullPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, XMLFileName);
+
                 XmlSerializer serializer = new(typeof(DataBaseTable));
 
-                using FileStream fs = new(XMLFileName, FileMode.Create);
+                using FileStream fs = new(fullPath, FileMode.Create);
                 serializer.Serialize(fs, Tabele);
 
                 return true;
