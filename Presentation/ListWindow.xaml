@@ -184,18 +184,90 @@
                         </Grid>
                     </Grid>
                 </Border>
-                
-                
+
+
                 <Border CornerRadius="5 5 20 20" 
                         Grid.Row="1"
                         Background="Orange" 
                         BorderBrush="Orange" 
                         BorderThickness="5"
                         Margin="13 5 13 13">
+                    
+                    <Grid>
+                        <Image Source="/Resources/volcano.png" Opacity="0.3"/>
 
-                    <Image Source="/Resources/vulcan.png" Opacity="0.3"/>
-                    
-                    
+                        <ScrollViewer VerticalScrollBarVisibility="Auto"
+                                      Background="Transparent">
+                            <ItemsControl ItemsSource="{Binding Volcanoes}">
+                                <ItemsControl.ItemTemplate>
+                                    <DataTemplate>
+                                        <Border CornerRadius="12" 
+                                                Background="White" 
+                                                Opacity="0.5"
+                                                Height="80"
+                                                Margin="5">
+
+                                            <Grid>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="Auto" />
+                                                    <ColumnDefinition Width="Auto" />
+                                                    <ColumnDefinition Width="2*" />
+                                                    <ColumnDefinition Width="*" />
+                                                </Grid.ColumnDefinitions>
+
+                                                <CheckBox VerticalAlignment="Center"
+                                                          HorizontalAlignment="Center"
+                                                          Margin="10"/>
+
+                                                <Border BorderBrush="Black"
+                                                        Grid.Column="1"
+                                                        BorderThickness="2"
+                                                        CornerRadius="12"
+                                                        Padding="2"
+                                                        Width="50" Height="50"
+                                                        Margin="0 15 0 15">
+                                                    <Image Source="{Binding PhotoPath}" Stretch="Fill"/>
+                                                </Border>
+
+                                                <Grid Grid.Column="2">
+                                                    <Grid.RowDefinitions>
+                                                        <RowDefinition Height="6*" />
+                                                        <RowDefinition Height="5*" />
+                                                    </Grid.RowDefinitions>
+
+                                                    <TextBlock Grid.Row="0"
+                                                               Margin="12 5 5 0"
+                                                               VerticalAlignment="Bottom"
+                                                               FontSize="26"
+                                                               FontWeight="Bold">
+                                                        <Hyperlink Click="Naziv_Click"
+                                                                   Foreground="Black"
+                                                                   FontWeight="Bold">
+                                                            <Run Text="{Binding NazivVulkana}" />
+                                                        </Hyperlink>
+                                                    </TextBlock>
+
+                                                    <TextBlock Text="{Binding Drzava}"
+                                                               FontWeight="Bold"
+                                                               FontSize="16"
+                                                               Margin="12 0 5 5"
+                                                               VerticalAlignment="Top"
+                                                               Grid.Row="1"/>
+                                                </Grid>
+                                                <TextBlock Grid.Column="3"
+                                                           Text="{Binding DatumDodavanja}"
+                                                           VerticalAlignment="Center"
+                                                           Margin="12"/>
+                                            </Grid>
+                                        </Border>
+
+                                    </DataTemplate>
+                                </ItemsControl.ItemTemplate>
+                            </ItemsControl>
+                        </ScrollViewer>
+
+                    </Grid>
+
                 </Border>
             </Grid>
         </Border>
