@@ -4,7 +4,7 @@ using Domain.Repositories;
 
 namespace Database.Repositories
 {
-    public class VolcanoRepository : IUserRepository
+    public class VolcanoRepository : IVolcanoRepository
     {
         IDataBase database;
 
@@ -13,56 +13,56 @@ namespace Database.Repositories
             database = db;
         }
 
-        public User AddUser(User korisnik)
+        public Volcano AddVolcano(Volcano vol)
         {
             try
             {
-                User postoji = FindUserUsingUsername(korisnik.Username);
+                Volcano postoji = FindVolcanoUsingName(vol.NazivVulkana);
 
-                if (postoji.Username == string.Empty)
+                if (postoji.NazivVulkana == string.Empty)
                 {
-                    korisnik.Id = DateTimeOffset.UtcNow.ToUnixTimeSeconds();
+                    vol.Id = DateTimeOffset.UtcNow.ToUnixTimeSeconds();
 
-                    database.Tabele.Users.Add(korisnik);
+                    database.Tabele.Volcanoes.Add(vol);
 
                     database.SaveChanges();
 
-                    return korisnik;
+                    return vol;
                 }
 
-                return new User();
+                return new Volcano();
             }
             catch
             {
-                return new User();
+                return new Volcano();
             }
         }
 
-        public User FindUserUsingUsername(string username)
+        public Volcano FindVolcanoUsingName(string name)
         {
             try
             {
-                foreach (User korisnik in database.Tabele.Users)
+                foreach (Volcano v in database.Tabele.Volcanoes)
                 {
-                    if (korisnik.Username == username)
-                        return korisnik;
+                    if (v.NazivVulkana == name)
+                        return v;
                 }
 
-                return new User();
+                return new Volcano();
             }
             catch
             {
-                return new User();
+                return new Volcano();
             }
         }
 
-        public IEnumerable<User> AllUsers()
+        public IEnumerable<Volcano> AllVolcanoes()
         {
             try
             {
-                return database.Tabele.Users;
+                return database.Tabele.Volcanoes;
             }
-            catch (Exception ex)
+            catch
             {
                 return [];
             }

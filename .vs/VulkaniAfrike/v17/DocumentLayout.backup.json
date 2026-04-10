@@ -7,24 +7,52 @@
       "RelativeMoniker": "D:0:0:{435E13CE-07E5-402E-8C8E-D76E30D238CD}|Presentation\\Presentation.csproj|solutionrelative:presentation\\listwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{435E13CE-07E5-402E-8C8E-D76E30D238CD}|Presentation\\Presentation.csproj|d:\\nikola faks\\hciprojekatpr68-2023\\presentation\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{435E13CE-07E5-402E-8C8E-D76E30D238CD}|Presentation\\Presentation.csproj|solutionrelative:presentation\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{1EFB11A8-62F2-47A1-B6F6-07A93AA85592}|Database\\Database.csproj|d:\\nikola faks\\hciprojekatpr68-2023\\database\\repositories\\volcanorepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1EFB11A8-62F2-47A1-B6F6-07A93AA85592}|Database\\Database.csproj|solutionrelative:database\\repositories\\volcanorepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{435E13CE-07E5-402E-8C8E-D76E30D238CD}|Presentation\\Presentation.csproj|d:\\nikola faks\\hciprojekatpr68-2023\\presentation\\listwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{435E13CE-07E5-402E-8C8E-D76E30D238CD}|Presentation\\Presentation.csproj|solutionrelative:presentation\\listwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+      "AbsoluteMoniker": "D:0:0:{F5CE7635-F964-47DC-A6E2-DB69EE3A5138}|Domain\\Domain.csproj|d:\\nikola faks\\hciprojekatpr68-2023\\domain\\repositories\\ivolcanorepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F5CE7635-F964-47DC-A6E2-DB69EE3A5138}|Domain\\Domain.csproj|solutionrelative:domain\\repositories\\ivolcanorepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{435E13CE-07E5-402E-8C8E-D76E30D238CD}|Presentation\\Presentation.csproj|d:\\nikola faks\\hciprojekatpr68-2023\\presentation\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{435E13CE-07E5-402E-8C8E-D76E30D238CD}|Presentation\\Presentation.csproj|solutionrelative:presentation\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+      "AbsoluteMoniker": "D:0:0:{F5CE7635-F964-47DC-A6E2-DB69EE3A5138}|Domain\\Domain.csproj|d:\\nikola faks\\hciprojekatpr68-2023\\domain\\database\\databasetable.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F5CE7635-F964-47DC-A6E2-DB69EE3A5138}|Domain\\Domain.csproj|solutionrelative:domain\\database\\databasetable.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1EFB11A8-62F2-47A1-B6F6-07A93AA85592}|Database\\Database.csproj|d:\\nikola faks\\hciprojekatpr68-2023\\database\\database\\usersxmldatabase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1EFB11A8-62F2-47A1-B6F6-07A93AA85592}|Database\\Database.csproj|solutionrelative:database\\database\\usersxmldatabase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F5CE7635-F964-47DC-A6E2-DB69EE3A5138}|Domain\\Domain.csproj|d:\\nikola faks\\hciprojekatpr68-2023\\domain\\database\\idatabase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F5CE7635-F964-47DC-A6E2-DB69EE3A5138}|Domain\\Domain.csproj|solutionrelative:domain\\database\\idatabase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1EFB11A8-62F2-47A1-B6F6-07A93AA85592}|Database\\Database.csproj|d:\\nikola faks\\hciprojekatpr68-2023\\database\\repositories\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1EFB11A8-62F2-47A1-B6F6-07A93AA85592}|Database\\Database.csproj|solutionrelative:database\\repositories\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F5CE7635-F964-47DC-A6E2-DB69EE3A5138}|Domain\\Domain.csproj|d:\\nikola faks\\hciprojekatpr68-2023\\domain\\repositories\\iuserrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F5CE7635-F964-47DC-A6E2-DB69EE3A5138}|Domain\\Domain.csproj|solutionrelative:domain\\repositories\\iuserrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{1EFB11A8-62F2-47A1-B6F6-07A93AA85592}|Database\\Database.csproj|d:\\nikola faks\\hciprojekatpr68-2023\\database\\database\\volcanoesxmldatabase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{1EFB11A8-62F2-47A1-B6F6-07A93AA85592}|Database\\Database.csproj|solutionrelative:database\\database\\volcanoesxmldatabase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1EFB11A8-62F2-47A1-B6F6-07A93AA85592}|Database\\Database.csproj|d:\\nikola faks\\hciprojekatpr68-2023\\database\\repositories\\volcanorepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1EFB11A8-62F2-47A1-B6F6-07A93AA85592}|Database\\Database.csproj|solutionrelative:database\\repositories\\volcanorepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{435E13CE-07E5-402E-8C8E-D76E30D238CD}|Presentation\\Presentation.csproj|d:\\nikola faks\\hciprojekatpr68-2023\\presentation\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{435E13CE-07E5-402E-8C8E-D76E30D238CD}|Presentation\\Presentation.csproj|solutionrelative:presentation\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{435E13CE-07E5-402E-8C8E-D76E30D238CD}|Presentation\\Presentation.csproj|d:\\nikola faks\\hciprojekatpr68-2023\\presentation\\vulkaninfo.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{435E13CE-07E5-402E-8C8E-D76E30D238CD}|Presentation\\Presentation.csproj|solutionrelative:presentation\\vulkaninfo.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{435E13CE-07E5-402E-8C8E-D76E30D238CD}|Presentation\\Presentation.csproj|d:\\nikola faks\\hciprojekatpr68-2023\\presentation\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{435E13CE-07E5-402E-8C8E-D76E30D238CD}|Presentation\\Presentation.csproj|solutionrelative:presentation\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{435E13CE-07E5-402E-8C8E-D76E30D238CD}|Presentation\\Presentation.csproj|d:\\nikola faks\\hciprojekatpr68-2023\\presentation\\listwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{435E13CE-07E5-402E-8C8E-D76E30D238CD}|Presentation\\Presentation.csproj|solutionrelative:presentation\\listwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{F5CE7635-F964-47DC-A6E2-DB69EE3A5138}|Domain\\Domain.csproj|d:\\nikola faks\\hciprojekatpr68-2023\\domain\\models\\volcano.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -47,28 +75,8 @@
       "RelativeMoniker": "D:0:0:{435E13CE-07E5-402E-8C8E-D76E30D238CD}|Presentation\\Presentation.csproj|solutionrelative:presentation\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1EFB11A8-62F2-47A1-B6F6-07A93AA85592}|Database\\Database.csproj|d:\\nikola faks\\hciprojekatpr68-2023\\database\\database\\usersxmldatabase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1EFB11A8-62F2-47A1-B6F6-07A93AA85592}|Database\\Database.csproj|solutionrelative:database\\database\\usersxmldatabase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1EFB11A8-62F2-47A1-B6F6-07A93AA85592}|Database\\Database.csproj|d:\\nikola faks\\hciprojekatpr68-2023\\database\\repositories\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1EFB11A8-62F2-47A1-B6F6-07A93AA85592}|Database\\Database.csproj|solutionrelative:database\\repositories\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{72A6A044-1047-4F63-B359-36684E525158}|Services\\Services.csproj|d:\\nikola faks\\hciprojekatpr68-2023\\services\\authservice\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{72A6A044-1047-4F63-B359-36684E525158}|Services\\Services.csproj|solutionrelative:services\\authservice\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F5CE7635-F964-47DC-A6E2-DB69EE3A5138}|Domain\\Domain.csproj|d:\\nikola faks\\hciprojekatpr68-2023\\domain\\repositories\\iuserrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F5CE7635-F964-47DC-A6E2-DB69EE3A5138}|Domain\\Domain.csproj|solutionrelative:domain\\repositories\\iuserrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F5CE7635-F964-47DC-A6E2-DB69EE3A5138}|Domain\\Domain.csproj|d:\\nikola faks\\hciprojekatpr68-2023\\domain\\database\\idatabase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F5CE7635-F964-47DC-A6E2-DB69EE3A5138}|Domain\\Domain.csproj|solutionrelative:domain\\database\\idatabase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F5CE7635-F964-47DC-A6E2-DB69EE3A5138}|Domain\\Domain.csproj|d:\\nikola faks\\hciprojekatpr68-2023\\domain\\database\\databasetable.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F5CE7635-F964-47DC-A6E2-DB69EE3A5138}|Domain\\Domain.csproj|solutionrelative:domain\\database\\databasetable.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -78,8 +86,112 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 8,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "IVolcanoRepository.cs",
+              "DocumentMoniker": "D:\\Nikola Faks\\HCIProjekatPR68-2023\\Domain\\Repositories\\IVolcanoRepository.cs",
+              "RelativeDocumentMoniker": "Domain\\Repositories\\IVolcanoRepository.cs",
+              "ToolTip": "D:\\Nikola Faks\\HCIProjekatPR68-2023\\Domain\\Repositories\\IVolcanoRepository.cs",
+              "RelativeToolTip": "Domain\\Repositories\\IVolcanoRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAcAAAA5AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-10T18:45:25.297Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "VolcanoesXMLDataBase.cs",
+              "DocumentMoniker": "D:\\Nikola Faks\\HCIProjekatPR68-2023\\Database\\DataBase\\VolcanoesXMLDataBase.cs",
+              "RelativeDocumentMoniker": "Database\\DataBase\\VolcanoesXMLDataBase.cs",
+              "ToolTip": "D:\\Nikola Faks\\HCIProjekatPR68-2023\\Database\\DataBase\\VolcanoesXMLDataBase.cs",
+              "RelativeToolTip": "Database\\DataBase\\VolcanoesXMLDataBase.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAABCAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-09T00:40:35.178Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "UsersXMLDataBase.cs",
+              "DocumentMoniker": "D:\\Nikola Faks\\HCIProjekatPR68-2023\\Database\\DataBase\\UsersXMLDataBase.cs",
+              "RelativeDocumentMoniker": "Database\\DataBase\\UsersXMLDataBase.cs",
+              "ToolTip": "D:\\Nikola Faks\\HCIProjekatPR68-2023\\Database\\DataBase\\UsersXMLDataBase.cs",
+              "RelativeToolTip": "Database\\DataBase\\UsersXMLDataBase.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-10T10:44:36.657Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "IUserRepository.cs",
+              "DocumentMoniker": "D:\\Nikola Faks\\HCIProjekatPR68-2023\\Domain\\Repositories\\IUserRepository.cs",
+              "RelativeDocumentMoniker": "Domain\\Repositories\\IUserRepository.cs",
+              "ToolTip": "D:\\Nikola Faks\\HCIProjekatPR68-2023\\Domain\\Repositories\\IUserRepository.cs",
+              "RelativeToolTip": "Domain\\Repositories\\IUserRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-08T23:45:48.385Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "UserRepository.cs",
+              "DocumentMoniker": "D:\\Nikola Faks\\HCIProjekatPR68-2023\\Database\\Repositories\\UserRepository.cs",
+              "RelativeDocumentMoniker": "Database\\Repositories\\UserRepository.cs",
+              "ToolTip": "D:\\Nikola Faks\\HCIProjekatPR68-2023\\Database\\Repositories\\UserRepository.cs",
+              "RelativeToolTip": "Database\\Repositories\\UserRepository.cs",
+              "ViewState": "AgIAACcAAAAAAAAAAAAowEQAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-09T00:16:34.213Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "VolcanoRepository.cs",
+              "DocumentMoniker": "D:\\Nikola Faks\\HCIProjekatPR68-2023\\Database\\Repositories\\VolcanoRepository.cs",
+              "RelativeDocumentMoniker": "Database\\Repositories\\VolcanoRepository.cs",
+              "ToolTip": "D:\\Nikola Faks\\HCIProjekatPR68-2023\\Database\\Repositories\\VolcanoRepository.cs",
+              "RelativeToolTip": "Database\\Repositories\\VolcanoRepository.cs",
+              "ViewState": "AgIAAA0AAAAAAAAAAAAgwCEAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-10T13:45:28.226Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "IDataBase.cs",
+              "DocumentMoniker": "D:\\Nikola Faks\\HCIProjekatPR68-2023\\Domain\\Database\\IDataBase.cs",
+              "RelativeDocumentMoniker": "Domain\\Database\\IDataBase.cs",
+              "ToolTip": "D:\\Nikola Faks\\HCIProjekatPR68-2023\\Domain\\Database\\IDataBase.cs",
+              "RelativeToolTip": "Domain\\Database\\IDataBase.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-08T22:30:27.558Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "DataBaseTable.cs",
+              "DocumentMoniker": "D:\\Nikola Faks\\HCIProjekatPR68-2023\\Domain\\Database\\DataBaseTable.cs",
+              "RelativeDocumentMoniker": "Domain\\Database\\DataBaseTable.cs",
+              "ToolTip": "D:\\Nikola Faks\\HCIProjekatPR68-2023\\Domain\\Database\\DataBaseTable.cs",
+              "RelativeToolTip": "Domain\\Database\\DataBaseTable.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAA6AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-08T22:31:12.89Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
@@ -88,90 +200,14 @@
               "RelativeDocumentMoniker": "Presentation\\ListWindow.xaml.cs",
               "ToolTip": "D:\\Nikola Faks\\HCIProjekatPR68-2023\\Presentation\\ListWindow.xaml.cs",
               "RelativeToolTip": "Presentation\\ListWindow.xaml.cs",
-              "ViewState": "AgIAABoAAAAAAAAAAAAQwDQAAAAdAAAAAAAAAA==",
+              "ViewState": "AgIAABoAAAAAAAAAAAAQwDoAAAAhAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-04-10T11:29:46.779Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "ListWindow.xaml",
-              "DocumentMoniker": "D:\\Nikola Faks\\HCIProjekatPR68-2023\\Presentation\\ListWindow.xaml",
-              "RelativeDocumentMoniker": "Presentation\\ListWindow.xaml",
-              "ToolTip": "D:\\Nikola Faks\\HCIProjekatPR68-2023\\Presentation\\ListWindow.xaml",
-              "RelativeToolTip": "Presentation\\ListWindow.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2026-04-10T11:14:50.541Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "Volcano.cs",
-              "DocumentMoniker": "D:\\Nikola Faks\\HCIProjekatPR68-2023\\Domain\\Models\\Volcano.cs",
-              "RelativeDocumentMoniker": "Domain\\Models\\Volcano.cs",
-              "ToolTip": "D:\\Nikola Faks\\HCIProjekatPR68-2023\\Domain\\Models\\Volcano.cs",
-              "RelativeToolTip": "Domain\\Models\\Volcano.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAcAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-10T13:46:05.194Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "AuthService.cs",
-              "DocumentMoniker": "D:\\Nikola Faks\\HCIProjekatPR68-2023\\Services\\AuthService\\AuthService.cs",
-              "RelativeDocumentMoniker": "Services\\AuthService\\AuthService.cs",
-              "ToolTip": "D:\\Nikola Faks\\HCIProjekatPR68-2023\\Services\\AuthService\\AuthService.cs",
-              "RelativeToolTip": "Services\\AuthService\\AuthService.cs",
-              "ViewState": "AgIAAAUAAAAAAAAAAAAAwCsAAAARAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-08T23:43:00.219Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "User.cs",
-              "DocumentMoniker": "D:\\Nikola Faks\\HCIProjekatPR68-2023\\Domain\\Models\\User.cs",
-              "RelativeDocumentMoniker": "Domain\\Models\\User.cs",
-              "ToolTip": "D:\\Nikola Faks\\HCIProjekatPR68-2023\\Domain\\Models\\User.cs",
-              "RelativeToolTip": "Domain\\Models\\User.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-08T23:44:21.057Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "MainWindow.xaml.cs",
-              "DocumentMoniker": "D:\\Nikola Faks\\HCIProjekatPR68-2023\\Presentation\\MainWindow.xaml.cs",
-              "RelativeDocumentMoniker": "Presentation\\MainWindow.xaml.cs",
-              "ToolTip": "D:\\Nikola Faks\\HCIProjekatPR68-2023\\Presentation\\MainWindow.xaml.cs",
-              "RelativeToolTip": "Presentation\\MainWindow.xaml.cs",
-              "ViewState": "AgIAAGUAAAAAAAAAAAAkwH0AAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-08T22:27:16.148Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "VolcanoesXMLDataBase.cs",
-              "DocumentMoniker": "D:\\Nikola Faks\\HCIProjekatPR68-2023\\Database\\DataBase\\VolcanoesXMLDataBase.cs",
-              "RelativeDocumentMoniker": "Database\\DataBase\\VolcanoesXMLDataBase.cs",
-              "ToolTip": "D:\\Nikola Faks\\HCIProjekatPR68-2023\\Database\\DataBase\\VolcanoesXMLDataBase.cs",
-              "RelativeToolTip": "Database\\DataBase\\VolcanoesXMLDataBase.cs",
-              "ViewState": "AgIAABIAAAAAAAAAAAAowAwAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-09T00:40:35.178Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 9,
               "Title": "MainWindow.xaml",
               "DocumentMoniker": "D:\\Nikola Faks\\HCIProjekatPR68-2023\\Presentation\\MainWindow.xaml",
               "RelativeDocumentMoniker": "Presentation\\MainWindow.xaml",
@@ -183,32 +219,81 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "VolcanoRepository.cs",
-              "DocumentMoniker": "D:\\Nikola Faks\\HCIProjekatPR68-2023\\Database\\Repositories\\VolcanoRepository.cs",
-              "RelativeDocumentMoniker": "Database\\Repositories\\VolcanoRepository.cs",
-              "ToolTip": "D:\\Nikola Faks\\HCIProjekatPR68-2023\\Database\\Repositories\\VolcanoRepository.cs",
-              "RelativeToolTip": "Database\\Repositories\\VolcanoRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-10T13:45:28.226Z",
+              "DocumentIndex": 10,
+              "Title": "VulkanInfo.xaml",
+              "DocumentMoniker": "D:\\Nikola Faks\\HCIProjekatPR68-2023\\Presentation\\VulkanInfo.xaml",
+              "RelativeDocumentMoniker": "Presentation\\VulkanInfo.xaml",
+              "ToolTip": "D:\\Nikola Faks\\HCIProjekatPR68-2023\\Presentation\\VulkanInfo.xaml",
+              "RelativeToolTip": "Presentation\\VulkanInfo.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-04-10T18:39:19.018Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
-              "Title": "DataBaseTable.cs",
-              "DocumentMoniker": "D:\\Nikola Faks\\HCIProjekatPR68-2023\\Domain\\Database\\DataBaseTable.cs",
-              "RelativeDocumentMoniker": "Domain\\Database\\DataBaseTable.cs",
-              "ToolTip": "D:\\Nikola Faks\\HCIProjekatPR68-2023\\Domain\\Database\\DataBaseTable.cs",
-              "RelativeToolTip": "Domain\\Database\\DataBaseTable.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAUAAAAAAAAAA==",
+              "DocumentIndex": 11,
+              "Title": "MainWindow.xaml.cs",
+              "DocumentMoniker": "D:\\Nikola Faks\\HCIProjekatPR68-2023\\Presentation\\MainWindow.xaml.cs",
+              "RelativeDocumentMoniker": "Presentation\\MainWindow.xaml.cs",
+              "ToolTip": "D:\\Nikola Faks\\HCIProjekatPR68-2023\\Presentation\\MainWindow.xaml.cs*",
+              "RelativeToolTip": "Presentation\\MainWindow.xaml.cs*",
+              "ViewState": "AgIAAGUAAAAAAAAAAAAkwH0AAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-08T22:31:12.89Z"
+              "WhenOpened": "2026-04-08T22:27:16.148Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 12,
+              "Title": "ListWindow.xaml",
+              "DocumentMoniker": "D:\\Nikola Faks\\HCIProjekatPR68-2023\\Presentation\\ListWindow.xaml",
+              "RelativeDocumentMoniker": "Presentation\\ListWindow.xaml",
+              "ToolTip": "D:\\Nikola Faks\\HCIProjekatPR68-2023\\Presentation\\ListWindow.xaml",
+              "RelativeToolTip": "Presentation\\ListWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-04-10T11:14:50.541Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "Volcano.cs",
+              "DocumentMoniker": "D:\\Nikola Faks\\HCIProjekatPR68-2023\\Domain\\Models\\Volcano.cs",
+              "RelativeDocumentMoniker": "Domain\\Models\\Volcano.cs",
+              "ToolTip": "D:\\Nikola Faks\\HCIProjekatPR68-2023\\Domain\\Models\\Volcano.cs",
+              "RelativeToolTip": "Domain\\Models\\Volcano.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-10T13:46:05.194Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "User.cs",
+              "DocumentMoniker": "D:\\Nikola Faks\\HCIProjekatPR68-2023\\Domain\\Models\\User.cs",
+              "RelativeDocumentMoniker": "Domain\\Models\\User.cs",
+              "ToolTip": "D:\\Nikola Faks\\HCIProjekatPR68-2023\\Domain\\Models\\User.cs",
+              "RelativeToolTip": "Domain\\Models\\User.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-08T23:44:21.057Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "AuthService.cs",
+              "DocumentMoniker": "D:\\Nikola Faks\\HCIProjekatPR68-2023\\Services\\AuthService\\AuthService.cs",
+              "RelativeDocumentMoniker": "Services\\AuthService\\AuthService.cs",
+              "ToolTip": "D:\\Nikola Faks\\HCIProjekatPR68-2023\\Services\\AuthService\\AuthService.cs",
+              "RelativeToolTip": "Services\\AuthService\\AuthService.cs",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAAwCsAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-08T23:43:00.219Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
               "Title": "App.xaml.cs",
               "DocumentMoniker": "D:\\Nikola Faks\\HCIProjekatPR68-2023\\Presentation\\App.xaml.cs",
               "RelativeDocumentMoniker": "Presentation\\App.xaml.cs",
@@ -220,19 +305,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "UsersXMLDataBase.cs",
-              "DocumentMoniker": "D:\\Nikola Faks\\HCIProjekatPR68-2023\\Database\\DataBase\\UsersXMLDataBase.cs",
-              "RelativeDocumentMoniker": "Database\\DataBase\\UsersXMLDataBase.cs",
-              "ToolTip": "D:\\Nikola Faks\\HCIProjekatPR68-2023\\Database\\DataBase\\UsersXMLDataBase.cs",
-              "RelativeToolTip": "Database\\DataBase\\UsersXMLDataBase.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAhAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-10T10:44:36.657Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 15,
               "Title": "IAuthService.cs",
               "DocumentMoniker": "D:\\Nikola Faks\\HCIProjekatPR68-2023\\Domain\\Services\\IAuthService.cs",
               "RelativeDocumentMoniker": "Domain\\Services\\IAuthService.cs",
@@ -240,12 +313,11 @@
               "RelativeToolTip": "Domain\\Services\\IAuthService.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-08T23:43:58.642Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-08T23:43:58.642Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 17,
               "Title": "App.xaml",
               "DocumentMoniker": "D:\\Nikola Faks\\HCIProjekatPR68-2023\\Presentation\\App.xaml",
               "RelativeDocumentMoniker": "Presentation\\App.xaml",
@@ -254,42 +326,6 @@
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
               "WhenOpened": "2026-04-10T11:15:08.409Z",
               "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 15,
-              "Title": "IDataBase.cs",
-              "DocumentMoniker": "D:\\Nikola Faks\\HCIProjekatPR68-2023\\Domain\\Database\\IDataBase.cs",
-              "RelativeDocumentMoniker": "Domain\\Database\\IDataBase.cs",
-              "ToolTip": "D:\\Nikola Faks\\HCIProjekatPR68-2023\\Domain\\Database\\IDataBase.cs",
-              "RelativeToolTip": "Domain\\Database\\IDataBase.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAfAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-08T22:30:27.558Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "IUserRepository.cs",
-              "DocumentMoniker": "D:\\Nikola Faks\\HCIProjekatPR68-2023\\Domain\\Repositories\\IUserRepository.cs",
-              "RelativeDocumentMoniker": "Domain\\Repositories\\IUserRepository.cs",
-              "ToolTip": "D:\\Nikola Faks\\HCIProjekatPR68-2023\\Domain\\Repositories\\IUserRepository.cs",
-              "RelativeToolTip": "Domain\\Repositories\\IUserRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAA7AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-08T23:45:48.385Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "UserRepository.cs",
-              "DocumentMoniker": "D:\\Nikola Faks\\HCIProjekatPR68-2023\\Database\\Repositories\\UserRepository.cs",
-              "RelativeDocumentMoniker": "Database\\Repositories\\UserRepository.cs",
-              "ToolTip": "D:\\Nikola Faks\\HCIProjekatPR68-2023\\Database\\Repositories\\UserRepository.cs",
-              "RelativeToolTip": "Database\\Repositories\\UserRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEEAAAANAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-09T00:16:34.213Z"
             }
           ]
         }
