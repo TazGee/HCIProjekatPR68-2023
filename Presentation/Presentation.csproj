@@ -10,12 +10,19 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Resources\avatar.png" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\Database\Database.csproj" />
     <ProjectReference Include="..\Domain\Domain.csproj" />
     <ProjectReference Include="..\Services\Services.csproj" />
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Resources\avatar.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="Resources\vulcan.png" />
     <Resource Include="Resources\vulcan-bg.png" />
   </ItemGroup>

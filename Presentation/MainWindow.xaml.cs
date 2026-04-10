@@ -64,7 +64,7 @@ namespace Presentation
 
             if (uspesno)
             {
-                ListWindow lw = new ListWindow();
+                ListWindow lw = new ListWindow(korisnik);
                 lw.Show();
                 this.Hide();
             }
@@ -94,7 +94,7 @@ namespace Presentation
 
 ;           if (uspesno)
             {
-                ListWindow lw = new ListWindow();
+                ListWindow lw = new ListWindow(korisnik);
                 lw.Show();
                 this.Hide();
             }
