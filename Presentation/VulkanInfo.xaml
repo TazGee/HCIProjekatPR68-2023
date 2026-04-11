@@ -14,39 +14,7 @@
     <Grid>
         <Border CornerRadius="30" Background="Gray" BorderBrush="Orange" BorderThickness="5">
             <Grid>
-                <Button Content="X"
-                    Grid.Row="1"
-                    Width="30"
-                    Height="30"
-                    HorizontalAlignment="Right"
-                    VerticalAlignment="Top"
-                    Margin="0,10,10,0"
-                    Background="Transparent"
-                    Foreground="White"
-                    FontWeight="Bold"
-                    BorderBrush="Orange"
-                    BorderThickness="2"
-                    Click="Close_Click">
-                    <Button.Template>
-                        <ControlTemplate TargetType="Button">
-                            <Border CornerRadius="10"
-                    Background="{TemplateBinding Background}"
-                    BorderBrush="{TemplateBinding BorderBrush}"
-                    BorderThickness="{TemplateBinding BorderThickness}">
-                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                            </Border>
-                        </ControlTemplate>
-                    </Button.Template>
-                    <Button.Style>
-                        <Style TargetType="Button">
-                            <Style.Triggers>
-                                <Trigger Property="IsMouseOver" Value="True">
-                                    <Setter Property="Opacity" Value="0.7"/>
-                                </Trigger>
-                            </Style.Triggers>
-                        </Style>
-                    </Button.Style>
-                </Button>
+                
 
                 <Image Source="/Resources/volcano.png" Opacity="0.3"/>
 
@@ -61,7 +29,7 @@
                                FontSize="26"
                                FontWeight="Bold"
                              HorizontalContentAlignment="Center"
-                             Width="280"
+                             Width="230"
                                Margin="6"
                                Grid.Row="0"
                                 Background="Transparent"
@@ -84,9 +52,8 @@
                             <Grid>
                                 <Image x:Name="SlikaVulkana" Source="/Resources/volcano.png" Width="125" Height="125" VerticalAlignment="Center" HorizontalAlignment="Center"/>
                                 <Button Background="Transparent"
-                                        Width="140"
-                                        Height="140"
-                                        Click="PromeniSliku"/>
+                                        Click="PromeniSliku"
+                                        x:Name="PromenaSlikeButton"/>
                             </Grid>
                         </Border>
                         <Grid Grid.Column="1">
@@ -202,7 +169,41 @@
                              Margin="3"/>
                     </Border>
                 </Grid>
+                <Button Content="X"
+    Grid.Row="1"
+    Width="30"
+    Height="30"
+    HorizontalAlignment="Right"
+    VerticalAlignment="Top"
+    Margin="0,10,10,0"
+    Background="Transparent"
+    Foreground="White"
+    FontWeight="Bold"
+    BorderBrush="Orange"
+    BorderThickness="2"
+    Click="Close_Click">
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <Border CornerRadius="10"
+    Background="{TemplateBinding Background}"
+    BorderBrush="{TemplateBinding BorderBrush}"
+    BorderThickness="{TemplateBinding BorderThickness}">
+                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            </Border>
+                        </ControlTemplate>
+                    </Button.Template>
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Opacity" Value="0.7"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                </Button>
             </Grid>
+            
         </Border>
     </Grid>
 </Window>

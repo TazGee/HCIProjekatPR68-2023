@@ -18,7 +18,10 @@ using Domain.Database;
 using Domain.Models;
 using Domain.Repositories;
 using Domain.Services;
+using Services.AddVolcanoService;
 using Services.AuthService;
+using Services.SetPhotoService;
+using Services.StoreRTFService;
 
 namespace Presentation
 {
@@ -39,13 +42,18 @@ namespace Presentation
         // Servisi
         IVolcanoUpdateService volcanoUpdateService;
         IStorePhotoService storePhotoService;
+        IAddVolcanoService addVolcanoService;
+        IStoreRTFService storeRTFService;
 
-        public ListWindow(User korisnik, MainWindow authWindow, IVolcanoRepository volcanoesRepo, IVolcanoUpdateService volcanoUpdateService, IStorePhotoService storePhotoService)
+        public ListWindow(User korisnik, MainWindow authWindow, IVolcanoRepository volcanoesRepo, IVolcanoUpdateService volcanoUpdateService, IStorePhotoService storePhotoService, IAddVolcanoService addVolcanoService, IStoreRTFService storeRTFService)
         {
             this.volcanoesRepo = volcanoesRepo;
             this.volcanoUpdateService = volcanoUpdateService;
             this.korisnik = korisnik;
             this.storePhotoService = storePhotoService;
+            this.addVolcanoService = addVolcanoService;
+            this.storeRTFService = storeRTFService;
+
             InitializeComponent();
 
             UsernameButton.Content = korisnik.Username;
@@ -69,6 +77,11 @@ namespace Presentation
             {
                 Volcanoes.Add(v);
             }
+        }
+        private void DodajVulkanWindow(object sender, RoutedEventArgs e)
+        {
+            DodajVulkan dv = new DodajVulkan(addVolcanoService, this, storePhotoService, storeRTFService);
+            dv.Show();
         }
 
         private void Naziv_Click(object sender, RoutedEventArgs e)

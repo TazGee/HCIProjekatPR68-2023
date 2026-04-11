@@ -133,7 +133,8 @@
                                         BorderBrush="DarkOrange"
                                         Background="LightGreen"
                                         HorizontalContentAlignment="Center"
-                                        VerticalContentAlignment="Center">
+                                        VerticalContentAlignment="Center"
+                                        Click="DodajVulkanWindow">
                                     <Button.Resources>
                                         <Style TargetType="{x:Type Border}">
                                             <Setter Property="CornerRadius" Value="13"/>
