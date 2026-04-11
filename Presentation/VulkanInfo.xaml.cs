@@ -65,9 +65,7 @@ namespace Presentation
         {
             if(menja)
             {
-                if (NazivVulkana.Text == "") MessageBox.Show("Morate popuniti polje za naziv!", "Greska!", MessageBoxButton.OK, MessageBoxImage.Error);
-                if (DrzavaVulkana.Text == "") MessageBox.Show("Morate popuniti polje za drzavu!", "Greska!", MessageBoxButton.OK, MessageBoxImage.Error);
-                if (VisinaVulkana.Text == "") MessageBox.Show("Morate popuniti polje za visinu!", "Greska!", MessageBoxButton.OK, MessageBoxImage.Error);
+                if (!CheckInput()) return;
 
                 if (MessageBox.Show("Da li sigurno zelite da sacuvate promene?", "Cuvanje promena...", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
                 {
@@ -85,6 +83,14 @@ namespace Presentation
             }
 
             menja = !menja;
+        }
+        bool CheckInput()
+        {
+            if (NazivVulkana.Text == "") { MessageBox.Show("Morate popuniti polje za naziv!", "Greska!", MessageBoxButton.OK, MessageBoxImage.Error); return false; }
+            if (DrzavaVulkana.Text == "") { MessageBox.Show("Morate popuniti polje za drzavu!", "Greska!", MessageBoxButton.OK, MessageBoxImage.Error); return false; }
+            if (VisinaVulkana.Text == "") { MessageBox.Show("Morate popuniti polje za visinu!", "Greska!", MessageBoxButton.OK, MessageBoxImage.Error); return false; }
+
+            return true;
         }
 
         private void PromeniSliku(object sender, RoutedEventArgs e)
@@ -129,6 +135,8 @@ namespace Presentation
             VisinaVulkana.Background = Brushes.LightGray;
             DrzavaVulkana.Background = Brushes.LightGray;
             NazivVulkana.Background = Brushes.LightGray;
+
+            PromenaSlikeButton.Visibility = Visibility.Visible;
         }
         void SpremiZaInfo()
         {
@@ -142,6 +150,8 @@ namespace Presentation
             VisinaVulkana.Background = Brushes.Transparent;
             DrzavaVulkana.Background = Brushes.Transparent;
             NazivVulkana.Background = Brushes.Transparent;
+
+            PromenaSlikeButton.Visibility = Visibility.Hidden;
 
             UpdateInfo();
         }

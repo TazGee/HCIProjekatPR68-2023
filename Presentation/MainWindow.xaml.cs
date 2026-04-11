@@ -21,6 +21,8 @@ using Domain.Models;
 using Database.DataBase;
 using Database.Repositories;
 using Services.VolcanoUpdateService;
+using Services.AddVolcanoService;
+using Services.StoreRTFService;
 
 
 namespace Presentation
@@ -36,8 +38,12 @@ namespace Presentation
 
         // Services
         IAuthService authService = new AuthService(userRepo);
+
         IVolcanoUpdateService volcanoUpdateService = new VolcanoUpdateService(volcanoesDatabase);
+        IAddVolcanoService addVolcanoService = new AddVolcanoService(volcanoesRepo);
+
         IStorePhotoService storePhotoService = new StorePhotoService();
+        IStoreRTFService storeRTFService = new StoreRTFService();
 
         // Korisnik
         User korisnik = new User();
@@ -71,7 +77,7 @@ namespace Presentation
 
             if (uspesno)
             {
-                ListWindow lw = new ListWindow(korisnik, this, volcanoesRepo, volcanoUpdateService, storePhotoService);
+                ListWindow lw = new ListWindow(korisnik, this, volcanoesRepo, volcanoUpdateService, storePhotoService, addVolcanoService, storeRTFService);
                 lw.Show();
                 this.Hide();
             }
@@ -103,7 +109,7 @@ namespace Presentation
 
 ;           if (uspesno)
             {
-                ListWindow lw = new ListWindow(korisnik, this, volcanoesRepo, volcanoUpdateService, storePhotoService);
+                ListWindow lw = new ListWindow(korisnik, this, volcanoesRepo, volcanoUpdateService, storePhotoService, addVolcanoService, storeRTFService);
                 lw.Show();
                 this.Hide();
             }
