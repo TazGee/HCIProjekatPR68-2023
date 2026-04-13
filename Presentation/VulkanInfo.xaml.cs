@@ -1,5 +1,11 @@
-﻿using System;
+﻿using Domain.Database;
+using Domain.Models;
+using Domain.Repositories;
+using Domain.Services;
+using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,11 +17,6 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using Domain.Database;
-using Domain.Models;
-using Domain.Repositories;
-using Domain.Services;
-using Microsoft.Win32;
 
 namespace Presentation
 {
@@ -58,6 +59,18 @@ namespace Presentation
             else
             {
                 SlikaVulkana.Source = new BitmapImage(new Uri(vulkan.PhotoPath));
+            }
+
+            LoadRtf(vulkan.RTFPath);
+        }
+
+        private void LoadRtf(string path)
+        {
+            TextRange range = new TextRange(RtfViewer.Document.ContentStart, RtfViewer.Document.ContentEnd);
+
+            using (FileStream fs = new FileStream(path, FileMode.Open))
+            {
+                range.Load(fs, DataFormats.Rtf);
             }
         }
 

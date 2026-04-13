@@ -23,6 +23,7 @@ using Database.Repositories;
 using Services.VolcanoUpdateService;
 using Services.AddVolcanoService;
 using Services.StoreRTFService;
+using Services.VolcanoDeleteService;
 
 
 namespace Presentation
@@ -41,6 +42,7 @@ namespace Presentation
 
         IVolcanoUpdateService volcanoUpdateService = new VolcanoUpdateService(volcanoesDatabase);
         IAddVolcanoService addVolcanoService = new AddVolcanoService(volcanoesRepo);
+        IVolcanoDeleteService volcanoDeleteService = new VolcanoDeleteService(volcanoesRepo, volcanoesDatabase);
 
         IStorePhotoService storePhotoService = new StorePhotoService();
         IStoreRTFService storeRTFService = new StoreRTFService();
@@ -77,7 +79,7 @@ namespace Presentation
 
             if (uspesno)
             {
-                ListWindow lw = new ListWindow(korisnik, this, volcanoesRepo, volcanoUpdateService, storePhotoService, addVolcanoService, storeRTFService);
+                ListWindow lw = new ListWindow(korisnik, this, volcanoesRepo, volcanoUpdateService, storePhotoService, addVolcanoService, storeRTFService, volcanoDeleteService);
                 lw.Show();
                 this.Hide();
             }
@@ -109,7 +111,7 @@ namespace Presentation
 
 ;           if (uspesno)
             {
-                ListWindow lw = new ListWindow(korisnik, this, volcanoesRepo, volcanoUpdateService, storePhotoService, addVolcanoService, storeRTFService);
+                ListWindow lw = new ListWindow(korisnik, this, volcanoesRepo, volcanoUpdateService, storePhotoService, addVolcanoService, storeRTFService, volcanoDeleteService);
                 lw.Show();
                 this.Hide();
             }

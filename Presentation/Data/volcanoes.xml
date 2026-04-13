@@ -1,42 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <DataBaseTable xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <Users />
-  <Volcanoes>
-    <Volcano>
-      <Id>1775847290</Id>
-      <NazivVulkana>Etna</NazivVulkana>
-      <Drzava>Italija</Drzava>
-      <Visina>3300</Visina>
-      <PhotoPath>D:\Nikola Faks\HCIProjekatPR68-2023\Presentation\Photos\volcano_1775847290.png</PhotoPath>
-      <RTFPath />
-      <DatumDodavanja>2026-04-10T22:05:58.5531838Z</DatumDodavanja>
-    </Volcano>
-    <Volcano>
-      <Id>1775847292</Id>
-      <NazivVulkana>Fudži</NazivVulkana>
-      <Drzava>Japan</Drzava>
-      <Visina>3776</Visina>
-      <PhotoPath>../../../Resources/volcano.png</PhotoPath>
-      <RTFPath />
-      <DatumDodavanja>2026-04-10T20:54:50.5101869+02:00</DatumDodavanja>
-    </Volcano>
-    <Volcano>
-      <Id>1775913510</Id>
-      <NazivVulkana>Test</NazivVulkana>
-      <Drzava>Testic</Drzava>
-      <Visina>4532</Visina>
-      <PhotoPath>D:\Nikola Faks\HCIProjekatPR68-2023\Presentation\Photos\volcano_167.png</PhotoPath>
-      <RTFPath>D:\Nikola Faks\HCIProjekatPR68-2023\Presentation\RTFs\volcano_590.rtf</RTFPath>
-      <DatumDodavanja>2026-04-11T13:18:30.3793328Z</DatumDodavanja>
-    </Volcano>
-    <Volcano>
-      <Id>1775913665</Id>
-      <NazivVulkana>tzgfhfg</NazivVulkana>
-      <Drzava>gfhgfj</Drzava>
-      <Visina>4244</Visina>
-      <PhotoPath>D:\Nikola Faks\HCIProjekatPR68-2023\Presentation\Photos\volcano_893.png</PhotoPath>
-      <RTFPath>D:\Nikola Faks\HCIProjekatPR68-2023\Presentation\RTFs\volcano_833.rtf</RTFPath>
-      <DatumDodavanja>2026-04-11T13:21:05.2789383Z</DatumDodavanja>
-    </Volcano>
-  </Volcanoes>
+  <Volcanoes />
 </DataBaseTable>
