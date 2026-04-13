@@ -1,5 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <DataBaseTable xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <Users />
-  <Volcanoes />
+  <Volcanoes>
+    <Volcano>
+      <Id>1776112833</Id>
+      <NazivVulkana>fghfgh</NazivVulkana>
+      <Drzava>fghfghgf</Drzava>
+      <Visina>1000</Visina>
+      <PhotoPath>D:\Projekti\HCIProjekatPR68-2023\Presentation\Photos\volcano_433.jpg</PhotoPath>
+      <RTFPath>D:\Projekti\HCIProjekatPR68-2023\Presentation\RTFs\volcano_450.rtf</RTFPath>
+      <DatumDodavanja>2026-04-13T20:40:33.6607093Z</DatumDodavanja>
+      <IsSelected>false</IsSelected>
+    </Volcano>
+  </Volcanoes>
 </DataBaseTable>

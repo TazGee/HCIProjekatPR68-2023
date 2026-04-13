@@ -31,7 +31,7 @@ namespace Presentation
         bool menja = false;
         string photoPath;
 
-        public VulkanInfo(Volcano vulkan, ListWindow listWindow, IVolcanoUpdateService volcanoUpdateService, IStorePhotoService storePhotoService)
+        public VulkanInfo(Volcano vulkan, ListWindow listWindow, IVolcanoUpdateService volcanoUpdateService, IStorePhotoService storePhotoService, User korisnik)
         {
             this.vulkan = vulkan;
             this.listWindow = listWindow;
@@ -43,6 +43,8 @@ namespace Presentation
             InitializeComponent();
 
             UpdateInfo();
+
+            if (!korisnik.Admin) IzmeniSacuvajVulkanButton.Visibility = Visibility.Hidden;
         }
 
         void UpdateInfo()

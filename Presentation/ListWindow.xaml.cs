@@ -37,6 +37,9 @@ namespace Presentation
         // Lista vulkana
         public ObservableCollection<Volcano> Volcanoes { get; set; }
 
+        // Korisnik
+        User korisnik;
+
         // Servisi
         IVolcanoUpdateService volcanoUpdateService;
         IStorePhotoService storePhotoService;
@@ -52,6 +55,8 @@ namespace Presentation
             this.addVolcanoService = addVolcanoService;
             this.storeRTFService = storeRTFService;
             this.volcanoDeleteService = volcanoDeleteService;
+
+            this.korisnik = korisnik;
 
             InitializeComponent();
 
@@ -109,7 +114,7 @@ namespace Presentation
             var volcano = hyperlink.DataContext as Volcano;
             if (volcano == null) return;
 
-            VulkanInfo vi = new VulkanInfo(volcano, this, volcanoUpdateService, storePhotoService);
+            VulkanInfo vi = new VulkanInfo(volcano, this, volcanoUpdateService, storePhotoService, korisnik);
             vi.Show();
         }
 
