@@ -164,7 +164,8 @@
                                         Background="IndianRed"
                                         HorizontalContentAlignment="Center"
                                         VerticalContentAlignment="Center"
-                                        Margin="7 0 0 0">
+                                        Margin="7 0 0 0"
+                                        Click="ObrisiVulkane">
                                     <Button.Resources>
                                         <Style TargetType="{x:Type Border}">
                                             <Setter Property="CornerRadius" Value="13"/>
@@ -218,7 +219,8 @@
 
                                                 <CheckBox VerticalAlignment="Center"
                                                           HorizontalAlignment="Center"
-                                                          Margin="10"/>
+                                                          Margin="10"
+                                                          IsChecked="{Binding IsSelected, Mode=TwoWay}"/>
 
                                                 <Border BorderBrush="Black"
                                                         Grid.Column="1"

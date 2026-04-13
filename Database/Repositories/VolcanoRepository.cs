@@ -37,7 +37,25 @@ namespace Database.Repositories
                 return new Volcano();
             }
         }
+        public bool DeleteVolcano(string volanoName)
+        {
+            try
+            {
+                Volcano postoji = FindVolcanoUsingName(volanoName);
 
+                if (postoji.NazivVulkana != string.Empty)
+                {
+                    database.Tabele.Volcanoes.Remove(postoji);
+                    return true;
+                }
+
+                return false;
+            }
+            catch
+            {
+                return false;
+            }
+        }
         public Volcano FindVolcanoUsingName(string name)
         {
             try

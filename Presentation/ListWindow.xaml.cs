@@ -1,4 +1,15 @@
-﻿using System;
+﻿using Database.DataBase;
+using Database.Repositories;
+using Domain.Database;
+using Domain.Models;
+using Domain.Repositories;
+using Domain.Services;
+using Services.AddVolcanoService;
+using Services.AuthService;
+using Services.SetPhotoService;
+using Services.StoreRTFService;
+using Services.VolcanoDeleteService;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -12,16 +23,6 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using Database.DataBase;
-using Database.Repositories;
-using Domain.Database;
-using Domain.Models;
-using Domain.Repositories;
-using Domain.Services;
-using Services.AddVolcanoService;
-using Services.AuthService;
-using Services.SetPhotoService;
-using Services.StoreRTFService;
 
 namespace Presentation
 {
@@ -29,9 +30,6 @@ namespace Presentation
     {
         // Database and Repos
         IVolcanoRepository volcanoesRepo;
-
-        // Korisnik
-        User korisnik = new User();
 
         // Auth prozor
         MainWindow authWindow;
@@ -44,15 +42,16 @@ namespace Presentation
         IStorePhotoService storePhotoService;
         IAddVolcanoService addVolcanoService;
         IStoreRTFService storeRTFService;
+        IVolcanoDeleteService volcanoDeleteService;
 
-        public ListWindow(User korisnik, MainWindow authWindow, IVolcanoRepository volcanoesRepo, IVolcanoUpdateService volcanoUpdateService, IStorePhotoService storePhotoService, IAddVolcanoService addVolcanoService, IStoreRTFService storeRTFService)
+        public ListWindow(User korisnik, MainWindow authWindow, IVolcanoRepository volcanoesRepo, IVolcanoUpdateService volcanoUpdateService, IStorePhotoService storePhotoService, IAddVolcanoService addVolcanoService, IStoreRTFService storeRTFService, IVolcanoDeleteService volcanoDeleteService)
         {
             this.volcanoesRepo = volcanoesRepo;
             this.volcanoUpdateService = volcanoUpdateService;
-            this.korisnik = korisnik;
             this.storePhotoService = storePhotoService;
             this.addVolcanoService = addVolcanoService;
             this.storeRTFService = storeRTFService;
+            this.volcanoDeleteService = volcanoDeleteService;
 
             InitializeComponent();
 
@@ -82,6 +81,20 @@ namespace Presentation
         {
             DodajVulkan dv = new DodajVulkan(addVolcanoService, this, storePhotoService, storeRTFService);
             dv.Show();
+        }
+        private void ObrisiVulkane(object sender, RoutedEventArgs e)
+        {
+            if (MessageBox.Show("Da li sigurno zelite da obrisete izabrane vulkane?", "Greska", MessageBoxButton.YesNo, MessageBoxImage.Question) != MessageBoxResult.Yes) return;
+
+            var zaBrisanje = Volcanoes.Where(v => v.IsSelected).ToList();
+
+            foreach (var v in zaBrisanje)
+            {
+                volcanoDeleteService.DeleteVolcano(v.NazivVulkana);
+                Volcanoes.Remove(v);
+            }
+
+            AzurirajListuVulkana();
         }
 
         private void Naziv_Click(object sender, RoutedEventArgs e)

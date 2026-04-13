@@ -3,40 +3,34 @@
   <Users />
   <Volcanoes>
     <Volcano>
-      <Id>1775847290</Id>
-      <NazivVulkana>Etna</NazivVulkana>
-      <Drzava>Italija</Drzava>
-      <Visina>3300</Visina>
-      <PhotoPath>D:\Nikola Faks\HCIProjekatPR68-2023\Presentation\Photos\volcano_1775847290.png</PhotoPath>
-      <RTFPath />
-      <DatumDodavanja>2026-04-10T22:05:58.5531838Z</DatumDodavanja>
+      <Id>1776106329</Id>
+      <NazivVulkana>Momčilo123</NazivVulkana>
+      <Drzava>Test</Drzava>
+      <Visina>182</Visina>
+      <PhotoPath>D:\Projekti\HCIProjekatPR68-2023\Presentation\Photos\volcano_661.png</PhotoPath>
+      <RTFPath>D:\Projekti\HCIProjekatPR68-2023\Presentation\RTFs\volcano_61.rtf</RTFPath>
+      <DatumDodavanja>2026-04-13T18:52:24.7590804Z</DatumDodavanja>
+      <IsSelected>false</IsSelected>
     </Volcano>
     <Volcano>
-      <Id>1775847292</Id>
-      <NazivVulkana>Fudži</NazivVulkana>
-      <Drzava>Japan</Drzava>
-      <Visina>3776</Visina>
-      <PhotoPath>../../../Resources/volcano.png</PhotoPath>
-      <RTFPath />
-      <DatumDodavanja>2026-04-10T20:54:50.5101869+02:00</DatumDodavanja>
+      <Id>1776107746</Id>
+      <NazivVulkana>retgfd</NazivVulkana>
+      <Drzava>fgdhfghgf</Drzava>
+      <Visina>5475</Visina>
+      <PhotoPath>D:\Projekti\HCIProjekatPR68-2023\Presentation\Photos\volcano_880.jpg</PhotoPath>
+      <RTFPath>D:\Projekti\HCIProjekatPR68-2023\Presentation\RTFs\volcano_906.rtf</RTFPath>
+      <DatumDodavanja>2026-04-13T19:15:46.8455491Z</DatumDodavanja>
+      <IsSelected>false</IsSelected>
     </Volcano>
     <Volcano>
-      <Id>1775913510</Id>
-      <NazivVulkana>Test</NazivVulkana>
-      <Drzava>Testic</Drzava>
-      <Visina>4532</Visina>
-      <PhotoPath>D:\Nikola Faks\HCIProjekatPR68-2023\Presentation\Photos\volcano_167.png</PhotoPath>
-      <RTFPath>D:\Nikola Faks\HCIProjekatPR68-2023\Presentation\RTFs\volcano_590.rtf</RTFPath>
-      <DatumDodavanja>2026-04-11T13:18:30.3793328Z</DatumDodavanja>
-    </Volcano>
-    <Volcano>
-      <Id>1775913665</Id>
-      <NazivVulkana>tzgfhfg</NazivVulkana>
-      <Drzava>gfhgfj</Drzava>
-      <Visina>4244</Visina>
-      <PhotoPath>D:\Nikola Faks\HCIProjekatPR68-2023\Presentation\Photos\volcano_893.png</PhotoPath>
-      <RTFPath>D:\Nikola Faks\HCIProjekatPR68-2023\Presentation\RTFs\volcano_833.rtf</RTFPath>
-      <DatumDodavanja>2026-04-11T13:21:05.2789383Z</DatumDodavanja>
+      <Id>1776107766</Id>
+      <NazivVulkana>fghgfhgf</NazivVulkana>
+      <Drzava>gfhfgh</Drzava>
+      <Visina>234234</Visina>
+      <PhotoPath>D:\Projekti\HCIProjekatPR68-2023\Presentation\Photos\volcano_208.png</PhotoPath>
+      <RTFPath>D:\Projekti\HCIProjekatPR68-2023\Presentation\RTFs\volcano_316.rtf</RTFPath>
+      <DatumDodavanja>2026-04-13T19:16:06.695418Z</DatumDodavanja>
+      <IsSelected>false</IsSelected>
     </Volcano>
   </Volcanoes>
 </DataBaseTable>
