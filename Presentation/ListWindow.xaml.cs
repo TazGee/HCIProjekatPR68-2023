@@ -84,13 +84,17 @@ namespace Presentation
         }
         private void ObrisiVulkane(object sender, RoutedEventArgs e)
         {
-            if (MessageBox.Show("Da li sigurno zelite da obrisete izabrane vulkane?", "Greska", MessageBoxButton.YesNo, MessageBoxImage.Question) != MessageBoxResult.Yes) return;
+            if (MessageBox.Show("Da li sigurno zelite da obrisete izabrane vulkane?", "Brisanje...", MessageBoxButton.YesNo, MessageBoxImage.Question) != MessageBoxResult.Yes) return;
 
             var zaBrisanje = Volcanoes.Where(v => v.IsSelected).ToList();
 
             foreach (var v in zaBrisanje)
             {
-                volcanoDeleteService.DeleteVolcano(v.NazivVulkana);
+                if(!volcanoDeleteService.DeleteVolcano(v.NazivVulkana))
+                {
+                    MessageBox.Show("Doslo je do greske prilikom brisanja!", "Greska", MessageBoxButton.OK, MessageBoxImage.Error);
+                    return;
+                }
                 Volcanoes.Remove(v);
             }
 

@@ -42,7 +42,7 @@ namespace Presentation
 
         IVolcanoUpdateService volcanoUpdateService = new VolcanoUpdateService(volcanoesDatabase);
         IAddVolcanoService addVolcanoService = new AddVolcanoService(volcanoesRepo);
-        IVolcanoDeleteService volcanoDeleteService = new VolcanoDeleteService(volcanoesRepo);
+        IVolcanoDeleteService volcanoDeleteService = new VolcanoDeleteService(volcanoesRepo, volcanoesDatabase);
 
         IStorePhotoService storePhotoService = new StorePhotoService();
         IStoreRTFService storeRTFService = new StoreRTFService();

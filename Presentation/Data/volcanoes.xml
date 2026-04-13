@@ -1,36 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <DataBaseTable xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <Users />
-  <Volcanoes>
-    <Volcano>
-      <Id>1776106329</Id>
-      <NazivVulkana>Momčilo123</NazivVulkana>
-      <Drzava>Test</Drzava>
-      <Visina>182</Visina>
-      <PhotoPath>D:\Projekti\HCIProjekatPR68-2023\Presentation\Photos\volcano_661.png</PhotoPath>
-      <RTFPath>D:\Projekti\HCIProjekatPR68-2023\Presentation\RTFs\volcano_61.rtf</RTFPath>
-      <DatumDodavanja>2026-04-13T18:52:24.7590804Z</DatumDodavanja>
-      <IsSelected>false</IsSelected>
-    </Volcano>
-    <Volcano>
-      <Id>1776107746</Id>
-      <NazivVulkana>retgfd</NazivVulkana>
-      <Drzava>fgdhfghgf</Drzava>
-      <Visina>5475</Visina>
-      <PhotoPath>D:\Projekti\HCIProjekatPR68-2023\Presentation\Photos\volcano_880.jpg</PhotoPath>
-      <RTFPath>D:\Projekti\HCIProjekatPR68-2023\Presentation\RTFs\volcano_906.rtf</RTFPath>
-      <DatumDodavanja>2026-04-13T19:15:46.8455491Z</DatumDodavanja>
-      <IsSelected>false</IsSelected>
-    </Volcano>
-    <Volcano>
-      <Id>1776107766</Id>
-      <NazivVulkana>fghgfhgf</NazivVulkana>
-      <Drzava>gfhfgh</Drzava>
-      <Visina>234234</Visina>
-      <PhotoPath>D:\Projekti\HCIProjekatPR68-2023\Presentation\Photos\volcano_208.png</PhotoPath>
-      <RTFPath>D:\Projekti\HCIProjekatPR68-2023\Presentation\RTFs\volcano_316.rtf</RTFPath>
-      <DatumDodavanja>2026-04-13T19:16:06.695418Z</DatumDodavanja>
-      <IsSelected>false</IsSelected>
-    </Volcano>
-  </Volcanoes>
+  <Volcanoes />
 </DataBaseTable>
