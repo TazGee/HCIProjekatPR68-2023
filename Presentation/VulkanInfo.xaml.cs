@@ -18,15 +18,17 @@ namespace Presentation
 
         IVolcanoUpdateService volcanoUpdateService;
         IStorePhotoService storePhotoService;
+        IStoreRTFService storeRTFService;
 
         string photoPath;
 
-        public VulkanInfo(Volcano vulkan, ListWindow listWindow, IVolcanoUpdateService volcanoUpdateService, IStorePhotoService storePhotoService, User korisnik)
+        public VulkanInfo(Volcano vulkan, ListWindow listWindow, IVolcanoUpdateService volcanoUpdateService, IStorePhotoService storePhotoService, User korisnik, IStoreRTFService storeRTFService)
         {
             this.vulkan = vulkan;
             this.listWindow = listWindow;
             this.volcanoUpdateService = volcanoUpdateService;
             this.storePhotoService = storePhotoService;
+            this.storeRTFService = storeRTFService;
 
             photoPath = vulkan.PhotoPath;
 
@@ -42,7 +44,7 @@ namespace Presentation
         {
             NazivVulkanaText.Text = vulkan.NazivVulkana;
             DrzavaText.Text = "Drzava: " + vulkan.Drzava;
-            VisinaText.Text = "Visina: " + vulkan.Visina;
+            VisinaText.Text = "Visina:  " + vulkan.Visina;
             DatumDodavanja.Text = vulkan.DatumDodavanja.ToString();
 
             if (string.IsNullOrEmpty(vulkan.PhotoPath) || !File.Exists(vulkan.PhotoPath))
@@ -78,6 +80,11 @@ namespace Presentation
         private void SacuvajVulkan(object sender, RoutedEventArgs e)
         {
             if (!CheckInput()) return;
+            if (!storeRTFService.UpdateRTF(GetRTF(), vulkan.RTFPath))
+            {
+                MessageBox.Show("Doslo je do greske prilikom cuvanja rtf fajla!", "Greska!", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
 
             if (MessageBox.Show("Da li sigurno zelite da sacuvate promene?", "Cuvanje promena...", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
             {
@@ -89,6 +96,16 @@ namespace Presentation
             }
 
             listWindow.AzurirajListuVulkana();
+        }
+        private byte[] GetRTF()
+        {
+            TextRange range = new TextRange(RtfViewer.Document.ContentStart, RtfViewer.Document.ContentEnd);
+
+            using (MemoryStream ms = new MemoryStream())
+            {
+                range.Save(ms, DataFormats.Rtf);
+                return ms.ToArray();
+            }
         }
         bool CheckInput()
         {
@@ -139,8 +156,8 @@ namespace Presentation
             IzmeniSacuvajVulkanButton.Background = Brushes.LightGreen;
 
             NazivVulkanaText.Text = "";
-            DrzavaText.Text = "Drzava:";
-            VisinaText.Text = "Visina:";
+            DrzavaText.Text = "Drzava: ";
+            VisinaText.Text = "Visina:  ";
 
             NazivVulkana.Text = vulkan.NazivVulkana;
             DrzavaVulkana.Text = vulkan.Drzava;

@@ -23,5 +23,18 @@ namespace Services.StoreRTFService
                 return String.Empty;
             }
         }
+        public bool UpdateRTF(byte[] rtfData, string path)
+        {
+            try
+            {
+                File.WriteAllBytes(path, rtfData);
+
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
     }
 }

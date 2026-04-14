@@ -87,6 +87,7 @@
                                 <Button Background="Transparent"
                                         Click="PromeniSliku"
                                         x:Name="PromenaSlikeButton"
+                                        BorderBrush="Transparent"
                                         Cursor="Hand">
                                     <TextBlock TextAlignment="Center" FontWeight="Bold" FontSize="13">
                                         Pritisni za

@@ -180,7 +180,7 @@ namespace Presentation
             var volcano = hyperlink.DataContext as Volcano;
             if (volcano == null) return;
 
-            VulkanInfo vi = new VulkanInfo(volcano, this, volcanoUpdateService, storePhotoService, korisnik);
+            VulkanInfo vi = new VulkanInfo(volcano, this, volcanoUpdateService, storePhotoService, korisnik, storeRTFService);
             vi.Show();
         }
 

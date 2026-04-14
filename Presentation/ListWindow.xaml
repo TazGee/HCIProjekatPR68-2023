@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="Lista vulkana" Height="500" Width="800"
         WindowStyle="None"
-        AllowsTransparency="False"
+        AllowsTransparency="True"
         Background="Transparent"
         MouseDown="Window_MouseDown"
         ResizeMode="CanResize"
