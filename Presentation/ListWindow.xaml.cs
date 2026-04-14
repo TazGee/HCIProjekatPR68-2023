@@ -47,6 +47,7 @@ namespace Presentation
         IAddVolcanoService addVolcanoService;
         IStoreRTFService storeRTFService;
         IVolcanoDeleteService volcanoDeleteService;
+        IRTFTextEditingService rtfTextEditingService;
 
         // Select all
         private bool _isUpdating = false;
@@ -94,7 +95,7 @@ namespace Presentation
             }
         }
 
-        public ListWindow(User korisnik, MainWindow authWindow, IVolcanoRepository volcanoesRepo, IVolcanoUpdateService volcanoUpdateService, IStorePhotoService storePhotoService, IAddVolcanoService addVolcanoService, IStoreRTFService storeRTFService, IVolcanoDeleteService volcanoDeleteService)
+        public ListWindow(User korisnik, MainWindow authWindow, IVolcanoRepository volcanoesRepo, IVolcanoUpdateService volcanoUpdateService, IStorePhotoService storePhotoService, IAddVolcanoService addVolcanoService, IStoreRTFService storeRTFService, IVolcanoDeleteService volcanoDeleteService, IRTFTextEditingService rtfTextEditingService)
         {
             this.volcanoesRepo = volcanoesRepo;
             this.volcanoUpdateService = volcanoUpdateService;
@@ -102,6 +103,7 @@ namespace Presentation
             this.addVolcanoService = addVolcanoService;
             this.storeRTFService = storeRTFService;
             this.volcanoDeleteService = volcanoDeleteService;
+            this.rtfTextEditingService = rtfTextEditingService;
 
             this.korisnik = korisnik;
 
@@ -144,13 +146,13 @@ namespace Presentation
             else if (Volcanoes.All(v => !v.IsSelected))
                 _selectAll = false;
             else
-                _selectAll = null; // 🔥 indeterminate
+                _selectAll = null;
 
             OnPropertyChanged(nameof(SelectAll));
         }
         private void DodajVulkanWindow(object sender, RoutedEventArgs e)
         {
-            DodajVulkan dv = new DodajVulkan(addVolcanoService, this, storePhotoService, storeRTFService);
+            DodajVulkan dv = new DodajVulkan(addVolcanoService, this, storePhotoService, storeRTFService, rtfTextEditingService);
             dv.Show();
         }
         private void ObrisiVulkane(object sender, RoutedEventArgs e)
@@ -180,7 +182,7 @@ namespace Presentation
             var volcano = hyperlink.DataContext as Volcano;
             if (volcano == null) return;
 
-            VulkanInfo vi = new VulkanInfo(volcano, this, volcanoUpdateService, storePhotoService, korisnik, storeRTFService);
+            VulkanInfo vi = new VulkanInfo(volcano, this, volcanoUpdateService, storePhotoService, korisnik, storeRTFService, rtfTextEditingService);
             vi.Show();
         }
 

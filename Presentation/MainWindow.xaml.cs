@@ -24,6 +24,7 @@ using Services.VolcanoUpdateService;
 using Services.AddVolcanoService;
 using Services.StoreRTFService;
 using Services.VolcanoDeleteService;
+using Services.RTFTextEditingService;
 
 
 namespace Presentation
@@ -46,6 +47,8 @@ namespace Presentation
 
         IStorePhotoService storePhotoService = new StorePhotoService();
         IStoreRTFService storeRTFService = new StoreRTFService();
+
+        IRTFTextEditingService rtfTextEditingService = new RTFTextEditingService();
 
         // Korisnik
         User korisnik = new User();
@@ -79,7 +82,7 @@ namespace Presentation
 
             if (uspesno)
             {
-                ListWindow lw = new ListWindow(korisnik, this, volcanoesRepo, volcanoUpdateService, storePhotoService, addVolcanoService, storeRTFService, volcanoDeleteService);
+                ListWindow lw = new ListWindow(korisnik, this, volcanoesRepo, volcanoUpdateService, storePhotoService, addVolcanoService, storeRTFService, volcanoDeleteService, rtfTextEditingService);
                 lw.Show();
                 this.Hide();
             }
@@ -111,7 +114,7 @@ namespace Presentation
 
             if (uspesno)
             {
-                ListWindow lw = new ListWindow(korisnik, this, volcanoesRepo, volcanoUpdateService, storePhotoService, addVolcanoService, storeRTFService, volcanoDeleteService);
+                ListWindow lw = new ListWindow(korisnik, this, volcanoesRepo, volcanoUpdateService, storePhotoService, addVolcanoService, storeRTFService, volcanoDeleteService, rtfTextEditingService);
                 lw.Show();
                 this.Hide();
             }

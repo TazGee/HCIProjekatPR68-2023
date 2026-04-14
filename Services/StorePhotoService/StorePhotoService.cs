@@ -1,4 +1,5 @@
 ﻿using Domain.Services;
+using System.IO;
 
 namespace Services.SetPhotoService
 {

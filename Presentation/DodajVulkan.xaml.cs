@@ -1,6 +1,7 @@
 ﻿using Domain.Models;
 using Domain.Services;
 using Microsoft.Win32;
+using Services.RTFTextEditingService;
 using Services.SetPhotoService;
 using System;
 using System.IO;
@@ -18,20 +19,72 @@ namespace Presentation
         IAddVolcanoService addVolcanoService;
         IStorePhotoService storePhotoService;
         IStoreRTFService storeRTFService;
+        IRTFTextEditingService rtfTextEditingService;
 
         ListWindow lw;
 
         string photoPath = String.Empty;
         string rtfPath = String.Empty;
 
-        public DodajVulkan(IAddVolcanoService addVolcanoService, ListWindow lw, IStorePhotoService storePhotoService, IStoreRTFService storeRTFService)
+        public DodajVulkan(IAddVolcanoService addVolcanoService, ListWindow lw, IStorePhotoService storePhotoService, IStoreRTFService storeRTFService, IRTFTextEditingService rtfTextEditingService)
         {
             this.addVolcanoService = addVolcanoService;
             this.lw = lw;
             this.storePhotoService = storePhotoService;
             this.storeRTFService = storeRTFService;
+            this.rtfTextEditingService = rtfTextEditingService;
 
             InitializeComponent();
+
+            rtfTextEditingService.LoadFonts(FontCombo);
+            rtfTextEditingService.LoadColors(ColorCombo);
+            this.rtfTextEditingService = rtfTextEditingService;
+        }
+        private void BoldBtn_Click(object sender, RoutedEventArgs e)
+        {
+            EditingCommands.ToggleBold.Execute(null, RTFField);
+        }
+        private void ItalicBtn_Click(object sender, RoutedEventArgs e)
+        {
+            EditingCommands.ToggleItalic.Execute(null, RTFField);
+        }
+        private void UnderlineBtn_Click(object sender, RoutedEventArgs e)
+        {
+            EditingCommands.ToggleUnderline.Execute(null, RTFField);
+        }
+        private void FontCombo_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (FontCombo.SelectedItem is ComboBoxItem item)
+            {
+                RTFField.Selection.ApplyPropertyValue(TextElement.FontFamilyProperty, new FontFamily(item.Content.ToString()));
+            }
+        }
+        private void FontSizeCombo_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (FontSizeCombo.SelectedItem is ComboBoxItem item)
+            {
+                RTFField.Selection.ApplyPropertyValue(TextElement.FontSizeProperty, double.Parse(item.Content.ToString()));
+            }
+        }
+        private void ColorCombo_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (ColorCombo.SelectedItem is ComboBoxItem item)
+            {
+                Color color = (Color)item.Tag;
+
+                RTFField.Selection.ApplyPropertyValue(TextElement.ForegroundProperty, new SolidColorBrush(color));
+            }
+        }
+        private void RTFField_SelectionChanged(object sender, RoutedEventArgs e)
+        {
+            object weight = RTFField.Selection.GetPropertyValue(TextElement.FontWeightProperty);
+            BoldBtn.IsChecked = (weight != DependencyProperty.UnsetValue && weight.Equals(FontWeights.Bold));
+
+            object style = RTFField.Selection.GetPropertyValue(TextElement.FontStyleProperty);
+            ItalicBtn.IsChecked = (style != DependencyProperty.UnsetValue && style.Equals(FontStyles.Italic));
+
+            object underline = RTFField.Selection.GetPropertyValue(Inline.TextDecorationsProperty);
+            UnderlineBtn.IsChecked = (underline != DependencyProperty.UnsetValue && underline.Equals(TextDecorations.Underline));
         }
 
 

@@ -79,7 +79,7 @@
                                 HorizontalAlignment="Center"
                                 Background="White">
                             <Grid>
-                                <Image x:Name="SlikaVulkana" Source="/Resources/volcano.png" Width="125" Height="125" VerticalAlignment="Center" HorizontalAlignment="Center">
+                                <Image Stretch="UniformToFill" x:Name="SlikaVulkana" Source="/Resources/volcano.png" Width="125" Height="125" VerticalAlignment="Center" HorizontalAlignment="Center">
                                     <Image.Clip>
                                         <RectangleGeometry RadiusX="25" RadiusY="25" Rect="0,0,125,125"/>
                                     </Image.Clip>
@@ -178,10 +178,39 @@
                     <Grid Grid.Row="2">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
                             <RowDefinition Height="*" />
                         </Grid.RowDefinitions>
                         <TextBlock Text="Unesite opis vulkana..." TextAlignment="Center" FontSize="12" FontWeight="Bold" Margin="5" />
-                        <RichTextBox x:Name="RTFField" Grid.Row="1" Margin="15 0 15 15"/>
+                        <ToolBar Grid.Row="1" Margin="15 2 15 2">
+                            <ToggleButton Name="BoldBtn" Click="BoldBtn_Click" FontWeight="Bold" Width="30">
+                                B
+                            </ToggleButton>
+
+                            <ToggleButton Name="ItalicBtn" Click="ItalicBtn_Click" FontStyle="Italic" Width="30">
+                                I
+                            </ToggleButton>
+
+                            <ToggleButton Name="UnderlineBtn" Click="UnderlineBtn_Click" Width="30">
+                                U
+                            </ToggleButton>
+
+                            <Separator/>
+
+                            <ComboBox Name="FontCombo" Width="180" SelectionChanged="FontCombo_SelectionChanged"/>
+
+                            <ComboBox Name="FontSizeCombo" Width="60" SelectionChanged="FontSizeCombo_SelectionChanged">
+                                <ComboBoxItem Content="10"/>
+                                <ComboBoxItem Content="12"/>
+                                <ComboBoxItem Content="14"/>
+                                <ComboBoxItem Content="18"/>
+                                <ComboBoxItem Content="24"/>
+                                <ComboBoxItem Content="32"/>
+                            </ComboBox>
+                            <Separator/>
+                            <ComboBox Name="ColorCombo" Width="150" SelectionChanged="ColorCombo_SelectionChanged"/>
+                        </ToolBar>
+                        <RichTextBox x:Name="RTFField" Grid.Row="2" Margin="15 0 15 15" SelectionChanged="RTFField_SelectionChanged"/>
                     </Grid>
                     <Button Grid.Row="5"
                             Content="Dodaj vulkan"
