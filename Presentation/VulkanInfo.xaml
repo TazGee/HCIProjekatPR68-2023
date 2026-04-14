@@ -33,8 +33,16 @@
                                Margin="6"
                                Grid.Row="0"
                                 Background="Transparent"
-                             BorderBrush="Transparent"
-                             IsReadOnly="True"/>
+                             BorderBrush="Transparent"/>
+                    <TextBlock Text="NazivVulkana"
+                           x:Name="NazivVulkanaText"
+                           FontSize="26"
+                           FontWeight="Bold"
+                         Width="230"
+                           Margin="6"
+                           Grid.Row="0"
+                            Background="Transparent"
+                               TextAlignment="Center"/>
                     <Grid Grid.Row="1">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="2*" />
@@ -44,16 +52,22 @@
                                 Grid.Column="0"
                                 BorderThickness="3"
                                 CornerRadius="25"
-                                Padding="2"
                                 Width="130" Height="130"
                                 VerticalAlignment="Center"
                                 HorizontalAlignment="Center"
-                                Background="White">
+                                Background="White"
+                                ClipToBounds="True">
                             <Grid>
-                                <Image x:Name="SlikaVulkana" Source="/Resources/volcano.png" Width="125" Height="125" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-                                <Button Background="Transparent"
+                                <Image x:Name="SlikaVulkana" Stretch="Fill" Source="/Resources/randomTestLogo.jpg" VerticalAlignment="Center" HorizontalAlignment="Center">
+                                    <Image.Clip>
+                                        <RectangleGeometry RadiusX="25" RadiusY="25" Rect="0,0,125,125"/>
+                                    </Image.Clip>
+                                    </Image>
+                                    <Button Background="Transparent"
                                         Click="PromeniSliku"
-                                        x:Name="PromenaSlikeButton"/>
+                                        x:Name="PromenaSlikeButton"
+                                        BorderBrush="Transparent"
+                                        Cursor="Hand"/>
                             </Grid>
                         </Border>
                         <Grid Grid.Column="1">
@@ -70,15 +84,15 @@
                                     <ColumnDefinition Width="Auto" />
                                     <ColumnDefinition Width="Auto" />
                                 </Grid.ColumnDefinitions>
-                                <TextBlock Text="Drzava:"
+                                <TextBlock Text="Drzava: "
                                              FontSize="20"
                                                Margin="0 0 2 1"
                                               VerticalAlignment="Bottom"
                                               Grid.Row="0"
-                                            Background="Transparent"/>
+                                            Background="Transparent"
+                                           x:Name="DrzavaText"/>
                                 <TextBox Text="Kambodza"
                                        x:Name="DrzavaVulkana"
-                                     IsReadOnly="True"
                                        FontSize="20"
                                         Margin="0 0 15 0"
                                        VerticalContentAlignment="Bottom"
@@ -92,15 +106,15 @@
                                     <ColumnDefinition Width="Auto" />
                                     <ColumnDefinition Width="Auto" />
                                 </Grid.ColumnDefinitions>
-                                <TextBlock Text="Visina:"
+                                <TextBlock Text="Visina:  "
                                          FontSize="20"
                                            Margin="2 0 2 1"
                                           VerticalAlignment="Center"
                                           Grid.Row="0"
-                                        Background="Transparent"/>
+                                        Background="Transparent"
+                                           x:Name="VisinaText"/>
                                 <TextBox Text="2056m"
                                        x:Name="VisinaVulkana"
-                                     IsReadOnly="True"
                                        FontSize="20"
                                        VerticalContentAlignment="Center"
                                        Grid.Column="1"
@@ -117,7 +131,7 @@
                                         Margin="0 0 15 0"
                                      Background="Transparent"/>
 
-                            <Button Content="Izmenite vulkan"
+                            <Button Content="Sacuvajte izmene"
                                     x:Name="IzmeniSacuvajVulkanButton"
                                     Grid.Row="4"
                                     Height="25"
@@ -125,14 +139,15 @@
                                     HorizontalAlignment="Left"
                                     VerticalAlignment="Center"
                                     Margin="2 0 0 0"
-                                    Background="LightGray"
+                                    Background="LightGreen"
                                     Foreground="Black"
                                     FontWeight="Bold"
                                     BorderBrush="Orange"
                                     BorderThickness="2"
-                                    Click="IzmeniSacuvajVulkan"
+                                    Click="SacuvajVulkan"
                                     HorizontalContentAlignment="Center"
-                                    VerticalContentAlignment="Center">
+                                    VerticalContentAlignment="Center"
+                                    Cursor="Hand">
                                 <Button.Template>
                                     <ControlTemplate TargetType="Button">
                                         <Border CornerRadius="7"
@@ -164,9 +179,9 @@
                             Grid.Row="3"
                             Background="White"
                             Margin="15 5 15 15">
-                        <RichTextBox x:Name="RtfViewer" 
-                             IsReadOnly="True" 
-                             Margin="3"/>
+                        <RichTextBox x:Name="RtfViewer"
+                             Margin="3"
+                             BorderBrush="Transparent"/>
                     </Border>
                 </Grid>
                 <Button Content="X"
@@ -181,7 +196,8 @@
     FontWeight="Bold"
     BorderBrush="Orange"
     BorderThickness="2"
-    Click="Close_Click">
+    Click="Close_Click"
+                        Cursor="Hand">
                     <Button.Template>
                         <ControlTemplate TargetType="Button">
                             <Border CornerRadius="10"

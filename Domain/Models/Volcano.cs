@@ -23,6 +23,7 @@ namespace Domain.Models
             }
         }
         public event PropertyChangedEventHandler PropertyChanged;
+
         void PromenjenChecked(string name)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));

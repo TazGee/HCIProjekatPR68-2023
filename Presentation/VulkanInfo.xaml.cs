@@ -1,22 +1,13 @@
-﻿using Domain.Database;
-using Domain.Models;
-using Domain.Repositories;
+﻿using Domain.Models;
 using Domain.Services;
 using Microsoft.Win32;
 using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace Presentation
 {
@@ -27,16 +18,17 @@ namespace Presentation
 
         IVolcanoUpdateService volcanoUpdateService;
         IStorePhotoService storePhotoService;
+        IStoreRTFService storeRTFService;
 
-        bool menja = false;
         string photoPath;
 
-        public VulkanInfo(Volcano vulkan, ListWindow listWindow, IVolcanoUpdateService volcanoUpdateService, IStorePhotoService storePhotoService, User korisnik)
+        public VulkanInfo(Volcano vulkan, ListWindow listWindow, IVolcanoUpdateService volcanoUpdateService, IStorePhotoService storePhotoService, User korisnik, IStoreRTFService storeRTFService)
         {
             this.vulkan = vulkan;
             this.listWindow = listWindow;
             this.volcanoUpdateService = volcanoUpdateService;
             this.storePhotoService = storePhotoService;
+            this.storeRTFService = storeRTFService;
 
             photoPath = vulkan.PhotoPath;
 
@@ -44,17 +36,18 @@ namespace Presentation
 
             UpdateInfo();
 
-            if (!korisnik.Admin) IzmeniSacuvajVulkanButton.Visibility = Visibility.Hidden;
+            if (korisnik.Admin) SpremiZaEdit();
+            else SpremiZaInfo();
         }
 
         void UpdateInfo()
         {
-            NazivVulkana.Text = vulkan.NazivVulkana;
-            DrzavaVulkana.Text = vulkan.Drzava;
-            VisinaVulkana.Text = vulkan.Visina.ToString();
+            NazivVulkanaText.Text = vulkan.NazivVulkana;
+            DrzavaText.Text = "Drzava: " + vulkan.Drzava;
+            VisinaText.Text = "Visina:  " + vulkan.Visina;
             DatumDodavanja.Text = vulkan.DatumDodavanja.ToString();
 
-            if(vulkan.PhotoPath == String.Empty || vulkan.PhotoPath == null || vulkan.PhotoPath == "../../../Resources/volcano.png")
+            if (string.IsNullOrEmpty(vulkan.PhotoPath) || !File.Exists(vulkan.PhotoPath))
             {
                 SlikaVulkana.Source = new BitmapImage(new Uri("pack://application:,,,/Resources/volcano.png"));
             }
@@ -68,6 +61,13 @@ namespace Presentation
 
         private void LoadRtf(string path)
         {
+            if (string.IsNullOrEmpty(path) || !File.Exists(path))
+            {
+                RtfViewer.Document.Blocks.Clear();
+                RtfViewer.Document.Blocks.Add(new Paragraph(new Run("Nema opisa.")));
+                return;
+            }
+
             TextRange range = new TextRange(RtfViewer.Document.ContentStart, RtfViewer.Document.ContentEnd);
 
             using (FileStream fs = new FileStream(path, FileMode.Open))
@@ -76,28 +76,36 @@ namespace Presentation
             }
         }
 
-        private void IzmeniSacuvajVulkan(object sender, RoutedEventArgs e)
-        {
-            if(menja)
-            {
-                if (!CheckInput()) return;
 
-                if (MessageBox.Show("Da li sigurno zelite da sacuvate promene?", "Cuvanje promena...", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
+        private void SacuvajVulkan(object sender, RoutedEventArgs e)
+        {
+            if (!CheckInput()) return;
+            if (!storeRTFService.UpdateRTF(GetRTF(), vulkan.RTFPath))
+            {
+                MessageBox.Show("Doslo je do greske prilikom cuvanja rtf fajla!", "Greska!", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+
+            if (MessageBox.Show("Da li sigurno zelite da sacuvate promene?", "Cuvanje promena...", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
+            {
+                if(!AzurirajVulkan())
                 {
-                    if(!AzurirajVulkan())
-                    {
-                        MessageBox.Show("Doslo je do greske prilikom cuvanja!", "Greska!", MessageBoxButton.OK, MessageBoxImage.Error);
-                        return;
-                    }
-                    SpremiZaInfo();
+                    MessageBox.Show("Doslo je do greske prilikom cuvanja!", "Greska!", MessageBoxButton.OK, MessageBoxImage.Error);
+                    return;
                 }
             }
-            else
-            {
-                SpremiZaEdit();
-            }
 
-            menja = !menja;
+            listWindow.AzurirajListuVulkana();
+        }
+        private byte[] GetRTF()
+        {
+            TextRange range = new TextRange(RtfViewer.Document.ContentStart, RtfViewer.Document.ContentEnd);
+
+            using (MemoryStream ms = new MemoryStream())
+            {
+                range.Save(ms, DataFormats.Rtf);
+                return ms.ToArray();
+            }
         }
         bool CheckInput()
         {
@@ -110,31 +118,35 @@ namespace Presentation
 
         private void PromeniSliku(object sender, RoutedEventArgs e)
         {
-            if(menja)
-            {
-                OpenFileDialog dialog = new OpenFileDialog(); 
+            OpenFileDialog dialog = new OpenFileDialog(); 
                 
-                dialog.Filter = "Slike (*.png;*.jpg)|*.png;*.jpg";
-                dialog.Title = "Izaberi sliku";
+            dialog.Filter = "Slike (*.png;*.jpg)|*.png;*.jpg";
+            dialog.Title = "Izaberi sliku";
 
-                if (dialog.ShowDialog() == true)
+            if (dialog.ShowDialog() == true)
+            {
+                string path = dialog.FileName;
+
+                photoPath = storePhotoService.CopyPhotoToPath(vulkan.Id, path);
+
+                if (photoPath != String.Empty)
                 {
-                    string path = dialog.FileName;
-
-                    photoPath = storePhotoService.CopyPhotoToPath(vulkan.Id, path);
-
-                    if (photoPath != String.Empty)
-                    {
-                        MessageBox.Show("Uspesno ste promenili sliku!", "Uspesno!", MessageBoxButton.OK, MessageBoxImage.Information);
-                    }
-
-                    SlikaVulkana.Source = new BitmapImage(new Uri(photoPath));
+                    MessageBox.Show("Uspesno ste promenili sliku!", "Uspesno!", MessageBoxButton.OK, MessageBoxImage.Information);
                 }
+
+                SlikaVulkana.Source = new BitmapImage(new Uri(photoPath));
             }
         }
 
         bool AzurirajVulkan()
         {
+            TextRange range = new TextRange(RtfViewer.Document.ContentStart, RtfViewer.Document.ContentEnd);
+
+            using (FileStream fs = new FileStream(vulkan.RTFPath, FileMode.Create))
+            {
+                range.Save(fs, DataFormats.Rtf);
+            }
+
             return volcanoUpdateService.UpdateVolcano(vulkan, NazivVulkana.Text, DrzavaVulkana.Text, VisinaVulkana.Text, photoPath);
         }
 
@@ -143,32 +155,38 @@ namespace Presentation
             IzmeniSacuvajVulkanButton.Content = "Sacuvaj vulkan";
             IzmeniSacuvajVulkanButton.Background = Brushes.LightGreen;
 
-            VisinaVulkana.IsReadOnly = false;
-            DrzavaVulkana.IsReadOnly = false;
-            NazivVulkana.IsReadOnly = false;
+            NazivVulkanaText.Text = "";
+            DrzavaText.Text = "Drzava: ";
+            VisinaText.Text = "Visina:  ";
+
+            NazivVulkana.Text = vulkan.NazivVulkana;
+            DrzavaVulkana.Text = vulkan.Drzava;
+            VisinaVulkana.Text = vulkan.Visina.ToString();
 
             VisinaVulkana.Background = Brushes.LightGray;
             DrzavaVulkana.Background = Brushes.LightGray;
             NazivVulkana.Background = Brushes.LightGray;
 
             PromenaSlikeButton.Visibility = Visibility.Visible;
+            NazivVulkanaText.Visibility = Visibility.Collapsed;
         }
         void SpremiZaInfo()
         {
             IzmeniSacuvajVulkanButton.Content = "Izmeni vulkan";
             IzmeniSacuvajVulkanButton.Background = Brushes.LightGray;
 
-            VisinaVulkana.IsReadOnly = true;
-            DrzavaVulkana.IsReadOnly = true;
-            NazivVulkana.IsReadOnly = true;
+            VisinaVulkana.Visibility = Visibility.Hidden;
+            DrzavaVulkana.Visibility = Visibility.Hidden;
+            NazivVulkana.Visibility = Visibility.Hidden;
+            RtfViewer.IsReadOnly = true;
 
-            VisinaVulkana.Background = Brushes.Transparent;
-            DrzavaVulkana.Background = Brushes.Transparent;
-            NazivVulkana.Background = Brushes.Transparent;
-
+            PromenaSlikeButton.Visibility = Visibility.Hidden; 
+            IzmeniSacuvajVulkanButton.Visibility = Visibility.Hidden;
             PromenaSlikeButton.Visibility = Visibility.Hidden;
 
             UpdateInfo();
+
+            listWindow.AzurirajListuVulkana();
         }
         private void Close_Click(object sender, RoutedEventArgs e)
         {

@@ -6,21 +6,34 @@ namespace Services.StoreRTFService
     {
         string photosPath = @"..\..\..\RTFs";
 
-        public string StoreRTF(long volcanoID, string sourcePath)
+        public string StoreRTF(byte[] rtfData)
         {
             try
             {
-                string fileName = "volcano_" + volcanoID + Path.GetExtension(sourcePath);
-                string photoFolderPath = Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, photosPath));
-                string destinationPath = Path.Combine(photoFolderPath, fileName);
+                string fileName = "volcano_" + DateTime.UtcNow.Microsecond + ".rtf";
+                string rtfFolderPath = Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, photosPath));
+                string destinationPath = Path.Combine(rtfFolderPath, fileName);
 
-                File.Copy(sourcePath, destinationPath, true);
+                File.WriteAllBytes(destinationPath, rtfData);
 
                 return destinationPath;
             }
             catch
             {
                 return String.Empty;
+            }
+        }
+        public bool UpdateRTF(byte[] rtfData, string path)
+        {
+            try
+            {
+                File.WriteAllBytes(path, rtfData);
+
+                return true;
+            }
+            catch
+            {
+                return false;
             }
         }
     }

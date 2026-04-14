@@ -1,12 +1,15 @@
-﻿using System;
-using System.Windows;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using Domain.Models;
+﻿using Domain.Models;
 using Domain.Services;
 using Microsoft.Win32;
 using Services.SetPhotoService;
+using System;
+using System.IO;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
 
 namespace Presentation
 {
@@ -35,6 +38,7 @@ namespace Presentation
         private void AddVulkan(object sender, RoutedEventArgs e)
         {
             if (!CheckInput()) return;
+            if (!KreirajRTF()) return;
 
             if (addVolcanoService.AddVolcano(new Volcano(NazivVulkana.Text, Drzava.Text, int.Parse(Visina.Text), photoPath, rtfPath, DateTime.UtcNow)))
             {
@@ -57,7 +61,6 @@ namespace Presentation
             if (Visina.Text == "") { MessageBox.Show("Morate popuniti polje za visinu!", "Greska!", MessageBoxButton.OK, MessageBoxImage.Error); return false; }
 
             if(photoPath == String.Empty || photoPath == null) { MessageBox.Show("Morate izabrati sliku!", "Greska!", MessageBoxButton.OK, MessageBoxImage.Error); return false; }
-            if (rtfPath == String.Empty || rtfPath == null) { MessageBox.Show("Morate izabrati rtf fajl!", "Greska!", MessageBoxButton.OK, MessageBoxImage.Error); return false; }
 
             return true;
         }
@@ -83,26 +86,26 @@ namespace Presentation
                 SlikaVulkana.Source = new BitmapImage(new Uri(photoPath));
             }
         }
-        private void PromeniRTF(object sender, RoutedEventArgs e)
+        private bool KreirajRTF()
         {
-            OpenFileDialog dialog = new OpenFileDialog();
-
-            dialog.Filter = "RTF (*.rtf)|*.rtf";
-            dialog.Title = "Izaberi RTF fajl";
-
-            if (dialog.ShowDialog() == true)
+            try
             {
-                string path = dialog.FileName;
+                rtfPath = storeRTFService.StoreRTF(GetRTF());
+                return true;
+            }
+            catch 
+            {
+                return false;
+            }
+        }
+        private byte[] GetRTF()
+        {
+            TextRange range = new TextRange(RTFField.Document.ContentStart, RTFField.Document.ContentEnd);
 
-                rtfPath = storeRTFService.StoreRTF(DateTime.UtcNow.Millisecond, path);
-
-                if (rtfPath != String.Empty)
-                {
-                    MessageBox.Show("Uspesno ste postavili rtf fajl!", "Uspesno!", MessageBoxButton.OK, MessageBoxImage.Information);
-                }
-
-                IzborRTFFajla.Content = path;
-                IzborRTFFajla.Background = Brushes.LightGreen;
+            using (MemoryStream ms = new MemoryStream())
+            {
+                range.Save(ms, DataFormats.Rtf);
+                return ms.ToArray();
             }
         }
         private void Close_Click(object sender, RoutedEventArgs e)

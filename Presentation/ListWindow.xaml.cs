@@ -12,6 +12,7 @@ using Services.VolcanoDeleteService;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -26,7 +27,7 @@ using System.Windows.Shapes;
 
 namespace Presentation
 {
-    public partial class ListWindow : Window
+    public partial class ListWindow : Window, INotifyPropertyChanged
     {
         // Database and Repos
         IVolcanoRepository volcanoesRepo;
@@ -46,6 +47,52 @@ namespace Presentation
         IAddVolcanoService addVolcanoService;
         IStoreRTFService storeRTFService;
         IVolcanoDeleteService volcanoDeleteService;
+
+        // Select all
+        private bool _isUpdating = false;
+
+        private bool? _selectAll = false;
+        public bool? SelectAll
+        {
+            get => _selectAll;
+            set
+            {
+                if (_isUpdating) return;
+
+                _isUpdating = true;
+
+                _selectAll = value;
+
+                if (value.HasValue)
+                {
+                    foreach (var v in Volcanoes)
+                        v.IsSelected = value.Value;
+                }
+
+                OnPropertyChanged(nameof(SelectAll));
+
+                _isUpdating = false;
+            }
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+        protected void OnPropertyChanged(string name)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
+        }
+        private void Vulkan_PropertyChanged(object sender, PropertyChangedEventArgs e)
+        {
+            if (_isUpdating) return;
+
+            if (e.PropertyName == nameof(Volcano.IsSelected))
+            {
+                _isUpdating = true;
+
+                UpdateSelectAllState();
+
+                _isUpdating = false;
+            }
+        }
 
         public ListWindow(User korisnik, MainWindow authWindow, IVolcanoRepository volcanoesRepo, IVolcanoUpdateService volcanoUpdateService, IStorePhotoService storePhotoService, IAddVolcanoService addVolcanoService, IStoreRTFService storeRTFService, IVolcanoDeleteService volcanoDeleteService)
         {
@@ -79,8 +126,27 @@ namespace Presentation
 
             foreach (Volcano v in volcanoesRepo.AllVolcanoes())
             {
+                v.PropertyChanged += Vulkan_PropertyChanged;
                 Volcanoes.Add(v);
             }
+            UpdateSelectAllState();
+        }
+        private void UpdateSelectAllState()
+        {
+            if (Volcanoes.Count == 0)
+            {
+                SelectAll = false;
+                return;
+            }
+
+            if (Volcanoes.All(v => v.IsSelected))
+                _selectAll = true;
+            else if (Volcanoes.All(v => !v.IsSelected))
+                _selectAll = false;
+            else
+                _selectAll = null; // 🔥 indeterminate
+
+            OnPropertyChanged(nameof(SelectAll));
         }
         private void DodajVulkanWindow(object sender, RoutedEventArgs e)
         {
@@ -114,7 +180,7 @@ namespace Presentation
             var volcano = hyperlink.DataContext as Volcano;
             if (volcano == null) return;
 
-            VulkanInfo vi = new VulkanInfo(volcano, this, volcanoUpdateService, storePhotoService, korisnik);
+            VulkanInfo vi = new VulkanInfo(volcano, this, volcanoUpdateService, storePhotoService, korisnik, storeRTFService);
             vi.Show();
         }
 
@@ -130,7 +196,13 @@ namespace Presentation
         }
         private void Close_Click(object sender, RoutedEventArgs e)
         {
-            Application.Current.Shutdown();
+            if (MessageBox.Show("Da li sigurno zelite da se izlogujete?", "Logout...", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
+            {
+                authWindow.Show();
+                authWindow.PrikaziPrijavu(sender, e);
+
+                this.Close();
+            }
         }
 
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)
