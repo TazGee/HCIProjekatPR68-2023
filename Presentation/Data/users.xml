@@ -5,19 +5,14 @@
       <Id>1775818876</Id>
       <Username>TazGee</Username>
       <Password>123</Password>
-      <Admin>true</Admin>
+      <Role>Admin</Role>
     </User>
     <User>
-      <Id>1775829507</Id>
+      <Id>1776180080</Id>
       <Username>Posetilac</Username>
-      <Password>posetilac</Password>
-      <Admin>false</Admin>
-    </User>
-    <User>
-      <Id>1775829676</Id>
-      <Username>Admin</Username>
-      <Password>admin123</Password>
-      <Admin>true</Admin>
+      <Password>123</Password>
+      <Role>Visitor</Role>
     </User>
   </Users>
+  <Volcanoes />
 </DataBaseTable>

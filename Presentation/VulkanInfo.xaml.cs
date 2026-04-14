@@ -1,13 +1,16 @@
 ﻿using Domain.Models;
 using Domain.Services;
 using Microsoft.Win32;
+using Services.RTFTextEditingService;
 using System;
 using System.IO;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using Domain.Enums;
 
 namespace Presentation
 {
@@ -22,7 +25,7 @@ namespace Presentation
 
         string photoPath;
 
-        public VulkanInfo(Volcano vulkan, ListWindow listWindow, IVolcanoUpdateService volcanoUpdateService, IStorePhotoService storePhotoService, User korisnik, IStoreRTFService storeRTFService)
+        public VulkanInfo(Volcano vulkan, ListWindow listWindow, IVolcanoUpdateService volcanoUpdateService, IStorePhotoService storePhotoService, User korisnik, IStoreRTFService storeRTFService, IRTFTextEditingService rtfTextEditingService)
         {
             this.vulkan = vulkan;
             this.listWindow = listWindow;
@@ -36,7 +39,12 @@ namespace Presentation
 
             UpdateInfo();
 
-            if (korisnik.Admin) SpremiZaEdit();
+            if (korisnik.Role == UserRoles.Admin)
+            {
+                SpremiZaEdit();
+                rtfTextEditingService.LoadFonts(FontCombo);
+                rtfTextEditingService.LoadColors(ColorCombo);
+            }
             else SpremiZaInfo();
         }
 
@@ -63,12 +71,12 @@ namespace Presentation
         {
             if (string.IsNullOrEmpty(path) || !File.Exists(path))
             {
-                RtfViewer.Document.Blocks.Clear();
-                RtfViewer.Document.Blocks.Add(new Paragraph(new Run("Nema opisa.")));
+                RTFField.Document.Blocks.Clear();
+                RTFField.Document.Blocks.Add(new Paragraph(new Run("Nema opisa.")));
                 return;
             }
 
-            TextRange range = new TextRange(RtfViewer.Document.ContentStart, RtfViewer.Document.ContentEnd);
+            TextRange range = new TextRange(RTFField.Document.ContentStart, RTFField.Document.ContentEnd);
 
             using (FileStream fs = new FileStream(path, FileMode.Open))
             {
@@ -76,6 +84,52 @@ namespace Presentation
             }
         }
 
+        public void BoldBtn_Click(object sender, RoutedEventArgs e)
+        {
+            EditingCommands.ToggleBold.Execute(null, RTFField);
+        }
+        public void ItalicBtn_Click(object sender, RoutedEventArgs e)
+        {
+            EditingCommands.ToggleItalic.Execute(null, RTFField);
+        }
+        public void UnderlineBtn_Click(object sender, RoutedEventArgs e)
+        {
+            EditingCommands.ToggleUnderline.Execute(null, RTFField);
+        }
+        public void FontCombo_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (FontCombo.SelectedItem is ComboBoxItem item)
+            {
+                RTFField.Selection.ApplyPropertyValue(TextElement.FontFamilyProperty, new FontFamily(item.Content.ToString()));
+            }
+        }
+        public void FontSizeCombo_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (FontSizeCombo.SelectedItem is ComboBoxItem item)
+            {
+                RTFField.Selection.ApplyPropertyValue(TextElement.FontSizeProperty, double.Parse(item.Content.ToString()));
+            }
+        }
+        public void ColorCombo_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (ColorCombo.SelectedItem is ComboBoxItem item)
+            {
+                Color color = (Color)item.Tag;
+
+                RTFField.Selection.ApplyPropertyValue(TextElement.ForegroundProperty, new SolidColorBrush(color));
+            }
+        }
+        public void RTFField_SelectionChanged(object sender, RoutedEventArgs e)
+        {
+            object weight = RTFField.Selection.GetPropertyValue(TextElement.FontWeightProperty);
+            BoldBtn.IsChecked = (weight != DependencyProperty.UnsetValue && weight.Equals(FontWeights.Bold));
+
+            object style = RTFField.Selection.GetPropertyValue(TextElement.FontStyleProperty);
+            ItalicBtn.IsChecked = (style != DependencyProperty.UnsetValue && style.Equals(FontStyles.Italic));
+
+            object underline = RTFField.Selection.GetPropertyValue(Inline.TextDecorationsProperty);
+            UnderlineBtn.IsChecked = (underline != DependencyProperty.UnsetValue && underline.Equals(TextDecorations.Underline));
+        }
 
         private void SacuvajVulkan(object sender, RoutedEventArgs e)
         {
@@ -99,7 +153,7 @@ namespace Presentation
         }
         private byte[] GetRTF()
         {
-            TextRange range = new TextRange(RtfViewer.Document.ContentStart, RtfViewer.Document.ContentEnd);
+            TextRange range = new TextRange(RTFField.Document.ContentStart, RTFField.Document.ContentEnd);
 
             using (MemoryStream ms = new MemoryStream())
             {
@@ -140,7 +194,7 @@ namespace Presentation
 
         bool AzurirajVulkan()
         {
-            TextRange range = new TextRange(RtfViewer.Document.ContentStart, RtfViewer.Document.ContentEnd);
+            TextRange range = new TextRange(RTFField.Document.ContentStart, RTFField.Document.ContentEnd);
 
             using (FileStream fs = new FileStream(vulkan.RTFPath, FileMode.Create))
             {
@@ -178,11 +232,12 @@ namespace Presentation
             VisinaVulkana.Visibility = Visibility.Hidden;
             DrzavaVulkana.Visibility = Visibility.Hidden;
             NazivVulkana.Visibility = Visibility.Hidden;
-            RtfViewer.IsReadOnly = true;
+            RTFField.IsReadOnly = true;
 
             PromenaSlikeButton.Visibility = Visibility.Hidden; 
             IzmeniSacuvajVulkanButton.Visibility = Visibility.Hidden;
             PromenaSlikeButton.Visibility = Visibility.Hidden;
+            RTFTextEditing.Visibility = Visibility.Collapsed;
 
             UpdateInfo();
 

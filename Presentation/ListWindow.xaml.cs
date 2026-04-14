@@ -1,29 +1,13 @@
-﻿using Database.DataBase;
-using Database.Repositories;
-using Domain.Database;
+﻿using Domain.Enums;
 using Domain.Models;
 using Domain.Repositories;
 using Domain.Services;
-using Services.AddVolcanoService;
-using Services.AuthService;
-using Services.SetPhotoService;
-using Services.StoreRTFService;
-using Services.VolcanoDeleteService;
-using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace Presentation
 {
@@ -47,6 +31,7 @@ namespace Presentation
         IAddVolcanoService addVolcanoService;
         IStoreRTFService storeRTFService;
         IVolcanoDeleteService volcanoDeleteService;
+        IRTFTextEditingService rtfTextEditingService;
 
         // Select all
         private bool _isUpdating = false;
@@ -94,7 +79,7 @@ namespace Presentation
             }
         }
 
-        public ListWindow(User korisnik, MainWindow authWindow, IVolcanoRepository volcanoesRepo, IVolcanoUpdateService volcanoUpdateService, IStorePhotoService storePhotoService, IAddVolcanoService addVolcanoService, IStoreRTFService storeRTFService, IVolcanoDeleteService volcanoDeleteService)
+        public ListWindow(User korisnik, MainWindow authWindow, IVolcanoRepository volcanoesRepo, IVolcanoUpdateService volcanoUpdateService, IStorePhotoService storePhotoService, IAddVolcanoService addVolcanoService, IStoreRTFService storeRTFService, IVolcanoDeleteService volcanoDeleteService, IRTFTextEditingService rtfTextEditingService)
         {
             this.volcanoesRepo = volcanoesRepo;
             this.volcanoUpdateService = volcanoUpdateService;
@@ -102,6 +87,7 @@ namespace Presentation
             this.addVolcanoService = addVolcanoService;
             this.storeRTFService = storeRTFService;
             this.volcanoDeleteService = volcanoDeleteService;
+            this.rtfTextEditingService = rtfTextEditingService;
 
             this.korisnik = korisnik;
 
@@ -110,7 +96,7 @@ namespace Presentation
             UsernameButton.Content = korisnik.Username;
             this.authWindow = authWindow;
 
-            if (korisnik.Admin) AdminPanelGrid.Visibility = Visibility.Visible;
+            if (korisnik.Role == UserRoles.Admin) AdminPanelGrid.Visibility = Visibility.Visible;
             else AdminPanelGrid.Visibility = Visibility.Hidden;
 
             Volcanoes = new ObservableCollection<Volcano>();
@@ -144,13 +130,13 @@ namespace Presentation
             else if (Volcanoes.All(v => !v.IsSelected))
                 _selectAll = false;
             else
-                _selectAll = null; // 🔥 indeterminate
+                _selectAll = null;
 
             OnPropertyChanged(nameof(SelectAll));
         }
         private void DodajVulkanWindow(object sender, RoutedEventArgs e)
         {
-            DodajVulkan dv = new DodajVulkan(addVolcanoService, this, storePhotoService, storeRTFService);
+            DodajVulkan dv = new DodajVulkan(addVolcanoService, this, storePhotoService, storeRTFService, rtfTextEditingService);
             dv.Show();
         }
         private void ObrisiVulkane(object sender, RoutedEventArgs e)
@@ -180,7 +166,7 @@ namespace Presentation
             var volcano = hyperlink.DataContext as Volcano;
             if (volcano == null) return;
 
-            VulkanInfo vi = new VulkanInfo(volcano, this, volcanoUpdateService, storePhotoService, korisnik, storeRTFService);
+            VulkanInfo vi = new VulkanInfo(volcano, this, volcanoUpdateService, storePhotoService, korisnik, storeRTFService, rtfTextEditingService);
             vi.Show();
         }
 

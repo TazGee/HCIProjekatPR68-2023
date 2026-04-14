@@ -1,29 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using Services.AuthService;
-using Services.SetPhotoService;
-using Domain.Services;
-using Domain.Database;
-using Domain.Repositories;
-using Domain.Models;
-using Database.DataBase;
+﻿using Database.DataBase;
 using Database.Repositories;
-using Services.VolcanoUpdateService;
+using Domain.Database;
+using Domain.Enums;
+using Domain.Models;
+using Domain.Repositories;
+using Domain.Services;
 using Services.AddVolcanoService;
+using Services.AuthService;
+using Services.RTFTextEditingService;
+using Services.SetPhotoService;
 using Services.StoreRTFService;
 using Services.VolcanoDeleteService;
+using Services.VolcanoUpdateService;
+using System.Windows;
+using System.Windows.Input;
 
 
 namespace Presentation
@@ -46,6 +36,8 @@ namespace Presentation
 
         IStorePhotoService storePhotoService = new StorePhotoService();
         IStoreRTFService storeRTFService = new StoreRTFService();
+
+        IRTFTextEditingService rtfTextEditingService = new RTFTextEditingService();
 
         // Korisnik
         User korisnik = new User();
@@ -79,7 +71,7 @@ namespace Presentation
 
             if (uspesno)
             {
-                ListWindow lw = new ListWindow(korisnik, this, volcanoesRepo, volcanoUpdateService, storePhotoService, addVolcanoService, storeRTFService, volcanoDeleteService);
+                ListWindow lw = new ListWindow(korisnik, this, volcanoesRepo, volcanoUpdateService, storePhotoService, addVolcanoService, storeRTFService, volcanoDeleteService, rtfTextEditingService);
                 lw.Show();
                 this.Hide();
             }
@@ -102,7 +94,7 @@ namespace Presentation
                 return;
             }
 
-            User k = new User(RegistracijaUsername.Text, RegistracijaPassword.Password, RegistracijaAdmin.IsChecked == true);
+            User k = new User(RegistracijaUsername.Text, RegistracijaPassword.Password, RegistracijaAdmin.IsChecked == true ? UserRoles.Visitor : UserRoles.Admin);
 
             bool uspesno;
             (uspesno, korisnik) = authService.Registracija(k);
@@ -111,7 +103,7 @@ namespace Presentation
 
             if (uspesno)
             {
-                ListWindow lw = new ListWindow(korisnik, this, volcanoesRepo, volcanoUpdateService, storePhotoService, addVolcanoService, storeRTFService, volcanoDeleteService);
+                ListWindow lw = new ListWindow(korisnik, this, volcanoesRepo, volcanoUpdateService, storePhotoService, addVolcanoService, storeRTFService, volcanoDeleteService, rtfTextEditingService);
                 lw.Show();
                 this.Hide();
             }
