@@ -12,7 +12,8 @@
         MouseDown="Window_MouseDown"
         ResizeMode="CanResize"
         MinWidth="600"
-        MinHeight="400">
+        MinHeight="400"
+        WindowStartupLocation="CenterScreen">
     <Grid>
         <Border CornerRadius="30" Background="Gray" BorderBrush="Orange" BorderThickness="5">
             <Grid Margin="0">
@@ -42,7 +43,8 @@
                                 FontWeight="Bold"
                                 BorderBrush="DarkOrange"
                                 BorderThickness="2"
-                                Click="Close_Click">
+                                Click="Close_Click"
+                                Cursor="Hand">
                             <Button.Template>
                                 <ControlTemplate TargetType="Button">
                                     <Border CornerRadius="10"
@@ -97,7 +99,8 @@
                                         Background="Transparent"
                                         HorizontalContentAlignment="Center"
                                         VerticalContentAlignment="Center"
-                                        Click="LogoutPrompt">
+                                        Click="LogoutPrompt"
+                                        Cursor="Hand">
                                     <Button.Resources>
                                         <Style TargetType="{x:Type Border}">
                                             <Setter Property="CornerRadius" Value="9"/>
@@ -119,6 +122,7 @@
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="Auto" />
                                     <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="Auto" />
                                 </Grid.ColumnDefinitions>
 
                                 <Button Grid.Column="0"
@@ -134,7 +138,8 @@
                                         Background="LightGreen"
                                         HorizontalContentAlignment="Center"
                                         VerticalContentAlignment="Center"
-                                        Click="DodajVulkanWindow">
+                                        Click="DodajVulkanWindow"
+                                        Cursor="Hand">
                                     <Button.Resources>
                                         <Style TargetType="{x:Type Border}">
                                             <Setter Property="CornerRadius" Value="13"/>
@@ -165,7 +170,8 @@
                                         HorizontalContentAlignment="Center"
                                         VerticalContentAlignment="Center"
                                         Margin="7 0 0 0"
-                                        Click="ObrisiVulkane">
+                                        Click="ObrisiVulkane"
+                                        Cursor="Hand">
                                     <Button.Resources>
                                         <Style TargetType="{x:Type Border}">
                                             <Setter Property="CornerRadius" Value="13"/>
@@ -181,7 +187,16 @@
                                         </Style>
                                     </Button.Style>
                                 </Button>
-
+                                <CheckBox Grid.Column="2"
+                                          x:Name="CheckAllCheckbox"
+                                          Content="Izaberi sve vulkane"
+                                          Margin="10 0 0 0"
+                                          FontSize="15"
+                                          VerticalAlignment="Center"
+                                          VerticalContentAlignment="Center"
+                                          FontWeight="Bold"
+                                          IsThreeState="True"
+                                          IsChecked="{Binding SelectAll, Mode=TwoWay}"/>
                             </Grid>
                         </Grid>
                     </Grid>
@@ -204,8 +219,7 @@
                                 <ItemsControl.ItemTemplate>
                                     <DataTemplate>
                                         <Border CornerRadius="12" 
-                                                Background="White" 
-                                                Opacity="0.5"
+                                                Background="#80FFFFFF"
                                                 Height="80"
                                                 Margin="5">
 
@@ -224,12 +238,16 @@
 
                                                 <Border BorderBrush="Black"
                                                         Grid.Column="1"
-                                                        BorderThickness="2"
+                                                        BorderThickness="3"
                                                         CornerRadius="12"
-                                                        Padding="2"
                                                         Width="50" Height="50"
-                                                        Margin="0 15 0 15">
-                                                    <Image Source="{Binding PhotoPath}" Stretch="Fill"/>
+                                                        Margin="0 15 0 15"
+                                                        ClipToBounds="True">
+                                                    <Image Source="{Binding PhotoPath}" Stretch="Fill">
+                                                        <Image.Clip>
+                                                            <RectangleGeometry RadiusX="12" RadiusY="12" Rect="0,0,45,45"/>
+                                                        </Image.Clip>
+                                                    </Image>
                                                 </Border>
 
                                                 <Grid Grid.Column="2">

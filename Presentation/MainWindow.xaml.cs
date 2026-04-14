@@ -109,7 +109,7 @@ namespace Presentation
 
             OcistiSvaPolja();
 
-;           if (uspesno)
+            if (uspesno)
             {
                 ListWindow lw = new ListWindow(korisnik, this, volcanoesRepo, volcanoUpdateService, storePhotoService, addVolcanoService, storeRTFService, volcanoDeleteService);
                 lw.Show();
@@ -128,6 +128,9 @@ namespace Presentation
 
             RegistracijaUsername.Text = "";
             RegistracijaPassword.Password = "";
+
+            AuthLoginErrorText.Text = "";
+            AuthRegErrorText.Text = "";
         }
         public void PrikaziRegistraciju(object sender, RoutedEventArgs e)
         {

@@ -2,6 +2,6 @@
 {
     public interface IStoreRTFService
     {
-        public string StoreRTF(long volcanoID, string sourcePath);
+        public string StoreRTF(byte[] rtfData);
     }
 }

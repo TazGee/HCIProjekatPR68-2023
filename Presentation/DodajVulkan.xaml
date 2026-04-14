@@ -10,7 +10,7 @@
         Background="Transparent"
         MouseDown="Window_MouseDown"
         Width="400"
-        Height="350">
+        Height="480">
     <Grid>
         <Border CornerRadius="30" Background="Gray" BorderBrush="Orange" BorderThickness="5">
             <Grid>
@@ -26,7 +26,8 @@
                     FontWeight="Bold"
                     BorderBrush="Orange"
                     BorderThickness="2"
-                    Click="Close_Click">
+                    Click="Close_Click"
+                    Cursor="Hand">
                     <Button.Template>
                         <ControlTemplate TargetType="Button">
                             <Border CornerRadius="10"
@@ -53,9 +54,9 @@
                 <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto" />
-                        <RowDefinition Height="2*" />
-                        <RowDefinition Height="0.5*" />
-                        <RowDefinition Height="0.6*" />
+                        <RowDefinition Height="2.3*" />
+                        <RowDefinition Height="3*" />
+                        <RowDefinition Height="1*" />
                     </Grid.RowDefinitions>
 
                     <TextBlock Grid.Row="0"
@@ -73,16 +74,20 @@
                                 Grid.Column="0"
                                 BorderThickness="3"
                                 CornerRadius="25"
-                                Padding="2"
                                 Width="130" Height="130"
                                 VerticalAlignment="Center"
                                 HorizontalAlignment="Center"
                                 Background="White">
                             <Grid>
-                                <Image x:Name="SlikaVulkana" Source="/Resources/volcano.png" Width="125" Height="125" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                                <Image x:Name="SlikaVulkana" Source="/Resources/volcano.png" Width="125" Height="125" VerticalAlignment="Center" HorizontalAlignment="Center">
+                                    <Image.Clip>
+                                        <RectangleGeometry RadiusX="25" RadiusY="25" Rect="0,0,125,125"/>
+                                    </Image.Clip>
+                                </Image>
                                 <Button Background="Transparent"
                                         Click="PromeniSliku"
-                                        x:Name="PromenaSlikeButton">
+                                        x:Name="PromenaSlikeButton"
+                                        Cursor="Hand">
                                     <TextBlock TextAlignment="Center" FontWeight="Bold" FontSize="13">
                                         Pritisni za
                                         <LineBreak/>
@@ -93,7 +98,6 @@
                         </Border>
                         <Grid Grid.Column="1">
                             <Grid.RowDefinitions>
-                                <RowDefinition Height="*" />
                                 <RowDefinition Height="*" />
                                 <RowDefinition Height="*" />
                                 <RowDefinition Height="*" />
@@ -168,26 +172,16 @@
                                     </TextBox.Style>
                                 </TextBox>
                             </StackPanel>
-                            <StackPanel Grid.Row="3" HorizontalAlignment="Center">
-                                <TextBlock Text="Izaberite .rtf fajl"
-                                           FontSize="13"
-                                           Margin="0,0,0,2"
-                                           FontWeight="SemiBold"
-                                           HorizontalAlignment="Center"/>
-                                <Button x:Name="IzborRTFFajla" Click="PromeniRTF" Content="Pritisni za izbor..." Width="180" Height="27" FontWeight="Bold" FontSize="13" BorderThickness="2" BorderBrush="Orange" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
-                            </StackPanel>
                         </Grid>
                     </Grid>
-                    <TextBlock Text="Greska pri dodavanju..."
-                               x:Name="DodavanjeErrorText"
-                               Grid.Row="4"
-                               FontSize="13"
-                               Margin="0,0,0,5"
-                               FontWeight="SemiBold"
-                               HorizontalAlignment="Center"
-                               VerticalAlignment="Center"
-                               Foreground="Red"/>
-
+                    <Grid Grid.Row="2">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        <TextBlock Text="Unesite opis vulkana..." TextAlignment="Center" FontSize="12" FontWeight="Bold" Margin="5" />
+                        <RichTextBox x:Name="RTFField" Grid.Row="1" Margin="15 0 15 15"/>
+                    </Grid>
                     <Button Grid.Row="5"
                             Content="Dodaj vulkan"
                             FontWeight="Bold"
@@ -199,7 +193,8 @@
                             BorderThickness="2" 
                             BorderBrush="Orange"
                             x:Name="DodajVulkanButton"
-                            Click="AddVulkan">
+                            Click="AddVulkan"
+                            Cursor="Hand">
                         <Button.Resources>
                             <Style TargetType="{x:Type Border}">
                                 <Setter Property="CornerRadius" Value="13"/>
