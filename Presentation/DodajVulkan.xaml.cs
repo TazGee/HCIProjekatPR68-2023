@@ -19,7 +19,6 @@ namespace Presentation
         IAddVolcanoService addVolcanoService;
         IStorePhotoService storePhotoService;
         IStoreRTFService storeRTFService;
-        IRTFTextEditingService rtfTextEditingService;
 
         ListWindow lw;
 
@@ -32,13 +31,11 @@ namespace Presentation
             this.lw = lw;
             this.storePhotoService = storePhotoService;
             this.storeRTFService = storeRTFService;
-            this.rtfTextEditingService = rtfTextEditingService;
 
             InitializeComponent();
 
             rtfTextEditingService.LoadFonts(FontCombo);
             rtfTextEditingService.LoadColors(ColorCombo);
-            this.rtfTextEditingService = rtfTextEditingService;
         }
         private void BoldBtn_Click(object sender, RoutedEventArgs e)
         {

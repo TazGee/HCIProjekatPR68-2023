@@ -10,6 +10,7 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using Domain.Enums;
 
 namespace Presentation
 {
@@ -21,7 +22,6 @@ namespace Presentation
         IVolcanoUpdateService volcanoUpdateService;
         IStorePhotoService storePhotoService;
         IStoreRTFService storeRTFService;
-        IRTFTextEditingService rtfTextEditingService;
 
         string photoPath;
 
@@ -32,7 +32,6 @@ namespace Presentation
             this.volcanoUpdateService = volcanoUpdateService;
             this.storePhotoService = storePhotoService;
             this.storeRTFService = storeRTFService;
-            this.rtfTextEditingService = rtfTextEditingService;
 
             photoPath = vulkan.PhotoPath;
 
@@ -40,7 +39,7 @@ namespace Presentation
 
             UpdateInfo();
 
-            if (korisnik.Admin)
+            if (korisnik.Role == UserRoles.Admin)
             {
                 SpremiZaEdit();
                 rtfTextEditingService.LoadFonts(FontCombo);

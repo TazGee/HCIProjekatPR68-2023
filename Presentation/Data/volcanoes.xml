@@ -2,25 +2,5 @@
 <DataBaseTable xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <Users />
   <Volcanoes>
-    <Volcano>
-      <Id>1776112833</Id>
-      <NazivVulkana>Vulkanče123</NazivVulkana>
-      <Drzava>Kurac</Drzava>
-      <Visina>1000</Visina>
-      <PhotoPath>D:\Projekti\HCIProjekatPR68-2023\Presentation\Photos\volcano_433.jpg</PhotoPath>
-      <RTFPath>D:\Projekti\HCIProjekatPR68-2023\Presentation\RTFs\volcano_450.rtf</RTFPath>
-      <DatumDodavanja>2026-04-14T14:18:38.4548208Z</DatumDodavanja>
-      <IsSelected>false</IsSelected>
-    </Volcano>
-    <Volcano>
-      <Id>1776177135</Id>
-      <NazivVulkana>dfggdfhgf</NazivVulkana>
-      <Drzava>hfghfghgfh</Drzava>
-      <Visina>32423</Visina>
-      <PhotoPath>D:\Projekti\HCIProjekatPR68-2023\Presentation\Photos\volcano_289.jpg</PhotoPath>
-      <RTFPath>D:\Projekti\HCIProjekatPR68-2023\Presentation\RTFs\volcano_168.rtf</RTFPath>
-      <DatumDodavanja>2026-04-14T14:33:07.1292191Z</DatumDodavanja>
-      <IsSelected>false</IsSelected>
-    </Volcano>
   </Volcanoes>
 </DataBaseTable>

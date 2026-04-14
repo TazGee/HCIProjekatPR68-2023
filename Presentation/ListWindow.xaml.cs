@@ -1,29 +1,13 @@
-﻿using Database.DataBase;
-using Database.Repositories;
-using Domain.Database;
+﻿using Domain.Enums;
 using Domain.Models;
 using Domain.Repositories;
 using Domain.Services;
-using Services.AddVolcanoService;
-using Services.AuthService;
-using Services.SetPhotoService;
-using Services.StoreRTFService;
-using Services.VolcanoDeleteService;
-using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace Presentation
 {
@@ -112,7 +96,7 @@ namespace Presentation
             UsernameButton.Content = korisnik.Username;
             this.authWindow = authWindow;
 
-            if (korisnik.Admin) AdminPanelGrid.Visibility = Visibility.Visible;
+            if (korisnik.Role == UserRoles.Admin) AdminPanelGrid.Visibility = Visibility.Visible;
             else AdminPanelGrid.Visibility = Visibility.Hidden;
 
             Volcanoes = new ObservableCollection<Volcano>();
