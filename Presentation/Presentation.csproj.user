@@ -2,13 +2,13 @@
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup />
   <ItemGroup>
-    <Compile Update="DodajVulkan.xaml.cs">
+    <Compile Update="AddVolcano.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="ListWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="VulkanInfo.xaml.cs">
+    <Compile Update="VolcanoInfo.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>

@@ -17,9 +17,9 @@ namespace Database.Repositories
         {
             try
             {
-                Volcano postoji = FindVolcanoUsingName(vol.NazivVulkana);
+                Volcano volcano = FindVolcanoUsingName(vol.Name);
 
-                if (postoji.NazivVulkana == string.Empty)
+                if (volcano.Name == string.Empty)
                 {
                     vol.Id = DateTimeOffset.UtcNow.ToUnixTimeSeconds();
 
@@ -41,11 +41,11 @@ namespace Database.Repositories
         {
             try
             {
-                Volcano postoji = FindVolcanoUsingName(volanoName);
+                Volcano volcano = FindVolcanoUsingName(volanoName);
 
-                if (postoji.NazivVulkana != string.Empty)
+                if (volcano.Name != string.Empty)
                 {
-                    database.Tabele.Volcanoes.Remove(postoji);
+                    database.Tabele.Volcanoes.Remove(volcano);
                     return true;
                 }
 
@@ -62,7 +62,7 @@ namespace Database.Repositories
             {
                 foreach (Volcano v in database.Tabele.Volcanoes)
                 {
-                    if (v.NazivVulkana == name)
+                    if (v.Name == name)
                         return v;
                 }
 

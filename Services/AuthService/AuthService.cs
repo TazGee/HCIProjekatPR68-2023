@@ -6,20 +6,20 @@ namespace Services.AuthService
 {
     public class AuthService : IAuthService
     {
-        readonly IUserRepository KorisniciRepozitorijum;
+        readonly IUserRepository UserRepository;
 
-        public AuthService(IUserRepository korisniciRepozitorijum)
+        public AuthService(IUserRepository userRepo)
         {
-            KorisniciRepozitorijum = korisniciRepozitorijum;
+            UserRepository = userRepo;
         }
 
-        public (bool, User) Prijava(string korisnickoIme, string lozinka)
+        public (bool, User) Login(string korisnickoIme, string lozinka)
         {
-            User pronadjen = KorisniciRepozitorijum.FindUserUsingUsername(korisnickoIme);
+            User found = UserRepository.FindUserUsingUsername(korisnickoIme);
 
-            if (pronadjen.Username != string.Empty && pronadjen.Password == lozinka)
+            if (found.Username != string.Empty && found.Password == lozinka)
             {
-                return (true, pronadjen);
+                return (true, found);
             }
             else
             {
@@ -27,22 +27,22 @@ namespace Services.AuthService
             }
         }
 
-        public (bool, User) Registracija(User noviKorisnik)
+        public (bool, User) Register(User newUser)
         {
-            if (noviKorisnik == null || string.IsNullOrWhiteSpace(noviKorisnik.Username) || string.IsNullOrWhiteSpace(noviKorisnik.Password))
+            if (newUser == null || string.IsNullOrWhiteSpace(newUser.Username) || string.IsNullOrWhiteSpace(newUser.Password))
             {
                 return (false, new User());
             }
 
-            User pronadjen = KorisniciRepozitorijum.FindUserUsingUsername(noviKorisnik.Username);
+            User found = UserRepository.FindUserUsingUsername(newUser.Username);
 
-            if (pronadjen.Username == string.Empty)
+            if (found.Username == string.Empty)
             {
-                User dodat = KorisniciRepozitorijum.AddUser(noviKorisnik);
+                User added = UserRepository.AddUser(newUser);
 
-                if (dodat.Username != string.Empty)
+                if (added.Username != string.Empty)
                 {
-                    return (true, dodat);
+                    return (true, added);
                 }
             }
 

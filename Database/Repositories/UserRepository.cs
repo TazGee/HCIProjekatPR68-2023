@@ -13,21 +13,21 @@ namespace Database.Repositories
             database = db;
         }
 
-        public User AddUser(User korisnik)
+        public User AddUser(User user)
         {
             try
             {
-                User postoji = FindUserUsingUsername(korisnik.Username);
+                User postoji = FindUserUsingUsername(user.Username);
 
                 if (postoji.Username == string.Empty)
                 {
-                    korisnik.Id = DateTimeOffset.UtcNow.ToUnixTimeSeconds();
+                    user.Id = DateTimeOffset.UtcNow.ToUnixTimeSeconds();
 
-                    database.Tabele.Users.Add(korisnik);
+                    database.Tabele.Users.Add(user);
 
                     database.SaveChanges();
 
-                    return korisnik;
+                    return user;
                 }
 
                 return new User();
@@ -42,10 +42,10 @@ namespace Database.Repositories
         {
             try
             {
-                foreach (User korisnik in database.Tabele.Users)
+                foreach (User user in database.Tabele.Users)
                 {
-                    if (korisnik.Username == username)
-                        return korisnik;
+                    if (user.Username == username)
+                        return user;
                 }
 
                 return new User();

@@ -3,13 +3,13 @@
   <Users>
     <User>
       <Id>1775818876</Id>
-      <Username>TazGee</Username>
+      <Username>Admin</Username>
       <Password>123</Password>
       <Role>Admin</Role>
     </User>
     <User>
-      <Id>1776180080</Id>
-      <Username>Posetilac</Username>
+      <Id>1776359257</Id>
+      <Username>Visitor</Username>
       <Password>123</Password>
       <Role>Visitor</Role>
     </User>

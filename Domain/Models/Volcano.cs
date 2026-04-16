@@ -1,17 +1,21 @@
 ﻿using System;
 using System.ComponentModel;
+using System.Diagnostics.Metrics;
+using System.Windows.Media.Media3D;
+using System.Xml.Linq;
 
 namespace Domain.Models
 {
     public class Volcano : INotifyPropertyChanged
     {
         public long Id { get; set; } = 0;
-        public string NazivVulkana { get; set; } = string.Empty;
-        public string Drzava { get; set; } = string.Empty;
-        public int Visina { get; set; } = 0;
+        public string Name { get; set; } = string.Empty;
+        public string Country { get; set; } = string.Empty;
+        public int Height { get; set; } = 0;
         public string PhotoPath { get; set; } = string.Empty;
+        public string LocalPhotoPath {  get; set; } = string.Empty;
         public string RTFPath { get; set; } = string.Empty;
-        public DateTime DatumDodavanja { get; set; } = DateTime.UtcNow;
+        public DateTime AddTime { get; set; } = DateTime.UtcNow;
         private bool isSelected = false;
         public bool IsSelected
         {
@@ -19,35 +23,35 @@ namespace Domain.Models
             set
             {
                 isSelected = value;
-                PromenjenChecked(nameof(IsSelected));
+                CheckedChanged(nameof(IsSelected));
             }
         }
         public event PropertyChangedEventHandler PropertyChanged;
 
-        void PromenjenChecked(string name)
+        void CheckedChanged(string name)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
         }
 
         public Volcano() { }
-        public Volcano(string naziv, string drzava, int visina, string photopath, string rtfpath, DateTime datetime)
+        public Volcano(string name, string country, int height, string photopath, string rtfpath, DateTime addTime)
         {
-            NazivVulkana = naziv;
-            Drzava = drzava;
-            Visina = visina;
+            Name = name;
+            Country = country;
+            Height = height;
             PhotoPath = photopath;
             RTFPath = rtfpath;
-            DatumDodavanja = datetime;
+            AddTime = addTime;
         }
-        public Volcano(long id, string naziv, string drzava, int visina, string photopath, string rtfpath, DateTime datetime)
+        public Volcano(long id, string name, string country, int height, string photopath, string rtfpath, DateTime addTime)
         {
             Id = id;
-            NazivVulkana = naziv;
-            Drzava = drzava;
-            Visina = visina;
+            Name = name;
+            Country = country;
+            Height = height;
             PhotoPath = photopath;
             RTFPath = rtfpath;
-            DatumDodavanja = datetime;
+            AddTime = addTime;
         }
     }
 }

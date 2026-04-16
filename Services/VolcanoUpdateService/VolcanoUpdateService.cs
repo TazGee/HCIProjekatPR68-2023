@@ -13,14 +13,14 @@ namespace Services.VolcanoUpdateService
             this.database = database;
         }
 
-        public bool UpdateVolcano(Volcano vol, string name, string drzava, string visina, string photoPath)
+        public bool UpdateVolcano(Volcano vol, string name, string country, string height, string photoPath)
         {
             try
             {
-                vol.NazivVulkana = name;
-                vol.Drzava = drzava;
-                vol.DatumDodavanja = DateTime.UtcNow;
-                vol.Visina = int.Parse(visina);
+                vol.Name = name;
+                vol.Country = country;
+                vol.AddTime = DateTime.UtcNow;
+                vol.Height = int.Parse(height);
                 vol.PhotoPath = photoPath;
 
                 database.SaveChanges();

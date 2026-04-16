@@ -48,9 +48,9 @@
                             <Button.Template>
                                 <ControlTemplate TargetType="Button">
                                     <Border CornerRadius="10"
-    Background="{TemplateBinding Background}"
-    BorderBrush="{TemplateBinding BorderBrush}"
-    BorderThickness="{TemplateBinding BorderThickness}">
+                                            Background="{TemplateBinding Background}"
+                                            BorderBrush="{TemplateBinding BorderBrush}"
+                                            BorderThickness="{TemplateBinding BorderThickness}">
                                         <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
                                     </Border>
                                 </ControlTemplate>
@@ -126,7 +126,7 @@
                                 </Grid.ColumnDefinitions>
 
                                 <Button Grid.Column="0"
-                                        Content="+ Dodaj vulkan"
+                                        Content="+ Add volcano"
                                         FontWeight="Bold"
                                         FontSize="13"
                                         Width="Auto"
@@ -138,7 +138,7 @@
                                         Background="LightGreen"
                                         HorizontalContentAlignment="Center"
                                         VerticalContentAlignment="Center"
-                                        Click="DodajVulkanWindow"
+                                        Click="AddVolcanoWindow"
                                         Cursor="Hand">
                                     <Button.Resources>
                                         <Style TargetType="{x:Type Border}">
@@ -157,7 +157,7 @@
                                 </Button>
                                 
                                 <Button Grid.Column="1"
-                                        Content="- Obrisi izabrane"
+                                        Content="- Delete selected"
                                         FontWeight="Bold"
                                         FontSize="13"
                                         Width="Auto"
@@ -170,7 +170,7 @@
                                         HorizontalContentAlignment="Center"
                                         VerticalContentAlignment="Center"
                                         Margin="7 0 0 0"
-                                        Click="ObrisiVulkane"
+                                        Click="DeleteVolcanoes"
                                         Cursor="Hand">
                                     <Button.Resources>
                                         <Style TargetType="{x:Type Border}">
@@ -189,7 +189,7 @@
                                 </Button>
                                 <CheckBox Grid.Column="2"
                                           x:Name="CheckAllCheckbox"
-                                          Content="Izaberi sve vulkane"
+                                          Content="Check all volcanoes"
                                           Margin="10 0 0 0"
                                           FontSize="15"
                                           VerticalAlignment="Center"
@@ -243,7 +243,7 @@
                                                         Width="50" Height="50"
                                                         Margin="0 15 0 15"
                                                         ClipToBounds="True">
-                                                    <Image Source="{Binding PhotoPath}" Stretch="Fill">
+                                                    <Image Source="{Binding LocalPhotoPath}" Stretch="Fill">
                                                         <Image.Clip>
                                                             <RectangleGeometry RadiusX="12" RadiusY="12" Rect="0,0,45,45"/>
                                                         </Image.Clip>
@@ -261,14 +261,14 @@
                                                                VerticalAlignment="Bottom"
                                                                FontSize="26"
                                                                FontWeight="Bold">
-                                                        <Hyperlink Click="Naziv_Click"
+                                                        <Hyperlink Click="NameClick"
                                                                    Foreground="Black"
                                                                    FontWeight="Bold">
-                                                            <Run Text="{Binding NazivVulkana}" />
+                                                            <Run Text="{Binding Name}" />
                                                         </Hyperlink>
                                                     </TextBlock>
 
-                                                    <TextBlock Text="{Binding Drzava}"
+                                                    <TextBlock Text="{Binding Country}"
                                                                FontWeight="Bold"
                                                                FontSize="16"
                                                                Margin="12 0 5 5"
@@ -276,7 +276,7 @@
                                                                Grid.Row="1"/>
                                                 </Grid>
                                                 <TextBlock Grid.Column="3"
-                                                           Text="{Binding DatumDodavanja}"
+                                                           Text="{Binding AddTime}"
                                                            VerticalAlignment="Center"
                                                            Margin="12"/>
                                             </Grid>
