@@ -154,37 +154,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 10,
+          "SelectedChildIndex": 8,
           "Children": [
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "VolcanoUpdateService.cs",
-              "DocumentMoniker": "D:\\Projekti\\HCIProjekatPR68-2023\\Services\\VolcanoUpdateService\\VolcanoUpdateService.cs",
-              "RelativeDocumentMoniker": "Services\\VolcanoUpdateService\\VolcanoUpdateService.cs",
-              "ToolTip": "D:\\Projekti\\HCIProjekatPR68-2023\\Services\\VolcanoUpdateService\\VolcanoUpdateService.cs",
-              "RelativeToolTip": "Services\\VolcanoUpdateService\\VolcanoUpdateService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-13T19:12:18.685Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "AddVolcanoService.cs",
-              "DocumentMoniker": "D:\\Projekti\\HCIProjekatPR68-2023\\Services\\AddVolcanoService\\AddVolcanoService.cs",
-              "RelativeDocumentMoniker": "Services\\AddVolcanoService\\AddVolcanoService.cs",
-              "ToolTip": "D:\\Projekti\\HCIProjekatPR68-2023\\Services\\AddVolcanoService\\AddVolcanoService.cs",
-              "RelativeToolTip": "Services\\AddVolcanoService\\AddVolcanoService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-11T12:25:35.577Z",
-              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -285,6 +259,32 @@
               "RelativeToolTip": "Presentation\\ListWindow.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
               "WhenOpened": "2026-04-10T11:14:50.541Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "AddVolcanoService.cs",
+              "DocumentMoniker": "D:\\Projekti\\HCIProjekatPR68-2023\\Services\\AddVolcanoService\\AddVolcanoService.cs",
+              "RelativeDocumentMoniker": "Services\\AddVolcanoService\\AddVolcanoService.cs",
+              "ToolTip": "D:\\Projekti\\HCIProjekatPR68-2023\\Services\\AddVolcanoService\\AddVolcanoService.cs",
+              "RelativeToolTip": "Services\\AddVolcanoService\\AddVolcanoService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-11T12:25:35.577Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "VolcanoUpdateService.cs",
+              "DocumentMoniker": "D:\\Projekti\\HCIProjekatPR68-2023\\Services\\VolcanoUpdateService\\VolcanoUpdateService.cs",
+              "RelativeDocumentMoniker": "Services\\VolcanoUpdateService\\VolcanoUpdateService.cs",
+              "ToolTip": "D:\\Projekti\\HCIProjekatPR68-2023\\Services\\VolcanoUpdateService\\VolcanoUpdateService.cs",
+              "RelativeToolTip": "Services\\VolcanoUpdateService\\VolcanoUpdateService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-13T19:12:18.685Z",
               "EditorCaption": ""
             },
             {
