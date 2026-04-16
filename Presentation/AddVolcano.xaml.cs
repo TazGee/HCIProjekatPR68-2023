@@ -12,7 +12,7 @@ using System.Windows.Media.Imaging;
 
 namespace Presentation
 {
-    public partial class DodajVulkan : Window
+    public partial class AddVolcano : Window
     {
         IAddVolcanoService addVolcanoService;
         IStorePhotoService storePhotoService;
@@ -23,7 +23,7 @@ namespace Presentation
         string photoPath = String.Empty;
         string rtfPath = String.Empty;
 
-        public DodajVulkan(IAddVolcanoService addVolcanoService, ListWindow lw, IStorePhotoService storePhotoService, IStoreRTFService storeRTFService, IRTFTextEditingService rtfTextEditingService)
+        public AddVolcano(IAddVolcanoService addVolcanoService, ListWindow lw, IStorePhotoService storePhotoService, IStoreRTFService storeRTFService, IRTFTextEditingService rtfTextEditingService)
         {
             this.addVolcanoService = addVolcanoService;
             this.lw = lw;
@@ -92,44 +92,44 @@ namespace Presentation
             int wordCount = text.Split(new[] { ' ', '\n', '\r', '\t' },
                 StringSplitOptions.RemoveEmptyEntries).Length;
 
-            WordCountText.Text = $"Broj reci: {wordCount}";
+            WordCountText.Text = $"Word count: {wordCount}";
         }
-        private void AddVulkan(object sender, RoutedEventArgs e)
+        private void AddVolcanoClick(object sender, RoutedEventArgs e)
         {
             if (!CheckInput()) return;
-            if (!KreirajRTF()) return;
+            if (!CreateRTF()) return;
 
-            if (addVolcanoService.AddVolcano(new Volcano(NazivVulkana.Text, Drzava.Text, int.Parse(Visina.Text), photoPath, rtfPath, DateTime.UtcNow)))
+            if (addVolcanoService.AddVolcano(new Volcano(VolcanoName.Text, Country.Text, int.Parse(Height.Text), photoPath, rtfPath, DateTime.UtcNow)))
             {
-                MessageBox.Show("Uspesno ste dodali vulkan!", "Uspesno!", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show("Volcano successfully added!", "Success!", MessageBoxButton.OK, MessageBoxImage.Information);
 
-                lw.AzurirajListuVulkana();
+                lw.UpdateVolcanoList();
 
                 Close();
             }
             else
             {
-                MessageBox.Show("Greska prilikom dodavanja vulkana!", "Greska!", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("There was an error while trying to add the volcano!", "Error!", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 
         bool CheckInput()
         {
-            if (NazivVulkana.Text == "") { MessageBox.Show("Morate popuniti polje za naziv!", "Greska!", MessageBoxButton.OK, MessageBoxImage.Error); return false; }
-            if (Drzava.Text == "") { MessageBox.Show("Morate popuniti polje za drzavu!", "Greska!", MessageBoxButton.OK, MessageBoxImage.Error); return false; }
-            if (Visina.Text == "") { MessageBox.Show("Morate popuniti polje za visinu!", "Greska!", MessageBoxButton.OK, MessageBoxImage.Error); return false; }
+            if (VolcanoName.Text == "") { MessageBox.Show("Volcano name field can't be empty!", "Error!", MessageBoxButton.OK, MessageBoxImage.Error); return false; }
+            if (Country.Text == "") { MessageBox.Show("Volcano name field can't be empty!", "Error!", MessageBoxButton.OK, MessageBoxImage.Error); return false; }
+            if (Height.Text == "") { MessageBox.Show("Volcano name field can't be empty!", "Error!", MessageBoxButton.OK, MessageBoxImage.Error); return false; }
 
-            if(photoPath == String.Empty || photoPath == null) { MessageBox.Show("Morate izabrati sliku!", "Greska!", MessageBoxButton.OK, MessageBoxImage.Error); return false; }
+            if(photoPath == String.Empty || photoPath == null) { MessageBox.Show("You must choose a photo!", "Error!", MessageBoxButton.OK, MessageBoxImage.Error); return false; }
 
             return true;
         }
 
-        private void PromeniSliku(object sender, RoutedEventArgs e)
+        private void ChangePhoto(object sender, RoutedEventArgs e)
         {
             OpenFileDialog dialog = new OpenFileDialog();
 
-            dialog.Filter = "Slike (*.png;*.jpg)|*.png;*.jpg";
-            dialog.Title = "Izaberi sliku";
+            dialog.Filter = "Photos (*.png;*.jpg)|*.png;*.jpg";
+            dialog.Title = "Choose a photo";
 
             if (dialog.ShowDialog() == true)
             {
@@ -139,14 +139,14 @@ namespace Presentation
 
                 if (photoPath != String.Empty)
                 {
-                    MessageBox.Show("Uspesno ste postavili sliku!", "Uspesno!", MessageBoxButton.OK, MessageBoxImage.Information);
+                    MessageBox.Show("Photo successfully set!", "Success!", MessageBoxButton.OK, MessageBoxImage.Information);
                 }
 
                 string localPhotoPath = Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, photoPath));
-                SlikaVulkana.Source = new BitmapImage(new Uri(localPhotoPath));
+                VolcanoPhoto.Source = new BitmapImage(new Uri(localPhotoPath));
             }
         }
-        private bool KreirajRTF()
+        private bool CreateRTF()
         {
             try
             {
@@ -170,7 +170,7 @@ namespace Presentation
         }
         private void Close_Click(object sender, RoutedEventArgs e)
         {
-            lw.AzurirajListuVulkana();
+            lw.UpdateVolcanoList();
             Close();
         }
 

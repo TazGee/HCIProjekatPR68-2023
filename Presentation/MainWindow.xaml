@@ -50,7 +50,7 @@
                 </Button.Style>
             </Button>
 
-            <Grid x:Name="PrijavaGrid" Visibility="Visible">
+            <Grid x:Name="LoginGrid" Visibility="Visible">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto" />
                     <RowDefinition Height="Auto" />
@@ -63,7 +63,7 @@
                 </Grid.RowDefinitions>
 
                 <TextBlock Grid.Row="1"
-               Text="Prijava"
+               Text="Login"
                FontSize="40"
                FontWeight="Bold"
                HorizontalAlignment="Center"
@@ -75,7 +75,7 @@
                    Margin="0,0,0,5"
                    FontWeight="SemiBold"
                    HorizontalAlignment="Center"/>
-                <TextBox x:Name="PrijavaUsername" Width="250" Height="30" FontWeight="Bold" FontSize="13" BorderThickness="2" BorderBrush="Orange" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
+                <TextBox x:Name="LoginUsername" Width="250" Height="30" FontWeight="Bold" FontSize="13" BorderThickness="2" BorderBrush="Orange" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
                     <TextBox.Resources>
                         <Style TargetType="{x:Type Border}">
                             <Setter Property="CornerRadius" Value="13"/>
@@ -99,7 +99,7 @@
                    Margin="0,0,0,5"
                    FontWeight="SemiBold"
                    HorizontalAlignment="Center"/>
-                <PasswordBox x:Name="PrijavaPassword" Width="250" Height="30" FontWeight="Bold" FontSize="13" BorderThickness="2" BorderBrush="Orange" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
+                <PasswordBox x:Name="LoginPassword" Width="250" Height="30" FontWeight="Bold" FontSize="13" BorderThickness="2" BorderBrush="Orange" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
                     <PasswordBox.Template>
                         <ControlTemplate TargetType="PasswordBox">
                             <Border CornerRadius="13"
@@ -133,7 +133,7 @@
                            Foreground="Red"/>
 
                 <Button Grid.Row="5"
-            Content="Prijavi se"
+            Content="Login"
             FontWeight="Bold"
             FontSize="13"
             Width="150"
@@ -142,8 +142,8 @@
             HorizontalAlignment="Center"
             BorderThickness="2" 
             BorderBrush="Orange"
-            x:Name="PrijavaButton"
-            Click="PrijavaClick"
+            x:Name="LoginButton"
+            Click="LoginClick"
                         Cursor="Hand">
                 <Button.Resources>
                     <Style TargetType="{x:Type Border}">
@@ -162,7 +162,7 @@
             </Button>
 
             <Button Grid.Row="6"
-            Content="Registruj se"
+            Content="Register"
             FontSize="10"
             Width="100"
             Height="28"
@@ -171,7 +171,7 @@
             VerticalAlignment="Top"
             BorderThickness="2" 
             BorderBrush="Orange"
-            Click="PrikaziRegistraciju"
+            Click="ShowRegister"
                     Cursor="Hand">
                 <Button.Resources>
                     <Style TargetType="{x:Type Border}">
@@ -189,7 +189,7 @@
                 </Button.Style>
             </Button>
         </Grid>
-            <Grid x:Name="RegistracijaGrid" Visibility="Collapsed">
+            <Grid x:Name="RegistrationGrid" Visibility="Collapsed">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto" />
                     <RowDefinition Height="Auto" />
@@ -203,7 +203,7 @@
 
                 
                 <TextBlock Grid.Row="1"
-                           Text="Registracija"
+                           Text="Registration"
                            FontSize="40"
                            FontWeight="Bold"
                            HorizontalAlignment="Center"
@@ -215,7 +215,7 @@
                                Margin="0,0,0,5"
                                FontWeight="SemiBold"
                                HorizontalAlignment="Center"/>
-                    <TextBox x:Name="RegistracijaUsername" Width="250" Height="30" FontWeight="Bold" FontSize="13" BorderThickness="2" BorderBrush="Orange" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
+                    <TextBox x:Name="RegisterUsername" Width="250" Height="30" FontWeight="Bold" FontSize="13" BorderThickness="2" BorderBrush="Orange" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
                         <TextBox.Resources>
                             <Style TargetType="{x:Type Border}">
                                 <Setter Property="BorderBrush" Value="DarkOrange"/>
@@ -239,7 +239,7 @@
                                Margin="0,0,0,5"
                                FontWeight="SemiBold"
                                HorizontalAlignment="Center"/>
-                    <PasswordBox x:Name="RegistracijaPassword" Width="250" Height="30" FontWeight="Bold" FontSize="13" BorderThickness="2" BorderBrush="Orange" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
+                    <PasswordBox x:Name="RegisterPassword" Width="250" Height="30" FontWeight="Bold" FontSize="13" BorderThickness="2" BorderBrush="Orange" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
                         <PasswordBox.Template>
                             <ControlTemplate TargetType="PasswordBox">
                                 <Border CornerRadius="13"
@@ -263,12 +263,12 @@
                 </StackPanel>
 
                 <StackPanel Grid.Row="4">
-                    <CheckBox Content="Da li ste administrator?"
+                    <CheckBox Content="Create administrator account?"
                           HorizontalAlignment="Center"
                           VerticalAlignment="Center"
                           Cursor="Hand"
                           FontSize="13"
-                          x:Name="RegistracijaAdmin">
+                          x:Name="RegisterAdmin">
 
                         <CheckBox.Style>
                             <Style TargetType="CheckBox">
@@ -330,7 +330,7 @@
                                Foreground="Red"/>
                 </StackPanel>
                 <Button Grid.Row="5"
-                        Content="Registruj se"
+                        Content="Register"
                         FontWeight="Bold"
                         FontSize="13"
                         Width="150"
@@ -339,8 +339,8 @@
                         HorizontalAlignment="Center"
                         BorderThickness="2" 
                         BorderBrush="Orange"
-                        x:Name="RegistracijaButton"
-                        Click="RegistracijaClick"
+                        x:Name="RegisterButton"
+                        Click="RegisterClick"
                         Cursor="Hand">
                     <Button.Resources>
                         <Style TargetType="{x:Type Border}">
@@ -359,7 +359,7 @@
                 </Button>
 
                 <Button Grid.Row="6"
-                        Content="Prijavi se"
+                        Content="Login"
                         FontSize="10"
                         Width="100"
                         Height="28"
@@ -368,7 +368,7 @@
                         VerticalAlignment="Top"
                         BorderThickness="2" 
                         BorderBrush="Orange"
-                        Click="PrikaziPrijavu"
+                        Click="ShowLogin"
                         Cursor="Hand">
                     <Button.Resources>
                         <Style TargetType="{x:Type Border}">

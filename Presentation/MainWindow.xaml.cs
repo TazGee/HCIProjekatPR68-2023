@@ -39,8 +39,8 @@ namespace Presentation
 
         IRTFTextEditingService rtfTextEditingService = new RTFTextEditingService();
 
-        // Korisnik
-        User korisnik = new User();
+        // User
+        User user = new User();
 
         public MainWindow()
         {
@@ -51,88 +51,88 @@ namespace Presentation
         {
             Close();
         }
-        private void PrijavaClick(object sender, RoutedEventArgs e)
+        private void LoginClick(object sender, RoutedEventArgs e)
         {
-            if (PrijavaUsername.Text == null || PrijavaUsername.Text == "")
+            if (LoginUsername.Text == null || LoginUsername.Text == "")
             {
-                AuthLoginErrorText.Text = "Polje za username mora biti popunjeno!";
+                AuthLoginErrorText.Text = "Username field must be filled!";
                 return;
             }
-            if (PrijavaPassword.Password == null || PrijavaPassword.Password == "")
+            if (LoginPassword.Password == null || LoginPassword.Password == "")
             {
-                AuthLoginErrorText.Text = "Polje za sifru mora biti popunjeno!";
+                AuthLoginErrorText.Text = "Password field must be filled!";
                 return;
             }
 
-            bool uspesno;
-            (uspesno, korisnik) = authService.Prijava(PrijavaUsername.Text, PrijavaPassword.Password);
+            bool success;
+            (success, user) = authService.Login(LoginUsername.Text, LoginPassword.Password);
 
-            OcistiSvaPolja();
+            ClearFields();
 
-            if (uspesno)
+            if (success)
             {
-                ListWindow lw = new ListWindow(korisnik, this, volcanoesRepo, volcanoUpdateService, storePhotoService, addVolcanoService, storeRTFService, volcanoDeleteService, rtfTextEditingService);
+                ListWindow lw = new ListWindow(user, this, volcanoesRepo, volcanoUpdateService, storePhotoService, addVolcanoService, storeRTFService, volcanoDeleteService, rtfTextEditingService);
                 lw.Show();
                 this.Hide();
             }
             else
             {
-                AuthLoginErrorText.Text = "Doslo je do greske priikom prijave!";
+                AuthLoginErrorText.Text = "Login info is not valid!";
                 return;
             }
         }
-        private void RegistracijaClick(object sender, RoutedEventArgs e)
+        private void RegisterClick(object sender, RoutedEventArgs e)
         {
-            if(RegistracijaUsername.Text == null || RegistracijaUsername.Text == "")
+            if(RegisterUsername.Text == null || RegisterUsername.Text == "")
             {
-                AuthRegErrorText.Text = "Polje za username mora biti popunjeno!";
+                AuthRegErrorText.Text = "Username field must be filled!";
                 return;
             }
-            if (RegistracijaPassword.Password == null || RegistracijaPassword.Password == "" || RegistracijaPassword.Password.Length < 8)
+            if (RegisterPassword.Password == null || RegisterPassword.Password == "" || RegisterPassword.Password.Length < 8)
             {
-                AuthRegErrorText.Text = "Polje za sifru mora biti popunjeno sa vise od 8 karaktera!";
+                AuthRegErrorText.Text = "Password field must be filled with atleast 8 characters!";
                 return;
             }
 
-            User k = new User(RegistracijaUsername.Text, RegistracijaPassword.Password, RegistracijaAdmin.IsChecked == true ? UserRoles.Visitor : UserRoles.Admin);
+            User u = new User(RegisterUsername.Text, RegisterPassword.Password, RegisterAdmin.IsChecked == true ? UserRoles.Admin : UserRoles.Visitor);
 
-            bool uspesno;
-            (uspesno, korisnik) = authService.Registracija(k);
+            bool success;
+            (success, user) = authService.Register(u);
 
-            OcistiSvaPolja();
+            ClearFields();
 
-            if (uspesno)
+            if (success)
             {
-                ListWindow lw = new ListWindow(korisnik, this, volcanoesRepo, volcanoUpdateService, storePhotoService, addVolcanoService, storeRTFService, volcanoDeleteService, rtfTextEditingService);
+                ListWindow lw = new ListWindow(user, this, volcanoesRepo, volcanoUpdateService, storePhotoService, addVolcanoService, storeRTFService, volcanoDeleteService, rtfTextEditingService);
                 lw.Show();
                 this.Hide();
             }
             else
             {
-                AuthRegErrorText.Text = "Doslo je do greske priikom registracije!";
+                AuthRegErrorText.Text = "There was an error while trying to create account!";
                 return;
             }
         }
-        void OcistiSvaPolja()
+        void ClearFields()
         {
-            PrijavaUsername.Text = "";
-            PrijavaPassword.Password = "";
+            LoginUsername.Text = "";
+            LoginPassword.Password = "";
 
-            RegistracijaUsername.Text = "";
-            RegistracijaPassword.Password = "";
+            RegisterUsername.Text = "";
+            RegisterPassword.Password = "";
 
             AuthLoginErrorText.Text = "";
             AuthRegErrorText.Text = "";
         }
-        public void PrikaziRegistraciju(object sender, RoutedEventArgs e)
+        public void ShowRegister(object sender, RoutedEventArgs e)
         {
-            PrijavaGrid.Visibility = Visibility.Collapsed;
-            RegistracijaGrid.Visibility = Visibility.Visible;
+            LoginGrid.Visibility = Visibility.Collapsed;
+            RegistrationGrid.Visibility = Visibility.Visible;
         }
-        public void PrikaziPrijavu(object sender, RoutedEventArgs e)
+        public void ShowLogin(object sender, RoutedEventArgs e)
         {
-            PrijavaGrid.Visibility = Visibility.Visible;
-            RegistracijaGrid.Visibility = Visibility.Collapsed;
+            LoginGrid.Visibility = Visibility.Visible;
+            RegistrationGrid.Visibility = Visibility.Collapsed;
         }
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)
         {

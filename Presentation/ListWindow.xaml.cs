@@ -16,19 +16,14 @@ namespace Presentation
 {
     public partial class ListWindow : Window, INotifyPropertyChanged
     {
-        // Database and Repos
         IVolcanoRepository volcanoesRepo;
 
-        // Auth prozor
         MainWindow authWindow;
 
-        // Lista vulkana
         public ObservableCollection<Volcano> Volcanoes { get; set; }
 
-        // Korisnik
-        User korisnik;
+        User user;
 
-        // Servisi
         IVolcanoUpdateService volcanoUpdateService;
         IStorePhotoService storePhotoService;
         IAddVolcanoService addVolcanoService;
@@ -82,7 +77,7 @@ namespace Presentation
             }
         }
 
-        public ListWindow(User korisnik, MainWindow authWindow, IVolcanoRepository volcanoesRepo, IVolcanoUpdateService volcanoUpdateService, IStorePhotoService storePhotoService, IAddVolcanoService addVolcanoService, IStoreRTFService storeRTFService, IVolcanoDeleteService volcanoDeleteService, IRTFTextEditingService rtfTextEditingService)
+        public ListWindow(User user, MainWindow authWindow, IVolcanoRepository volcanoesRepo, IVolcanoUpdateService volcanoUpdateService, IStorePhotoService storePhotoService, IAddVolcanoService addVolcanoService, IStoreRTFService storeRTFService, IVolcanoDeleteService volcanoDeleteService, IRTFTextEditingService rtfTextEditingService)
         {
             this.volcanoesRepo = volcanoesRepo;
             this.volcanoUpdateService = volcanoUpdateService;
@@ -92,24 +87,24 @@ namespace Presentation
             this.volcanoDeleteService = volcanoDeleteService;
             this.rtfTextEditingService = rtfTextEditingService;
 
-            this.korisnik = korisnik;
+            this.user = user;
 
             InitializeComponent();
 
-            UsernameButton.Content = korisnik.Username;
+            UsernameButton.Content = user.Username;
             this.authWindow = authWindow;
 
-            if (korisnik.Role == UserRoles.Admin) AdminPanelGrid.Visibility = Visibility.Visible;
+            if (user.Role == UserRoles.Admin) AdminPanelGrid.Visibility = Visibility.Visible;
             else AdminPanelGrid.Visibility = Visibility.Hidden;
 
             Volcanoes = new ObservableCollection<Volcano>();
             this.DataContext = this;
 
-            AzurirajListuVulkana();
+            UpdateVolcanoList();
             this.volcanoUpdateService = volcanoUpdateService;
         }
 
-        public void AzurirajListuVulkana()
+        public void UpdateVolcanoList()
         {
             Volcanoes.Clear();
 
@@ -140,31 +135,31 @@ namespace Presentation
 
             OnPropertyChanged(nameof(SelectAll));
         }
-        private void DodajVulkanWindow(object sender, RoutedEventArgs e)
+        private void AddVolcanoWindow(object sender, RoutedEventArgs e)
         {
-            DodajVulkan dv = new DodajVulkan(addVolcanoService, this, storePhotoService, storeRTFService, rtfTextEditingService);
-            dv.Show();
+            AddVolcano av = new AddVolcano(addVolcanoService, this, storePhotoService, storeRTFService, rtfTextEditingService);
+            av.Show();
         }
-        private void ObrisiVulkane(object sender, RoutedEventArgs e)
+        private void DeleteVolcanoes(object sender, RoutedEventArgs e)
         {
-            if (MessageBox.Show("Da li sigurno zelite da obrisete izabrane vulkane?", "Brisanje...", MessageBoxButton.YesNo, MessageBoxImage.Question) != MessageBoxResult.Yes) return;
+            if (MessageBox.Show("Do you really want to delete selected volcanoes?", "Delete volcanoes", MessageBoxButton.YesNo, MessageBoxImage.Question) != MessageBoxResult.Yes) return;
 
-            var zaBrisanje = Volcanoes.Where(v => v.IsSelected).ToList();
+            var forDeletion = Volcanoes.Where(v => v.IsSelected).ToList();
 
-            foreach (var v in zaBrisanje)
+            foreach (var v in forDeletion)
             {
-                if(!volcanoDeleteService.DeleteVolcano(v.NazivVulkana))
+                if(!volcanoDeleteService.DeleteVolcano(v.Name))
                 {
-                    MessageBox.Show("Doslo je do greske prilikom brisanja!", "Greska", MessageBoxButton.OK, MessageBoxImage.Error);
+                    MessageBox.Show($"There was an error while trying to delete volcano {v.Name}!", "Error!", MessageBoxButton.OK, MessageBoxImage.Error);
                     return;
                 }
                 Volcanoes.Remove(v);
             }
 
-            AzurirajListuVulkana();
+            UpdateVolcanoList();
         }
 
-        private void Naziv_Click(object sender, RoutedEventArgs e)
+        private void NameClick(object sender, RoutedEventArgs e)
         {
             var hyperlink = sender as Hyperlink;
             if (hyperlink == null) return;
@@ -172,26 +167,26 @@ namespace Presentation
             var volcano = hyperlink.DataContext as Volcano;
             if (volcano == null) return;
 
-            VulkanInfo vi = new VulkanInfo(volcano, this, volcanoUpdateService, storePhotoService, korisnik, storeRTFService, rtfTextEditingService);
+            VulkanInfo vi = new VulkanInfo(volcano, this, volcanoUpdateService, storePhotoService, user, storeRTFService, rtfTextEditingService);
             vi.Show();
         }
 
         private void LogoutPrompt(object sender, RoutedEventArgs e)
         {
-            if(MessageBox.Show("Da li sigurno zelite da se izlogujete?", "Logout...", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
+            if(MessageBox.Show("Do you really want to log out?", "Logout", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
             {
                 authWindow.Show();
-                authWindow.PrikaziPrijavu(sender, e);
+                authWindow.ShowLogin(sender, e);
 
                 this.Close();
             }
         }
         private void Close_Click(object sender, RoutedEventArgs e)
         {
-            if (MessageBox.Show("Da li sigurno zelite da se izlogujete?", "Logout...", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
+            if (MessageBox.Show("Do you really want to log out?", "Logout", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
             {
                 authWindow.Show();
-                authWindow.PrikaziPrijavu(sender, e);
+                authWindow.ShowLogin(sender, e);
 
                 this.Close();
             }
