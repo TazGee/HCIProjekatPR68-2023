@@ -2,12 +2,15 @@
 using Domain.Models;
 using Domain.Repositories;
 using Domain.Services;
+using System;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.IO;
 using System.Linq;
 using System.Windows;
 using System.Windows.Documents;
 using System.Windows.Input;
+using System.Windows.Media.Imaging;
 
 namespace Presentation
 {
@@ -113,6 +116,9 @@ namespace Presentation
             foreach (Volcano v in volcanoesRepo.AllVolcanoes())
             {
                 v.PropertyChanged += Vulkan_PropertyChanged;
+
+                v.LocalPhotoPath = Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, v.PhotoPath));
+
                 Volcanoes.Add(v);
             }
             UpdateSelectAllState();

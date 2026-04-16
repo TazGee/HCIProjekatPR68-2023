@@ -61,12 +61,22 @@ namespace Presentation
             }
             else
             {
-                SlikaVulkana.Source = new BitmapImage(new Uri(vulkan.PhotoPath));
+                string localPhotoPath = Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, photoPath));
+                SlikaVulkana.Source = new BitmapImage(new Uri(localPhotoPath));
             }
 
             LoadRtf(vulkan.RTFPath);
         }
+        private void UpdateWordCount()
+        {
+            TextRange textRange = new TextRange(RTFField.Document.ContentStart, RTFField.Document.ContentEnd);
+            string text = textRange.Text;
 
+            int wordCount = text.Split(new[] { ' ', '\n', '\r', '\t' },
+                StringSplitOptions.RemoveEmptyEntries).Length;
+
+            WordCountText.Text = $"Broj reci: {wordCount}";
+        }
         private void LoadRtf(string path)
         {
             if (string.IsNullOrEmpty(path) || !File.Exists(path))
@@ -129,6 +139,8 @@ namespace Presentation
 
             object underline = RTFField.Selection.GetPropertyValue(Inline.TextDecorationsProperty);
             UnderlineBtn.IsChecked = (underline != DependencyProperty.UnsetValue && underline.Equals(TextDecorations.Underline));
+
+            UpdateWordCount();
         }
 
         private void SacuvajVulkan(object sender, RoutedEventArgs e)
@@ -188,7 +200,8 @@ namespace Presentation
                     MessageBox.Show("Uspesno ste promenili sliku!", "Uspesno!", MessageBoxButton.OK, MessageBoxImage.Information);
                 }
 
-                SlikaVulkana.Source = new BitmapImage(new Uri(photoPath));
+                string localPhotoPath = Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, photoPath));
+                SlikaVulkana.Source = new BitmapImage(new Uri(localPhotoPath));
             }
         }
 
@@ -238,6 +251,7 @@ namespace Presentation
             IzmeniSacuvajVulkanButton.Visibility = Visibility.Hidden;
             PromenaSlikeButton.Visibility = Visibility.Hidden;
             RTFTextEditing.Visibility = Visibility.Collapsed;
+            WordCountText.Visibility = Visibility.Collapsed;
 
             UpdateInfo();
 

@@ -10,6 +10,7 @@ namespace Domain.Models
         public string Drzava { get; set; } = string.Empty;
         public int Visina { get; set; } = 0;
         public string PhotoPath { get; set; } = string.Empty;
+        public string LocalPhotoPath {  get; set; } = string.Empty;
         public string RTFPath { get; set; } = string.Empty;
         public DateTime DatumDodavanja { get; set; } = DateTime.UtcNow;
         private bool isSelected = false;

@@ -183,6 +183,7 @@
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="Auto" />
                                 <RowDefinition Height="*" />
+                                <RowDefinition Height="Auto" />
                             </Grid.RowDefinitions>
                             <ToolBar x:Name="RTFTextEditing" Grid.Row="0" Margin="3 2 3 2">
                                 <ToggleButton Name="BoldBtn" Click="BoldBtn_Click" FontWeight="Bold" Width="30">
@@ -217,6 +218,9 @@
                              Margin="3"
                              BorderBrush="Transparent"
                              SelectionChanged="RTFField_SelectionChanged"/>
+                            <StatusBar Grid.Row="2" Background="Transparent">
+                                <TextBlock Name="WordCountText" Text="Broj reci: 0"/>
+                            </StatusBar>
                         </Grid>
                     </Border>
                 </Grid>

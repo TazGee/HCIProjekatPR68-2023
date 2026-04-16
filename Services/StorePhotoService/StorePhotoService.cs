@@ -19,7 +19,7 @@ namespace Services.SetPhotoService
 
                 File.Copy(sourcePath, destinationPath, true);
 
-                return destinationPath;
+                return Path.Combine(photosPath, fileName);
             }
             catch
             {

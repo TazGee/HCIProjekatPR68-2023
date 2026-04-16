@@ -1,8 +1,6 @@
 ﻿using Domain.Models;
 using Domain.Services;
 using Microsoft.Win32;
-using Services.RTFTextEditingService;
-using Services.SetPhotoService;
 using System;
 using System.IO;
 using System.Windows;
@@ -82,9 +80,20 @@ namespace Presentation
 
             object underline = RTFField.Selection.GetPropertyValue(Inline.TextDecorationsProperty);
             UnderlineBtn.IsChecked = (underline != DependencyProperty.UnsetValue && underline.Equals(TextDecorations.Underline));
+
+            UpdateWordCount();
         }
 
+        private void UpdateWordCount()
+        {
+            TextRange textRange = new TextRange(RTFField.Document.ContentStart, RTFField.Document.ContentEnd);
+            string text = textRange.Text;
 
+            int wordCount = text.Split(new[] { ' ', '\n', '\r', '\t' },
+                StringSplitOptions.RemoveEmptyEntries).Length;
+
+            WordCountText.Text = $"Broj reci: {wordCount}";
+        }
         private void AddVulkan(object sender, RoutedEventArgs e)
         {
             if (!CheckInput()) return;
@@ -133,7 +142,8 @@ namespace Presentation
                     MessageBox.Show("Uspesno ste postavili sliku!", "Uspesno!", MessageBoxButton.OK, MessageBoxImage.Information);
                 }
 
-                SlikaVulkana.Source = new BitmapImage(new Uri(photoPath));
+                string localPhotoPath = Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, photoPath));
+                SlikaVulkana.Source = new BitmapImage(new Uri(localPhotoPath));
             }
         }
         private bool KreirajRTF()

@@ -48,9 +48,9 @@
                             <Button.Template>
                                 <ControlTemplate TargetType="Button">
                                     <Border CornerRadius="10"
-    Background="{TemplateBinding Background}"
-    BorderBrush="{TemplateBinding BorderBrush}"
-    BorderThickness="{TemplateBinding BorderThickness}">
+                                            Background="{TemplateBinding Background}"
+                                            BorderBrush="{TemplateBinding BorderBrush}"
+                                            BorderThickness="{TemplateBinding BorderThickness}">
                                         <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
                                     </Border>
                                 </ControlTemplate>
@@ -243,7 +243,7 @@
                                                         Width="50" Height="50"
                                                         Margin="0 15 0 15"
                                                         ClipToBounds="True">
-                                                    <Image Source="{Binding PhotoPath}" Stretch="Fill">
+                                                    <Image Source="{Binding LocalPhotoPath}" Stretch="Fill">
                                                         <Image.Clip>
                                                             <RectangleGeometry RadiusX="12" RadiusY="12" Rect="0,0,45,45"/>
                                                         </Image.Clip>
