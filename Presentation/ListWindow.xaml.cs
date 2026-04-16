@@ -167,7 +167,7 @@ namespace Presentation
             var volcano = hyperlink.DataContext as Volcano;
             if (volcano == null) return;
 
-            VulkanInfo vi = new VulkanInfo(volcano, this, volcanoUpdateService, storePhotoService, user, storeRTFService, rtfTextEditingService);
+            VolcanoInfo vi = new VolcanoInfo(volcano, this, volcanoUpdateService, storePhotoService, user, storeRTFService, rtfTextEditingService);
             vi.Show();
         }
 

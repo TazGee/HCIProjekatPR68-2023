@@ -14,7 +14,7 @@ using Domain.Enums;
 
 namespace Presentation
 {
-    public partial class VulkanInfo : Window
+    public partial class VolcanoInfo : Window
     {
         Volcano volcano = new Volcano();
         ListWindow listWindow;
@@ -25,7 +25,7 @@ namespace Presentation
 
         string photoPath;
 
-        public VulkanInfo(Volcano volcano, ListWindow listWindow, IVolcanoUpdateService volcanoUpdateService, IStorePhotoService storePhotoService, User user, IStoreRTFService storeRTFService, IRTFTextEditingService rtfTextEditingService)
+        public VolcanoInfo(Volcano volcano, ListWindow listWindow, IVolcanoUpdateService volcanoUpdateService, IStorePhotoService storePhotoService, User user, IStoreRTFService storeRTFService, IRTFTextEditingService rtfTextEditingService)
         {
             this.volcano = volcano;
             this.listWindow = listWindow;
@@ -51,8 +51,8 @@ namespace Presentation
         void UpdateInfo()
         {
             VolcanoNameText.Text = volcano.Name;
-            CountryText.Text = "Drzava: " + volcano.Country;
-            HeightText.Text = "Visina:  " + volcano.Height;
+            CountryText.Text = "Country: " + volcano.Country;
+            HeightText.Text = "Height: " + volcano.Height + "m";
             AddDate.Text = volcano.AddTime.ToString();
 
             if (string.IsNullOrEmpty(volcano.PhotoPath) || !File.Exists(volcano.PhotoPath))
