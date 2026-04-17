@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "D:\\Projekti\\HCIProjekatPR68-2023\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{72A6A044-1047-4F63-B359-36684E525158}|Services\\Services.csproj|d:\\projekti\\hciprojekatpr68-2023\\services\\storertfservice\\storertfservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{72A6A044-1047-4F63-B359-36684E525158}|Services\\Services.csproj|solutionrelative:services\\storertfservice\\storertfservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{435E13CE-07E5-402E-8C8E-D76E30D238CD}|Presentation\\Presentation.csproj|d:\\projekti\\hciprojekatpr68-2023\\presentation\\volcanoinfo.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{435E13CE-07E5-402E-8C8E-D76E30D238CD}|Presentation\\Presentation.csproj|solutionrelative:presentation\\volcanoinfo.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -29,10 +33,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{72A6A044-1047-4F63-B359-36684E525158}|Services\\Services.csproj|d:\\projekti\\hciprojekatpr68-2023\\services\\volcanodeleteservice\\volcanodeleteservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{72A6A044-1047-4F63-B359-36684E525158}|Services\\Services.csproj|solutionrelative:services\\volcanodeleteservice\\volcanodeleteservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{72A6A044-1047-4F63-B359-36684E525158}|Services\\Services.csproj|d:\\projekti\\hciprojekatpr68-2023\\services\\storertfservice\\storertfservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{72A6A044-1047-4F63-B359-36684E525158}|Services\\Services.csproj|solutionrelative:services\\storertfservice\\storertfservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{72A6A044-1047-4F63-B359-36684E525158}|Services\\Services.csproj|d:\\projekti\\hciprojekatpr68-2023\\services\\storephotoservice\\storephotoservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -150,7 +150,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Bookmark",
@@ -158,7 +158,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "RTFTextEditingService.cs",
               "DocumentMoniker": "D:\\Projekti\\HCIProjekatPR68-2023\\Services\\RTFTextEditingService\\RTFTextEditingService.cs",
               "RelativeDocumentMoniker": "Services\\RTFTextEditingService\\RTFTextEditingService.cs",
@@ -166,24 +166,24 @@
               "RelativeToolTip": "Services\\RTFTextEditingService\\RTFTextEditingService.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAApAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-14T14:19:37.993Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-14T14:19:37.993Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 0,
               "Title": "StoreRTFService.cs",
               "DocumentMoniker": "D:\\Projekti\\HCIProjekatPR68-2023\\Services\\StoreRTFService\\StoreRTFService.cs",
               "RelativeDocumentMoniker": "Services\\StoreRTFService\\StoreRTFService.cs",
               "ToolTip": "D:\\Projekti\\HCIProjekatPR68-2023\\Services\\StoreRTFService\\StoreRTFService.cs",
               "RelativeToolTip": "Services\\StoreRTFService\\StoreRTFService.cs",
-              "ViewState": "AgIAABAAAAAAAAAAAAAgwBUAAAARAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-11T12:28:42.728Z"
+              "WhenOpened": "2026-04-11T12:28:42.728Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "VolcanoDeleteService.cs",
               "DocumentMoniker": "D:\\Projekti\\HCIProjekatPR68-2023\\Services\\VolcanoDeleteService\\VolcanoDeleteService.cs",
               "RelativeDocumentMoniker": "Services\\VolcanoDeleteService\\VolcanoDeleteService.cs",
@@ -195,25 +195,24 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "AddVolcano.xaml",
               "DocumentMoniker": "D:\\Projekti\\HCIProjekatPR68-2023\\Presentation\\AddVolcano.xaml",
               "RelativeDocumentMoniker": "Presentation\\AddVolcano.xaml",
               "ToolTip": "D:\\Projekti\\HCIProjekatPR68-2023\\Presentation\\AddVolcano.xaml",
               "RelativeToolTip": "Presentation\\AddVolcano.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2026-04-11T11:48:47.342Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-11T11:48:47.342Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "VolcanoInfo.xaml.cs",
               "DocumentMoniker": "D:\\Projekti\\HCIProjekatPR68-2023\\Presentation\\VolcanoInfo.xaml.cs",
               "RelativeDocumentMoniker": "Presentation\\VolcanoInfo.xaml.cs",
               "ToolTip": "D:\\Projekti\\HCIProjekatPR68-2023\\Presentation\\VolcanoInfo.xaml.cs",
               "RelativeToolTip": "Presentation\\VolcanoInfo.xaml.cs",
-              "ViewState": "AgIAACEAAAAAAAAAAAAowC8AAAAcAAAAAAAAAA==",
+              "ViewState": "AgIAAH0AAAAAAAAAAAAswLIAAABrAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-04-10T19:00:48.347Z",
               "EditorCaption": ""
@@ -232,7 +231,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "VolcanoUpdateService.cs",
               "DocumentMoniker": "D:\\Projekti\\HCIProjekatPR68-2023\\Services\\VolcanoUpdateService\\VolcanoUpdateService.cs",
               "RelativeDocumentMoniker": "Services\\VolcanoUpdateService\\VolcanoUpdateService.cs",
@@ -244,7 +243,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "ListWindow.xaml.cs",
               "DocumentMoniker": "D:\\Projekti\\HCIProjekatPR68-2023\\Presentation\\ListWindow.xaml.cs",
               "RelativeDocumentMoniker": "Presentation\\ListWindow.xaml.cs",
@@ -252,20 +251,18 @@
               "RelativeToolTip": "Presentation\\ListWindow.xaml.cs",
               "ViewState": "AgIAAF4AAAAAAAAAAAAcwGoAAAAnAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-10T11:29:46.779Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-10T11:29:46.779Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "VolcanoInfo.xaml",
               "DocumentMoniker": "D:\\Projekti\\HCIProjekatPR68-2023\\Presentation\\VolcanoInfo.xaml",
               "RelativeDocumentMoniker": "Presentation\\VolcanoInfo.xaml",
               "ToolTip": "D:\\Projekti\\HCIProjekatPR68-2023\\Presentation\\VolcanoInfo.xaml",
               "RelativeToolTip": "Presentation\\VolcanoInfo.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2026-04-16T18:08:57.311Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-16T18:08:57.311Z"
             },
             {
               "$type": "Document",
@@ -300,8 +297,7 @@
               "ToolTip": "D:\\Projekti\\HCIProjekatPR68-2023\\Presentation\\MainWindow.xaml",
               "RelativeToolTip": "Presentation\\MainWindow.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2026-04-08T22:27:16.717Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-08T22:27:16.717Z"
             },
             {
               "$type": "Document",
@@ -348,8 +344,7 @@
               "ToolTip": "D:\\Projekti\\HCIProjekatPR68-2023\\Presentation\\App.xaml",
               "RelativeToolTip": "Presentation\\App.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2026-04-10T11:15:08.409Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-10T11:15:08.409Z"
             },
             {
               "$type": "Document",

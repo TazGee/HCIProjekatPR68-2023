@@ -5,19 +5,18 @@ namespace Services.StoreRTFService
 {
     public class StoreRTFService : IStoreRTFService
     {
-        string photosPath = @"..\..\..\RTFs";
+        string rtfsPath = @"..\..\..\RTFs";
 
         public string StoreRTF(byte[] rtfData)
         {
             try
             {
                 string fileName = "volcano_" + DateTime.UtcNow.Microsecond + ".rtf";
-                string rtfFolderPath = Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, photosPath));
-                string destinationPath = Path.Combine(rtfFolderPath, fileName);
+                string dest = Path.Combine(rtfsPath, fileName);
 
-                File.WriteAllBytes(destinationPath, rtfData);
+                File.WriteAllBytes(dest, rtfData);
 
-                return destinationPath;
+                return dest;
             }
             catch
             {
